@@ -18,7 +18,7 @@ func reflect(contact_direction:Vector2) -> Vector2:
 	var reflection := direction - 2 * direction.dot(contact_direction) * contact_direction
 	return reflection.normalized()
 
-func handle_collsion(collision:KinematicCollision2D) -> void:
+func handle_collision(collision:KinematicCollision2D) -> void:
 	var contact_direction := (collision.get_position() - position).normalized()
 	direction = reflect(contact_direction)
 
@@ -36,4 +36,4 @@ func _physics_process(delta:float) -> void:
 	var collision := move_and_collide(direction * speed_multiplier * delta)
 
 	if collision:
-		handle_collsion(collision)
+		handle_collision(collision)

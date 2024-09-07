@@ -1,12 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://ccfngx3o4vo1e"]
+[gd_scene load_steps=9 format=3 uid="uid://ccfngx3o4vo1e"]
 
 [ext_resource type="PackedScene" uid="uid://dvb1h8bxlrwhn" path="res://scenes/wall.tscn" id="1_8kvy6"]
 [ext_resource type="Texture2D" uid="uid://cydgbs0cjm5ip" path="res://assets/sprites/net.png" id="1_kepec"]
 [ext_resource type="PackedScene" uid="uid://da7h22hlyy5v1" path="res://scenes/paddle.tscn" id="1_mlkgx"]
-[ext_resource type="PackedScene" uid="uid://cbyt41bw88jin" path="res://scenes/ball.tscn" id="2_1m40e"]
 [ext_resource type="FontFile" uid="uid://b5sue0dl0b1fx" path="res://assets/fonts/PIXY.ttf" id="3_b3juo"]
+[ext_resource type="Resource" uid="uid://ps6ymvpsma85" path="res://resources/cpu_p2.tres" id="3_ph30r"]
 [ext_resource type="PackedScene" uid="uid://cn1m4qwigo8is" path="res://scenes/score_manager.tscn" id="3_wq5an"]
-[ext_resource type="Resource" uid="uid://dco0lfefh4by6" path="res://resources/human_p2.tres" id="3_xjsvo"]
 [ext_resource type="Resource" uid="uid://dqeana3x1moju" path="res://resources/human_p1.tres" id="4_md7ab"]
 [ext_resource type="PackedScene" uid="uid://lpkcoh61r2ge" path="res://scenes/goal.tscn" id="6_wxbp7"]
 
@@ -17,7 +16,7 @@ player_left = ExtResource("4_md7ab")
 goal_left = NodePath("GoalLeft")
 label_left = NodePath("Scores/P1")
 paddle_left = NodePath("../PaddleLeft")
-player_right = ExtResource("3_xjsvo")
+player_right = ExtResource("3_ph30r")
 goal_right = NodePath("GoalRight")
 label_right = NodePath("Scores/P2")
 paddle_right = NodePath("../PaddleRight")
@@ -88,9 +87,6 @@ position = Vector2(50, 360)
 position = Vector2(1230, 360)
 rotation = -3.14159
 scale = Vector2(1, -1)
-
-[node name="Ball" parent="." instance=ExtResource("2_1m40e")]
-position = Vector2(640, 360)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)

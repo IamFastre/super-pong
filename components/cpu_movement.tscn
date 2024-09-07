@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch6an0ku82f8i"]
+
+[ext_resource type="Script" path="res://components/scripts/cpu_movement.gd" id="1_c5g3r"]
+
+[node name="CPUMovement" type="Node"]
+script = ExtResource("1_c5g3r")
