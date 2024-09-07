@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b5sue0dl0b1fx"
-path="res://.godot/imported/PIXY.ttf-a1e775af6ad5115d4fe4ed1a24b92f8a.fontdata"
+path="res://.godot/imported/PIXY.ttf-aecd2cdcecb00d80e2939d78ff51665a.fontdata"
 
 [deps]
 
-source_file="res://assets/PIXY.ttf"
-dest_files=["res://.godot/imported/PIXY.ttf-a1e775af6ad5115d4fe4ed1a24b92f8a.fontdata"]
+source_file="res://assets/fonts/PIXY.ttf"
+dest_files=["res://.godot/imported/PIXY.ttf-aecd2cdcecb00d80e2939d78ff51665a.fontdata"]
 
 [params]
 
