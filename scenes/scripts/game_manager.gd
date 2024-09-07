@@ -25,6 +25,8 @@ func on_score(player:PlayerInfo) -> void:
 	call_deferred('add_sibling', ball_node)
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
 	goal_left.scored.connect(on_score.bind(player_right))
 	goal_right.scored.connect(on_score.bind(player_left))
 
