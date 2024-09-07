@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://da7h22hlyy5v1"]
+
+[ext_resource type="Script" path="res://scenes/scripts/paddle.gd" id="1_ebeho"]
+[ext_resource type="Texture2D" uid="uid://d0vr40io70kc5" path="res://assets/player.png" id="1_ww6gk"]
+[ext_resource type="PackedScene" uid="uid://chyef038ssmgn" path="res://components/movement_clamp.tscn" id="3_fc3nj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vn8v2"]
+size = Vector2(8, 218)
+
+[node name="Paddle" type="StaticBody2D" groups=["player"]]
+script = ExtResource("1_ebeho")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_ww6gk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_vn8v2")
+
+[node name="MovementClamp" parent="." instance=ExtResource("3_fc3nj")]

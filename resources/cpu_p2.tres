@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlayerInfo" load_steps=2 format=3 uid="uid://ps6ymvpsma85"]
+
+[ext_resource type="Script" path="res://resources/scripts/player_info.gd" id="1_qquws"]
+
+[resource]
+script = ExtResource("1_qquws")
+name = "CPU"
+score = 0
+is_human = false
+id = 1

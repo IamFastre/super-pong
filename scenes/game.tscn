@@ -1,0 +1,96 @@
+[gd_scene load_steps=10 format=3 uid="uid://ccfngx3o4vo1e"]
+
+[ext_resource type="PackedScene" uid="uid://dvb1h8bxlrwhn" path="res://scenes/wall.tscn" id="1_8kvy6"]
+[ext_resource type="Texture2D" uid="uid://cydgbs0cjm5ip" path="res://assets/net.png" id="1_kepec"]
+[ext_resource type="PackedScene" uid="uid://da7h22hlyy5v1" path="res://scenes/paddle.tscn" id="1_mlkgx"]
+[ext_resource type="PackedScene" uid="uid://cbyt41bw88jin" path="res://scenes/ball.tscn" id="2_1m40e"]
+[ext_resource type="FontFile" uid="uid://b5sue0dl0b1fx" path="res://assets/PIXY.ttf" id="3_b3juo"]
+[ext_resource type="PackedScene" uid="uid://cn1m4qwigo8is" path="res://scenes/score_manager.tscn" id="3_wq5an"]
+[ext_resource type="Resource" uid="uid://dqeana3x1moju" path="res://resources/human_p1.tres" id="4_md7ab"]
+[ext_resource type="Resource" uid="uid://ps6ymvpsma85" path="res://resources/cpu_p2.tres" id="5_3deor"]
+[ext_resource type="PackedScene" uid="uid://lpkcoh61r2ge" path="res://scenes/goal.tscn" id="6_wxbp7"]
+
+[node name="Game" type="Node"]
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("goal_left", "label_left", "paddle_left", "goal_right", "label_right", "paddle_right") instance=ExtResource("3_wq5an")]
+player_left = ExtResource("4_md7ab")
+goal_left = NodePath("GoalLeft")
+label_left = NodePath("Scores/P1")
+paddle_left = NodePath("../PaddleLeft")
+player_right = ExtResource("5_3deor")
+goal_right = NodePath("GoalRight")
+label_right = NodePath("Scores/P2")
+paddle_right = NodePath("../PaddleRight")
+
+[node name="Scores" type="Control" parent="GameManager"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="P1" type="Label" parent="GameManager/Scores"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 540.0
+offset_top = 335.0
+offset_right = 590.0
+offset_bottom = 375.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_b3juo")
+theme_override_font_sizes/font_size = 38
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="P2" type="Label" parent="GameManager/Scores"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 690.0
+offset_top = 335.0
+offset_right = 740.0
+offset_bottom = 375.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_b3juo")
+theme_override_font_sizes/font_size = 38
+text = "0"
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="GoalLeft" parent="GameManager" instance=ExtResource("6_wxbp7")]
+position = Vector2(-25, 360)
+
+[node name="GoalRight" parent="GameManager" instance=ExtResource("6_wxbp7")]
+position = Vector2(1305, 360)
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="UpperWall" parent="Walls" instance=ExtResource("1_8kvy6")]
+position = Vector2(640, 0)
+
+[node name="LowerWall" parent="Walls" instance=ExtResource("1_8kvy6")]
+position = Vector2(640, 720)
+normal = Vector2(0, -1)
+
+[node name="Net" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_kepec")
+
+[node name="PaddleLeft" parent="." instance=ExtResource("1_mlkgx")]
+position = Vector2(50, 360)
+
+[node name="PaddleRight" parent="." instance=ExtResource("1_mlkgx")]
+position = Vector2(1230, 360)
+rotation = -3.14159
+scale = Vector2(1, -1)
+
+[node name="Ball" parent="." instance=ExtResource("2_1m40e")]
+position = Vector2(640, 360)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)

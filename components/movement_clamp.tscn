@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://chyef038ssmgn"]
+
+[ext_resource type="Script" path="res://components/scripts/movement_clamp.gd" id="1_vwdfv"]
+
+[node name="MovementClamp" type="Node"]
+script = ExtResource("1_vwdfv")
