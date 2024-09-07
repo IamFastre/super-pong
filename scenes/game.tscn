@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cbyt41bw88jin" path="res://scenes/ball.tscn" id="2_1m40e"]
 [ext_resource type="FontFile" uid="uid://b5sue0dl0b1fx" path="res://assets/fonts/PIXY.ttf" id="3_b3juo"]
 [ext_resource type="PackedScene" uid="uid://cn1m4qwigo8is" path="res://scenes/score_manager.tscn" id="3_wq5an"]
+[ext_resource type="Resource" uid="uid://dco0lfefh4by6" path="res://resources/human_p2.tres" id="3_xjsvo"]
 [ext_resource type="Resource" uid="uid://dqeana3x1moju" path="res://resources/human_p1.tres" id="4_md7ab"]
-[ext_resource type="Resource" uid="uid://ps6ymvpsma85" path="res://resources/cpu_p2.tres" id="5_3deor"]
 [ext_resource type="PackedScene" uid="uid://lpkcoh61r2ge" path="res://scenes/goal.tscn" id="6_wxbp7"]
 
 [node name="Game" type="Node"]
@@ -17,7 +17,7 @@ player_left = ExtResource("4_md7ab")
 goal_left = NodePath("GoalLeft")
 label_left = NodePath("Scores/P1")
 paddle_left = NodePath("../PaddleLeft")
-player_right = ExtResource("5_3deor")
+player_right = ExtResource("3_xjsvo")
 goal_right = NodePath("GoalRight")
 label_right = NodePath("Scores/P2")
 paddle_right = NodePath("../PaddleRight")

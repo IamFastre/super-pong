@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlayerInfo" load_steps=2 format=3 uid="uid://dco0lfefh4by6"]
+
+[ext_resource type="Script" path="res://resources/scripts/player_info.gd" id="1_6dvjd"]
+
+[resource]
+script = ExtResource("1_6dvjd")
+name = "Player #2"
+score = 0
+is_human = true
+id = 1

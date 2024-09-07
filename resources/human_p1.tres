@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_4k6w4")
-name = "Player"
+name = "Player #1"
 score = 0
 is_human = true
 id = 0
