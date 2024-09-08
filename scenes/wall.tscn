@@ -1,14 +1,22 @@
 [gd_scene load_steps=3 format=3 uid="uid://dvb1h8bxlrwhn"]
 
-[ext_resource type="Script" path="res://scenes/scripts/wall.gd" id="1_cbm30"]
-
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_28lgy"]
 resource_local_to_scene = true
 normal = Vector2(0, 1)
 
-[node name="Wall" type="StaticBody2D" node_paths=PackedStringArray("collision_shape")]
-script = ExtResource("1_cbm30")
-collision_shape = NodePath("CollisionShape2D")
+[sub_resource type="Curve" id="Curve_qk1l4"]
+_data = [Vector2(0, 0), 0.0, 5.65719, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -5.67367, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
+
+[node name="Wall" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("WorldBoundaryShape2D_28lgy")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(0, -4)
+points = PackedVector2Array(-200, 0, 0, 0, 200, 0)
+width = 5.0
+width_curve = SubResource("Curve_qk1l4")
+antialiased = true

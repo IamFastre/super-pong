@@ -73,7 +73,7 @@ position = Vector2(640, 0)
 
 [node name="LowerWall" parent="Walls" instance=ExtResource("1_8kvy6")]
 position = Vector2(640, 720)
-normal = Vector2(0, -1)
+scale = Vector2(1, -1)
 
 [node name="Net" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
@@ -85,8 +85,7 @@ position = Vector2(50, 360)
 
 [node name="PaddleRight" parent="." instance=ExtResource("1_mlkgx")]
 position = Vector2(1230, 360)
-rotation = -3.14159
-scale = Vector2(1, -1)
+scale = Vector2(-1, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)
