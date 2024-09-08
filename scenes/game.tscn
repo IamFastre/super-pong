@@ -11,15 +11,15 @@
 
 [node name="Game" type="Node"]
 
-[node name="GameManager" parent="." node_paths=PackedStringArray("goal_left", "label_left", "paddle_left", "goal_right", "label_right", "paddle_right") instance=ExtResource("3_wq5an")]
-player_left = ExtResource("4_md7ab")
-goal_left = NodePath("GoalLeft")
-label_left = NodePath("Scores/P1")
-paddle_left = NodePath("../PaddleLeft")
-player_right = ExtResource("2_qbi16")
-goal_right = NodePath("GoalRight")
-label_right = NodePath("Scores/P2")
-paddle_right = NodePath("../PaddleRight")
+[node name="GameManager" parent="." node_paths=PackedStringArray("left_goal", "left_label", "left_paddle", "right_goal", "right_label", "right_paddle") instance=ExtResource("3_wq5an")]
+left_info = ExtResource("4_md7ab")
+left_goal = NodePath("GoalLeft")
+left_label = NodePath("Scores/P1")
+left_paddle = NodePath("../PaddleLeft")
+right_info = ExtResource("2_qbi16")
+right_goal = NodePath("GoalRight")
+right_label = NodePath("Scores/P2")
+right_paddle = NodePath("../PaddleRight")
 
 [node name="Scores" type="Control" parent="GameManager"]
 layout_mode = 3

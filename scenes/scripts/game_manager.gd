@@ -1,18 +1,18 @@
 class_name GameManagerNode extends Node
 
-@export_group("Player 1")
-@export var score_left:int = 0
-@export var player_left:PlayerInfo
-@export var goal_left:GoalNode
-@export var label_left:Label
-@export var paddle_left:PaddleNode
+@export_group("Player 1", "left_")
+@export var left_score:int = 0
+@export var left_info:PlayerInfo
+@export var left_goal:GoalNode
+@export var left_label:Label
+@export var left_paddle:PaddleNode
 
-@export_group("Player 2")
-@export var score_right:int = 0
-@export var player_right:PlayerInfo
-@export var goal_right:GoalNode
-@export var label_right:Label
-@export var paddle_right:PaddleNode
+@export_group("Player 2", "right_")
+@export var right_score:int = 0
+@export var right_info:PlayerInfo
+@export var right_goal:GoalNode
+@export var right_label:Label
+@export var right_paddle:PaddleNode
 
 @export_group("Ball")
 @export var ball:PackedScene = preload("res://scenes/ball.tscn")
@@ -37,8 +37,8 @@ func spawn_ball() -> void:
 
 func on_score(to_player:Side) -> void:
 	match to_player:
-		Side.LEFT: score_left += 1
-		Side.RIGHT: score_right += 1
+		Side.LEFT: left_score += 1
+		Side.RIGHT: right_score += 1
 	spawn_ball()
 
 func setup_paddle(paddle:PaddleNode, info:PlayerInfo) -> void:
@@ -56,14 +56,14 @@ func setup_paddle(paddle:PaddleNode, info:PlayerInfo) -> void:
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
-	goal_left.scored.connect(on_score.bind(Side.RIGHT))
-	goal_right.scored.connect(on_score.bind(Side.LEFT))
+	left_goal.scored.connect(on_score.bind(Side.RIGHT))
+	right_goal.scored.connect(on_score.bind(Side.LEFT))
 
-	setup_paddle(paddle_left, player_left)
-	setup_paddle(paddle_right, player_right)
+	setup_paddle(left_paddle, left_info)
+	setup_paddle(right_paddle, right_info)
 
 	spawn_ball()
 
 func _process(_delta:float) -> void:
-	label_left.text = str(score_left)
-	label_right.text = str(score_right)
+	left_label.text = str(left_score)
+	right_label.text = str(right_score)
