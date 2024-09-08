@@ -48,7 +48,8 @@ func ball_in_my_half(tolerance:float = 1) -> bool:
 #=====================================================================#
 
 func easy_ai():
-	pass
+	var condition = away(ball.position, 10) and ball_heading_here() and ball_in_my_half(0.75)
+	direction = direction_to(ball.position) if condition else 0.0
 
 func medium_ai():
 	var condition = away(ball.position, 7.5) and ball_heading_here() and ball_in_my_half()
