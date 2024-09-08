@@ -51,12 +51,8 @@ func easy_ai():
 	pass
 
 func medium_ai():
-	if away(ball.position, 10) and ball_heading_here() and ball_in_my_half():
-		direction = direction_to(ball.position)
-	elif away(ball.position, 5):
-		pass
-	else:
-		direction = 0
+	var condition = away(ball.position, 7.5) and ball_heading_here() and ball_in_my_half()
+	direction = direction_to(ball.position) if condition else 0.0
 
 func hard_ai():
 	var target = ball.position if ball_heading_here() and ball_in_my_half(1.5) else center
