@@ -1,6 +1,6 @@
 class_name BallNode extends CharacterBody2D
 
-@export var speed_multiplier:float = 500
+@export var speed_multiplier:float = 750
 ## Initial direction of the ball, leave (0, 0) for random.
 @export var initial_direction:Vector2 = Vector2.ZERO
 
