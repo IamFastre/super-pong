@@ -1,5 +1,7 @@
 class_name MovementClamp extends ComponentNode
 
+func _ready():
+	process_priority = 2
+
 func _process(_delta:float) -> void:
-	var screen_length = get_viewport().get_visible_rect().size.y
-	parent.position.y = clampf(parent.position.y, 0, screen_length)
+	parent.position.y = clampf(parent.position.y, 0, Constants.screensize.y)

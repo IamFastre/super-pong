@@ -12,37 +12,38 @@ class_name CPUMovement extends PaddleMovement
 
 var get_input:Callable
 var ball:BallNode
-var delta:float = 0.0
+var delta:float = 0
 
-@onready var screensize:Vector2 = get_viewport().content_scale_size
-
-var y_delta:float :
-	get: return ball.position.y - parent.position.y
-
-var ball_direction:float :
-	get:
-		var dir = y_delta / abs(y_delta)
-		return 0.0 if is_nan(dir) else dir
+@onready var center:Vector2 = Constants.screensize / 2
 
 #=====================================================================#
 
 func is_right() -> bool:
-	return parent.position.x > ball.position.x
+	return parent.position.x > center.x
 
-func ball_away(steps:float):
-	return abs(y_delta) > speed_multiplier * delta * steps
+func dif_from(vec:Vector2) -> float:
+	return vec.y - parent.position.y
 
-func ball_heading_here(tolerance:float = 0.0) -> bool:
+func direction_to(vec:Vector2) -> float:
+	var dif = dif_from(vec)
+	var dir = dif / abs(dif)
+	return 0 if is_nan(dir) else dir
+
+func away(vec:Vector2, steps:float) -> bool:
+	var dif = dif_from(vec)
+	return abs(dif) > speed_multiplier * delta * steps
+
+func ball_heading_here(tolerance:float = 0) -> bool:
 	if is_right():
 		return ball.direction.x > tolerance
 	else:
 		return ball.direction.x < tolerance
 
-func ball_in_my_half(tolerance:float = 1.0) -> bool:
+func ball_in_my_half(tolerance:float = 1) -> bool:
 	if is_right():
-		return ball.position.x > (screensize.x / 2) * tolerance
+		return ball.position.x > center.x * (2 - tolerance)
 	else:
-		return ball.position.x < (screensize.x / 2) * tolerance
+		return ball.position.x < center.x * tolerance
 
 #=====================================================================#
 
@@ -50,15 +51,17 @@ func easy_ai():
 	pass
 
 func medium_ai():
-	if ball_away(10.0) and ball_heading_here() and ball_in_my_half():
-		direction = ball_direction
-	elif ball_away(5.0):
+	if away(ball.position, 10) and ball_heading_here() and ball_in_my_half():
+		direction = direction_to(ball.position)
+	elif away(ball.position, 5):
 		pass
 	else:
-		direction = 0.0
+		direction = 0
 
 func hard_ai():
-	pass
+	var target = ball.position if ball_heading_here() and ball_in_my_half(1.5) else center
+	direction = direction_to(target) if away(target, 5) else 0.0
+	is_sprinting = away(target, 12.5) and ball_in_my_half()
 
 func handle_new_ball(ball_node:BallNode):
 	ball = ball_node
@@ -78,7 +81,7 @@ func _ready() -> void:
 		PlayerInfo.DIFFICULTY.HARD:
 			get_input = hard_ai
 
-func _physics_process(new_delta:float) -> void:
+func _process(new_delta:float) -> void:
 	delta = new_delta
 	if get_input:
 		get_input.call()

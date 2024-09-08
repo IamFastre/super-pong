@@ -24,7 +24,7 @@ func _ready() -> void:
 		PlayerInfo.ID.P2:
 			get_input = player2_input
 
-func _physics_process(delta:float) -> void:
+func _process(delta:float) -> void:
 	if get_input:
 		get_input.call()
 	move(delta)

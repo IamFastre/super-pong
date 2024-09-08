@@ -8,4 +8,4 @@ name = "CPU"
 score = 0
 is_human = false
 id = 1
-difficulty = 2
+difficulty = 3
