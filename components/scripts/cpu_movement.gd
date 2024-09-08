@@ -47,15 +47,15 @@ func ball_in_my_half(tolerance:float = 1) -> bool:
 
 #=====================================================================#
 
-func easy_ai():
+func cpu_easy():
 	var condition = away(ball.position, 10) and ball_heading_here() and ball_in_my_half(0.75)
 	direction = direction_to(ball.position) if condition else 0.0
 
-func medium_ai():
+func cpu_medium():
 	var condition = away(ball.position, 7.5) and ball_heading_here() and ball_in_my_half()
 	direction = direction_to(ball.position) if condition else 0.0
 
-func hard_ai():
+func cpu_hard():
 	var target = ball.position if ball_heading_here() and ball_in_my_half(1.5) else center
 	direction = direction_to(target) if away(target, 5) else 0.0
 	is_sprinting = away(target, 12.5) and ball_in_my_half()
@@ -72,11 +72,11 @@ func setup(cpu_difficulty:PlayerInfo.DIFFICULTY, game_manager:GameManagerNode):
 func _ready() -> void:
 	match difficulty:
 		PlayerInfo.DIFFICULTY.EASY:
-			get_input = easy_ai
+			get_input = cpu_easy
 		PlayerInfo.DIFFICULTY.MEDIUM:
-			get_input = medium_ai
+			get_input = cpu_medium
 		PlayerInfo.DIFFICULTY.HARD:
-			get_input = hard_ai
+			get_input = cpu_hard
 
 func _process(new_delta:float) -> void:
 	delta = new_delta

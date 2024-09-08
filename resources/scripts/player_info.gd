@@ -4,6 +4,7 @@ const HUMAN_MOVEMENT:PackedScene = preload("res://components/human_movement.tscn
 const CPU_MOVEMENT:PackedScene = preload("res://components/cpu_movement.tscn")
 
 enum ID {
+	NONE,
 	P1,
 	P2,
 }
@@ -18,7 +19,7 @@ enum DIFFICULTY {
 @export var name:String
 @export var score:int = 0
 @export var is_human:bool
-@export var id:ID = ID.P1
+@export var id:ID = ID.NONE
 @export var difficulty:DIFFICULTY = DIFFICULTY.NONE
 
 func get_movement_node() -> PaddleMovement:

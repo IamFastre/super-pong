@@ -4,11 +4,11 @@ class_name HumanMovement extends PaddleMovement
 
 var get_input:Callable
 
-func player1_input():
+func input_player1():
 	direction = Input.get_axis("p1_up", "p1_down")
 	is_sprinting = Input.get_action_strength("p1_sprint")
 
-func player2_input():
+func input_player2():
 	direction = Input.get_axis("p2_up", "p2_down")
 	is_sprinting = Input.get_action_strength("p2_sprint")
 
@@ -20,9 +20,9 @@ func setup(id:PlayerInfo.ID):
 func _ready() -> void:
 	match input_mode:
 		PlayerInfo.ID.P1:
-			get_input = player1_input
+			get_input = input_player1
 		PlayerInfo.ID.P2:
-			get_input = player2_input
+			get_input = input_player2
 
 func _process(delta:float) -> void:
 	if get_input:
