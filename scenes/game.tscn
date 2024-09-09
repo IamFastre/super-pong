@@ -89,3 +89,9 @@ scale = Vector2(-1, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)
+
+[node name="Border" type="Line2D" parent="."]
+points = PackedVector2Array(1, 1, 1279, 1, 1279, 719, 1, 719)
+closed = true
+width = 2.0
+antialiased = true

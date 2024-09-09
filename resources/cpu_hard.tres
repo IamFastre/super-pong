@@ -5,7 +5,4 @@
 [resource]
 script = ExtResource("1_ccw3b")
 name = "H-CPU"
-score = 0
-is_human = false
-id = 0
 difficulty = 3
