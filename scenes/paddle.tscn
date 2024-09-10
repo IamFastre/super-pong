@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://chyef038ssmgn" path="res://components/movement_clamp.tscn" id="3_fc3nj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vn8v2"]
-size = Vector2(8, 218)
+size = Vector2(8, 216)
 
 [node name="Paddle" type="StaticBody2D" groups=["player"]]
 script = ExtResource("1_ebeho")

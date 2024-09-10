@@ -19,8 +19,17 @@ func reflect(contact_direction:Vector2) -> Vector2:
 	return reflection.normalized()
 
 func handle_collision(collision:KinematicCollision2D) -> void:
-	var contact_direction := (collision.get_position() - position).normalized()
+	var collider := collision.get_collider()
+	var collision_pos := collision.get_position() - position
+	var contact_direction := collision_pos.normalized()
 	direction = reflect(contact_direction)
+
+	if collider is PaddleNode:
+		var paddle := collider as PaddleNode
+		var rot_dir:float = 1 if collision_pos.x == 0.0 else -collision_pos.x / abs(collision_pos.x)
+		var strength:float = paddle.movement.velocity / paddle.movement.speed_multiplier / 2
+		var angle = lerp_angle(0, PI/6 * strength, 1 - abs(direction.y)) * rot_dir
+		direction = direction.rotated(angle)
 
 #=====================================================================#
 

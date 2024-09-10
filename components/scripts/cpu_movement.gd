@@ -70,6 +70,7 @@ func setup(cpu_difficulty:PlayerInfo.DIFFICULTY, game_manager:GameManagerNode):
 #=====================================================================#
 
 func _ready() -> void:
+	super._ready()
 	match difficulty:
 		PlayerInfo.DIFFICULTY.EASY:
 			get_input = cpu_easy

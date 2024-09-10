@@ -7,3 +7,4 @@ script = ExtResource("1_6dvjd")
 name = "Player #2"
 is_human = true
 id = 2
+difficulty = 0

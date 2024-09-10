@@ -18,6 +18,7 @@ func setup(id:PlayerInfo.ID):
 #=====================================================================#
 
 func _ready() -> void:
+	super._ready()
 	match input_mode:
 		PlayerInfo.ID.P1:
 			get_input = input_player1
