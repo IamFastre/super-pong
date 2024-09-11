@@ -47,7 +47,7 @@ func setup_paddle(paddle:PaddleNode, info:PlayerInfo) -> void:
 	if movement is HumanMovement:
 		(movement as HumanMovement).setup(info.id)
 	elif movement is CPUMovement:
-		(movement as CPUMovement).setup(info.difficulty, self)
+		(movement as CPUMovement).setup(info.difficulty)
 
 	paddle.add_child(movement)
 

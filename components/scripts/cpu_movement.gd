@@ -1,20 +1,13 @@
 class_name CPUMovement extends PaddleMovement
 
 @export var difficulty:PlayerInfo.DIFFICULTY = PlayerInfo.DIFFICULTY.MEDIUM
-@export var game:GameManagerNode :
-	get:
-		return game
-	set(value):
-		if game:
-			game.ball_spawned.disconnect(handle_new_ball)
-		game = value
-		game.ball_spawned.connect(handle_new_ball)
 
 var get_input:Callable
 var ball:BallNode
 var delta:float = 0
 
 @onready var center:Vector2 = Constants.screensize / 2
+@onready var view_area:Area2D = $Area2D
 
 #=====================================================================#
 
@@ -60,17 +53,29 @@ func cpu_hard():
 	direction = direction_to(target) if away(target, 5) else 0.0
 	is_sprinting = away(target, 12.5) and ball_in_my_half()
 
-func handle_new_ball(ball_node:BallNode):
-	ball = ball_node
-
-func setup(cpu_difficulty:PlayerInfo.DIFFICULTY, game_manager:GameManagerNode):
+func setup(cpu_difficulty:PlayerInfo.DIFFICULTY):
 	difficulty = cpu_difficulty
-	game = game_manager
+
+#=====================================================================#
+
+func _on_body_entered(node:Node):
+	if node is BallNode:
+		if not ball:
+			ball = node
+		elif node.position.distance_to(parent.position) < ball.position.distance_to(parent.position):
+			ball = node
+
+func _on_body_exited(node:Node):
+	if node is BallNode:
+		ball = null
 
 #=====================================================================#
 
 func _ready() -> void:
 	super._ready()
+	view_area.body_entered.connect(_on_body_entered)
+	view_area.body_exited.connect(_on_body_exited)
+
 	match difficulty:
 		PlayerInfo.DIFFICULTY.EASY:
 			get_input = cpu_easy
@@ -81,6 +86,6 @@ func _ready() -> void:
 
 func _process(new_delta:float) -> void:
 	delta = new_delta
-	if get_input:
+	if get_input and ball:
 		get_input.call()
 	move(delta)

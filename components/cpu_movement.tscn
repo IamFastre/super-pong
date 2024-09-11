@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://ch6an0ku82f8i"]
+[gd_scene load_steps=3 format=3 uid="uid://ch6an0ku82f8i"]
 
 [ext_resource type="Script" path="res://components/scripts/cpu_movement.gd" id="1_c5g3r"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ot5nk"]
+size = Vector2(1280, 720)
+
 [node name="CPUMovement" type="Node"]
 script = ExtResource("1_c5g3r")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(640, 360)
+shape = SubResource("RectangleShape2D_ot5nk")
+debug_color = Color(0.577605, 0.384663, 1, 0.42)
