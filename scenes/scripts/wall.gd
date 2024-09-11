@@ -1,0 +1,1 @@
+class_name WallNode extends StaticBody2D
