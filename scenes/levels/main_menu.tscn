@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtb3npgdaqjd0"]
+
+[ext_resource type="Script" path="res://scenes/scripts/main_menu.gd" id="1_e3ahr"]
+[ext_resource type="FontFile" uid="uid://b5sue0dl0b1fx" path="res://assets/fonts/PIXY.ttf" id="1_h3yb7"]
+[ext_resource type="Theme" uid="uid://6okv6pwxtji0" path="res://themes/main.tres" id="2_ionkr"]
+[ext_resource type="PackedScene" uid="uid://cbyt41bw88jin" path="res://scenes/ball.tscn" id="2_xjwow"]
+[ext_resource type="PackedScene" uid="uid://dvb1h8bxlrwhn" path="res://scenes/wall.tscn" id="3_77xda"]
+
+[node name="Menu" type="Node"]
+script = ExtResource("1_e3ahr")
+
+[node name="BG" type="Node" parent="."]
+
+[node name="Upper" parent="BG" instance=ExtResource("3_77xda")]
+position = Vector2(640, 0)
+
+[node name="Right" parent="BG" instance=ExtResource("3_77xda")]
+position = Vector2(1280, 360)
+rotation = 1.57079
+
+[node name="Lower" parent="BG" instance=ExtResource("3_77xda")]
+position = Vector2(640, 720)
+rotation = -3.14159
+
+[node name="Left" parent="BG" instance=ExtResource("3_77xda")]
+position = Vector2(0, 360)
+rotation = -1.57079
+
+[node name="Ball" parent="BG" instance=ExtResource("2_xjwow")]
+position = Vector2(640, 360)
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="Label" type="Label" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.396
+anchor_right = 0.5
+anchor_bottom = 0.396
+offset_left = -200.0
+offset_top = -35.12
+offset_right = 200.0
+offset_bottom = 34.88
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_h3yb7")
+theme_override_font_sizes/font_size = 88
+text = "SUPER PONG"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.555556
+anchor_right = 0.5
+anchor_bottom = 0.555556
+offset_left = -89.0
+offset_top = -23.0
+offset_right = 89.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ionkr")
+text = "Start"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="MainMenu/Button" to="." method="_on_button_pressed"]
