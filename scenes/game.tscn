@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cydgbs0cjm5ip" path="res://assets/sprites/net.png" id="1_kepec"]
 [ext_resource type="PackedScene" uid="uid://da7h22hlyy5v1" path="res://scenes/paddle.tscn" id="1_mlkgx"]
 [ext_resource type="FontFile" uid="uid://b5sue0dl0b1fx" path="res://assets/fonts/PIXY.ttf" id="3_b3juo"]
+[ext_resource type="Resource" uid="uid://dbskre3v64m5" path="res://resources/cpu_medium.tres" id="3_biotw"]
 [ext_resource type="PackedScene" uid="uid://cn1m4qwigo8is" path="res://scenes/score_manager.tscn" id="3_wq5an"]
-[ext_resource type="Resource" uid="uid://dco0lfefh4by6" path="res://resources/human_p2.tres" id="3_wtyss"]
 [ext_resource type="Resource" uid="uid://dqeana3x1moju" path="res://resources/human_p1.tres" id="4_md7ab"]
 [ext_resource type="PackedScene" uid="uid://lpkcoh61r2ge" path="res://scenes/goal.tscn" id="6_wxbp7"]
 
@@ -16,7 +16,7 @@ left_info = ExtResource("4_md7ab")
 left_goal = NodePath("GoalLeft")
 left_label = NodePath("Scores/P1")
 left_paddle = NodePath("../PaddleLeft")
-right_info = ExtResource("3_wtyss")
+right_info = ExtResource("3_biotw")
 right_goal = NodePath("GoalRight")
 right_label = NodePath("Scores/P2")
 right_paddle = NodePath("../PaddleRight")
