@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dtb3npgdaqjd0"]
 
-[ext_resource type="Script" path="res://scenes/scripts/main_menu.gd" id="1_e3ahr"]
+[ext_resource type="Script" path="res://scenes/levels/scripts/main_menu.gd" id="1_e3ahr"]
 [ext_resource type="FontFile" uid="uid://b5sue0dl0b1fx" path="res://assets/fonts/PIXY.ttf" id="1_h3yb7"]
 [ext_resource type="Theme" uid="uid://6okv6pwxtji0" path="res://themes/main.tres" id="2_ionkr"]
 [ext_resource type="PackedScene" uid="uid://cbyt41bw88jin" path="res://scenes/ball.tscn" id="2_xjwow"]

@@ -15,6 +15,7 @@ class_name GameManagerNode extends Node
 @export var right_paddle:PaddleNode
 
 @export_group("Ball")
+@export var spawn_ball_on_start:bool = true
 @export var ball:PackedScene = preload("res://scenes/ball.tscn")
 @export var initial_position:Vector2 = Vector2(640, 360)
 
@@ -62,7 +63,8 @@ func _ready() -> void:
 	setup_paddle(left_paddle, left_info)
 	setup_paddle(right_paddle, right_info)
 
-	spawn_ball()
+	if spawn_ball_on_start:
+		spawn_ball()
 
 func _process(_delta:float) -> void:
 	left_label.text = str(left_score)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dltch8mu6bqjt"]
 
-[ext_resource type="PackedScene" uid="uid://cn1m4qwigo8is" path="res://scenes/score_manager.tscn" id="1_2hnnv"]
+[ext_resource type="Script" path="res://scenes/levels/scripts/classic_game.gd" id="1_ubcwj"]
 [ext_resource type="Resource" uid="uid://dqeana3x1moju" path="res://resources/human_p1.tres" id="2_s2r8m"]
 [ext_resource type="FontFile" uid="uid://b5sue0dl0b1fx" path="res://assets/fonts/PIXY.ttf" id="3_6oe0o"]
 [ext_resource type="Resource" uid="uid://dbskre3v64m5" path="res://resources/cpu_medium.tres" id="3_6vntd"]
@@ -9,25 +9,24 @@
 [ext_resource type="Texture2D" uid="uid://cydgbs0cjm5ip" path="res://assets/sprites/net.png" id="6_4ac5h"]
 [ext_resource type="PackedScene" uid="uid://da7h22hlyy5v1" path="res://scenes/paddle.tscn" id="7_2a724"]
 
-[node name="Classic" type="Node"]
-
-[node name="GameManager" parent="." node_paths=PackedStringArray("left_goal", "left_label", "left_paddle", "right_goal", "right_label", "right_paddle") instance=ExtResource("1_2hnnv")]
+[node name="Classic" type="Node" node_paths=PackedStringArray("left_goal", "left_label", "left_paddle", "right_goal", "right_label", "right_paddle")]
+script = ExtResource("1_ubcwj")
 left_info = ExtResource("2_s2r8m")
 left_goal = NodePath("GoalLeft")
 left_label = NodePath("Scores/P1")
-left_paddle = NodePath("../PaddleLeft")
+left_paddle = NodePath("PaddleLeft")
 right_info = ExtResource("3_6vntd")
 right_goal = NodePath("GoalRight")
 right_label = NodePath("Scores/P2")
-right_paddle = NodePath("../PaddleRight")
+right_paddle = NodePath("PaddleRight")
 
-[node name="Scores" type="Control" parent="GameManager"]
+[node name="Scores" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 
-[node name="P1" type="Label" parent="GameManager/Scores"]
+[node name="P1" type="Label" parent="Scores"]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 540.0
@@ -44,7 +43,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="P2" type="Label" parent="GameManager/Scores"]
+[node name="P2" type="Label" parent="Scores"]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 690.0
@@ -60,10 +59,10 @@ vertical_alignment = 1
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="GoalLeft" parent="GameManager" instance=ExtResource("4_tbatq")]
+[node name="GoalLeft" parent="." instance=ExtResource("4_tbatq")]
 position = Vector2(-25, 360)
 
-[node name="GoalRight" parent="GameManager" instance=ExtResource("4_tbatq")]
+[node name="GoalRight" parent="." instance=ExtResource("4_tbatq")]
 position = Vector2(1305, 360)
 
 [node name="Walls" type="Node" parent="."]
