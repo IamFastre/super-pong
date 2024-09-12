@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtb3npgdaqjd0"]
+[gd_scene load_steps=7 format=3 uid="uid://dtb3npgdaqjd0"]
 
 [ext_resource type="Script" path="res://scenes/levels/scripts/main_menu.gd" id="1_e3ahr"]
 [ext_resource type="FontFile" uid="uid://b5sue0dl0b1fx" path="res://assets/fonts/PIXY.ttf" id="1_h3yb7"]
-[ext_resource type="Theme" uid="uid://6okv6pwxtji0" path="res://themes/main.tres" id="2_ionkr"]
 [ext_resource type="PackedScene" uid="uid://cbyt41bw88jin" path="res://scenes/ball.tscn" id="2_xjwow"]
 [ext_resource type="PackedScene" uid="uid://dvb1h8bxlrwhn" path="res://scenes/wall.tscn" id="3_77xda"]
+[ext_resource type="PackedScene" uid="uid://d3g5bwy2mslin" path="res://ui/sp_button.tscn" id="5_8bsmr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_656b1"]
+size = Vector2(520, 66.25)
 
 [node name="Menu" type="Node"]
 script = ExtResource("1_e3ahr")
@@ -12,18 +15,18 @@ script = ExtResource("1_e3ahr")
 [node name="BG" type="Node" parent="."]
 
 [node name="Upper" parent="BG" instance=ExtResource("3_77xda")]
-position = Vector2(640, 0)
+position = Vector2(640, 35)
 
 [node name="Right" parent="BG" instance=ExtResource("3_77xda")]
-position = Vector2(1280, 360)
+position = Vector2(1245, 360)
 rotation = 1.57079
 
 [node name="Lower" parent="BG" instance=ExtResource("3_77xda")]
-position = Vector2(640, 720)
+position = Vector2(640, 685)
 rotation = -3.14159
 
 [node name="Left" parent="BG" instance=ExtResource("3_77xda")]
-position = Vector2(0, 360)
+position = Vector2(35, 360)
 rotation = -1.57079
 
 [node name="Ball" parent="BG" instance=ExtResource("2_xjwow")]
@@ -55,21 +58,36 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="MainMenu"]
+[node name="Underline" type="Line2D" parent="MainMenu/Label"]
+position = Vector2(-386, -230)
+points = PackedVector2Array(380, 325, 900, 325)
+width = 5.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MainMenu/Label"]
+position = Vector2(254, 59.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainMenu/Label/StaticBody2D"]
+position = Vector2(0, 4.875)
+shape = SubResource("RectangleShape2D_656b1")
+
+[node name="SPButton" parent="MainMenu" instance=ExtResource("5_8bsmr")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.555556
+anchor_top = 0.556
 anchor_right = 0.5
-anchor_bottom = 0.555556
+anchor_bottom = 0.556
 offset_left = -89.0
-offset_top = -23.0
+offset_top = -23.32
 offset_right = 89.0
-offset_bottom = 23.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_ionkr")
+offset_bottom = 22.68
 text = "Start"
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="MainMenu/Button" to="." method="_on_button_pressed"]
+[node name="Border" type="Line2D" parent="MainMenu"]
+points = PackedVector2Array(35, 35, 1245, 35, 1245, 685, 35, 685)
+closed = true
+width = 2.0
+antialiased = true
+
+[connection signal="pressed" from="MainMenu/SPButton" to="." method="_on_button_pressed"]
