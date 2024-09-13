@@ -1,5 +1,6 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://6okv6pwxtji0"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://6okv6pwxtji0"]
 
+[ext_resource type="Texture2D" uid="uid://ksnba1r771nk" path="res://ui/assets/dropdown.png" id="1_qpoob"]
 [ext_resource type="FontFile" uid="uid://b5sue0dl0b1fx" path="res://assets/fonts/PIXY.ttf" id="1_ws8su"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvu4s"]
@@ -88,5 +89,7 @@ Button/styles/hover = SubResource("StyleBoxFlat_jsro8")
 Button/styles/hover_pressed = SubResource("StyleBoxFlat_vhih7")
 Button/styles/normal = SubResource("StyleBoxFlat_j3sap")
 Button/styles/pressed = SubResource("StyleBoxFlat_vhih7")
+OptionButton/constants/arrow_margin = 6
+OptionButton/icons/arrow = ExtResource("1_qpoob")
 Panel/styles/panel = SubResource("StyleBoxFlat_j32b6")
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_t6jlw")

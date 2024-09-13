@@ -43,8 +43,10 @@ func _ready() -> void:
 		# Rule #1 of control flow: don't trust and/or precedence
 		if (i == 0 and option.is_human) or (option.is_human and not players_options[i-1].is_human):
 			add_separator("Human")
+			options_len += 1
 		elif (i == 0 and not option.is_human) or (not option.is_human and players_options[i-1].is_human):
 			add_separator("CPU")
+			options_len += 1
 		add_item(option.name)
 
 	classic_left_options.select(1)

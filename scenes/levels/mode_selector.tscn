@@ -31,13 +31,13 @@ theme = ExtResource("2_cynth")
 [node name="Classic" type="Control" parent="ModeSelector"]
 layout_mode = 1
 anchor_left = 0.25
-anchor_top = 0.5
+anchor_top = 0.521
 anchor_right = 0.25
-anchor_bottom = 0.5
+anchor_bottom = 0.521
 offset_left = -320.0
-offset_top = -300.0
+offset_top = -275.12
 offset_right = 320.0
-offset_bottom = 300.0
+offset_bottom = 274.88
 
 [node name="Title" type="Label" parent="ModeSelector/Classic"]
 layout_mode = 1
@@ -73,13 +73,13 @@ grow_vertical = 0
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.592
+anchor_top = 0.573
 anchor_right = 0.5
-anchor_bottom = 0.592
+anchor_bottom = 0.573
 offset_left = -280.0
-offset_top = -245.2
+offset_top = -235.15
 offset_right = 280.0
-offset_bottom = 244.8
+offset_bottom = 234.85
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -91,9 +91,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -250.0
-offset_top = -94.0
+offset_top = -100.0
 offset_right = 250.0
-offset_bottom = 94.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -101,19 +101,23 @@ grow_vertical = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.351
+anchor_top = 0.36
 anchor_right = 0.5
-anchor_bottom = 0.351
+anchor_bottom = 0.36
 offset_left = -250.0
-offset_top = -65.988
+offset_top = -72.0
 offset_right = 250.0
-offset_bottom = 66.012
+offset_bottom = 72.0
 
 [node name="LeftTitle" type="Label" parent="ModeSelector/Classic/Body/Content/Body"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "Left Paddle"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="LeftOptions" type="OptionButton" parent="ModeSelector/Classic/Body/Content/Body"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -124,25 +128,28 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="RightTitle" type="Label" parent="ModeSelector/Classic/Body/Content/Body"]
-custom_minimum_size = Vector2(175, 0)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "Right Paddle"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="RightOptions" type="OptionButton" parent="ModeSelector/Classic/Body/Content/Body"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="SPButton" parent="ModeSelector/Classic/Body/Content" instance=ExtResource("9_w075v")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.502
-anchor_top = 0.915
-anchor_right = 0.502
-anchor_bottom = 0.915
-offset_left = -70.0
-offset_top = -16.02
-offset_right = 70.0
-offset_bottom = 15.98
+anchor_left = 0.5
+anchor_top = 0.936
+anchor_right = 0.5
+anchor_bottom = 0.936
+offset_left = -69.0
+offset_top = -27.2
+offset_right = 71.0
+offset_bottom = 12.8
 text = "Play"
 
 [node name="Separator" type="ColorRect" parent="ModeSelector"]
@@ -153,22 +160,22 @@ anchor_top = 0.5
 anchor_right = 0.502
 anchor_bottom = 0.5
 offset_left = -2.0
-offset_top = -300.0
-offset_right = -0.560059
-offset_bottom = 300.0
+offset_top = -260.0
+offset_right = -0.559937
+offset_bottom = 290.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Super" type="Control" parent="ModeSelector"]
 layout_mode = 1
 anchor_left = 0.75
-anchor_top = 0.5
+anchor_top = 0.521
 anchor_right = 0.75
-anchor_bottom = 0.5
+anchor_bottom = 0.521
 offset_left = -320.0
-offset_top = -300.0
+offset_top = -275.12
 offset_right = 320.0
-offset_bottom = 300.0
+offset_bottom = 274.88
 
 [node name="Title" type="Label" parent="ModeSelector/Super"]
 layout_mode = 1
@@ -204,13 +211,13 @@ grow_vertical = 0
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.592
+anchor_top = 0.573
 anchor_right = 0.5
-anchor_bottom = 0.592
+anchor_bottom = 0.573
 offset_left = -280.0
-offset_top = -245.2
+offset_top = -235.15
 offset_right = 280.0
-offset_bottom = 244.8
+offset_bottom = 234.85
 grow_horizontal = 2
 grow_vertical = 2
 
