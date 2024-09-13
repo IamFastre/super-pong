@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ofsvc163sub"]
+[gd_scene load_steps=13 format=3 uid="uid://ofsvc163sub"]
 
 [ext_resource type="Script" path="res://scenes/levels/scripts/mode_selector.gd" id="1_nrs7d"]
 [ext_resource type="PackedScene" uid="uid://dltch8mu6bqjt" path="res://scenes/levels/classic_game.tscn" id="2_335go"]
@@ -10,6 +10,9 @@
 [ext_resource type="Resource" uid="uid://dbskre3v64m5" path="res://resources/cpu_medium.tres" id="6_2yf2p"]
 [ext_resource type="Resource" uid="uid://bh6pjt4b1kjr2" path="res://resources/cpu_hard.tres" id="7_juk2u"]
 [ext_resource type="PackedScene" uid="uid://d3g5bwy2mslin" path="res://ui/sp_button.tscn" id="9_w075v"]
+[ext_resource type="Texture2D" uid="uid://d1j7fwmau8epk" path="res://ui/assets/back.png" id="11_ps74u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gh2n6"]
 
 [node name="Menu" type="Node" node_paths=PackedStringArray("classic_left_options", "classic_right_options")]
 script = ExtResource("1_nrs7d")
@@ -228,4 +231,18 @@ theme_override_font_sizes/font_size = 28
 text = "SOON..."
 horizontal_alignment = 1
 
+[node name="BackButton" type="Button" parent="ModeSelector"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 80.0
+offset_bottom = 80.0
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gh2n6")
+icon = ExtResource("11_ps74u")
+flat = true
+expand_icon = true
+
 [connection signal="pressed" from="ModeSelector/Classic/Body/Content/SPButton" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="ModeSelector/BackButton" to="." method="_on_back_pressed"]

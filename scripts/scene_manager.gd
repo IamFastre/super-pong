@@ -29,6 +29,14 @@ func switch(scene:Scene) -> void:
 func switch_to_node(scene:Node) -> void:
 	call_deferred("_deferred_switch_to_node", scene)
 
+func back() -> void:
+	var prev = history.pop_at(-2)
+
+	if prev != null:
+		switch(prev)
+	else:
+		switch(Scene.MainMenu)
+
 #=====================================================================#
 
 func _deferred_switch_to_node(scene:Node) -> void:

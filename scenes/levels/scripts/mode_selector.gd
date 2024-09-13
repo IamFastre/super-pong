@@ -24,6 +24,9 @@ func get_selected(button:OptionButton) -> PlayerInfo:
 
 #=====================================================================#
 
+func _on_back_pressed() -> void:
+	SceneManager.back()
+
 func _on_play_pressed() -> void:
 	var game := classic_packed_scene.instantiate() as GameManagerNode
 	game.left_info = get_selected(classic_left_options)
