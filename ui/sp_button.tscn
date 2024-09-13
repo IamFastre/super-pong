@@ -1,13 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://d3g5bwy2mslin"]
 
-[ext_resource type="Theme" uid="uid://6okv6pwxtji0" path="res://themes/main.tres" id="1_o0sqd"]
-[ext_resource type="Script" path="res://ui/scripts/sp_button.gd" id="2_6lfvc"]
+[ext_resource type="Theme" uid="uid://6okv6pwxtji0" path="res://ui/themes/main.tres" id="1_o0sqd"]
+[ext_resource type="PackedScene" uid="uid://chfn14kvy46it" path="res://components/press_effect.tscn" id="2_65wek"]
 
 [node name="SPButton" type="Button"]
 offset_right = 8.0
 offset_bottom = 8.0
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_o0sqd")
-script = ExtResource("2_6lfvc")
 
-[connection signal="button_down" from="." to="." method="_on_button_down"]
-[connection signal="button_up" from="." to="." method="_on_button_up"]
+[node name="PressEffectComponent" parent="." instance=ExtResource("2_65wek")]
+
+[connection signal="button_down" from="." to="PressEffectComponent" method="_on_button_down"]
+[connection signal="button_up" from="." to="PressEffectComponent" method="_on_button_up"]
