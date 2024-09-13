@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtb3npgdaqjd0"]
+[gd_scene load_steps=8 format=3 uid="uid://bhih20nh0hw2a"]
 
 [ext_resource type="Script" path="res://scenes/levels/scripts/main_menu.gd" id="1_e3ahr"]
-[ext_resource type="FontFile" uid="uid://b5sue0dl0b1fx" path="res://assets/fonts/PIXY.ttf" id="1_h3yb7"]
 [ext_resource type="PackedScene" uid="uid://cbyt41bw88jin" path="res://scenes/ball.tscn" id="2_xjwow"]
 [ext_resource type="PackedScene" uid="uid://dvb1h8bxlrwhn" path="res://scenes/wall.tscn" id="3_77xda"]
+[ext_resource type="Theme" uid="uid://6okv6pwxtji0" path="res://ui/themes/main.tres" id="4_qoxsg"]
 [ext_resource type="PackedScene" uid="uid://d3g5bwy2mslin" path="res://ui/sp_button.tscn" id="5_8bsmr"]
 [ext_resource type="Texture2D" uid="uid://b3hxlcenmpw17" path="res://ui/assets/fullscreen.png" id="5_ui13h"]
 
@@ -53,7 +53,7 @@ offset_right = 254.0
 offset_bottom = 45.88
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_h3yb7")
+theme = ExtResource("4_qoxsg")
 theme_override_font_sizes/font_size = 88
 text = "SUPER PONG"
 horizontal_alignment = 1

@@ -12,7 +12,7 @@ func _on_expand_pressed() -> void:
 		expand_button.icon = expand_icon_on
 
 func _on_start_pressed() -> void:
-	SceneManager.switch(SceneManager.Scene.ClassicGame)
+	SceneManager.switch(SceneManager.Scene.ModeSelector)
 
 func _on_quit_pressed() -> void:
 	Game.quit()

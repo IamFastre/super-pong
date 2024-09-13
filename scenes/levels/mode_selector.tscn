@@ -1,0 +1,231 @@
+[gd_scene load_steps=11 format=3 uid="uid://ofsvc163sub"]
+
+[ext_resource type="Script" path="res://scenes/levels/scripts/mode_selector.gd" id="1_nrs7d"]
+[ext_resource type="PackedScene" uid="uid://dltch8mu6bqjt" path="res://scenes/levels/classic_game.tscn" id="2_335go"]
+[ext_resource type="Theme" uid="uid://6okv6pwxtji0" path="res://ui/themes/main.tres" id="2_cynth"]
+[ext_resource type="Script" path="res://resources/scripts/player_info.gd" id="2_mia73"]
+[ext_resource type="Resource" uid="uid://dqeana3x1moju" path="res://resources/human_p1.tres" id="3_i2quq"]
+[ext_resource type="Resource" uid="uid://dco0lfefh4by6" path="res://resources/human_p2.tres" id="4_fq63y"]
+[ext_resource type="Resource" uid="uid://ps6ymvpsma85" path="res://resources/cpu_easy.tres" id="5_p0p7i"]
+[ext_resource type="Resource" uid="uid://dbskre3v64m5" path="res://resources/cpu_medium.tres" id="6_2yf2p"]
+[ext_resource type="Resource" uid="uid://bh6pjt4b1kjr2" path="res://resources/cpu_hard.tres" id="7_juk2u"]
+[ext_resource type="PackedScene" uid="uid://d3g5bwy2mslin" path="res://ui/sp_button.tscn" id="9_w075v"]
+
+[node name="Menu" type="Node" node_paths=PackedStringArray("classic_left_options", "classic_right_options")]
+script = ExtResource("1_nrs7d")
+classic_packed_scene = ExtResource("2_335go")
+classic_players_infos = Array[ExtResource("2_mia73")]([ExtResource("3_i2quq"), ExtResource("4_fq63y"), ExtResource("5_p0p7i"), ExtResource("6_2yf2p"), ExtResource("7_juk2u")])
+classic_left_options = NodePath("ModeSelector/Classic/Body/Content/Body/LeftOptions")
+classic_right_options = NodePath("ModeSelector/Classic/Body/Content/Body/RightOptions")
+
+[node name="ModeSelector" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme = ExtResource("2_cynth")
+
+[node name="Classic" type="Control" parent="ModeSelector"]
+layout_mode = 1
+anchor_left = 0.25
+anchor_top = 0.5
+anchor_right = 0.25
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -300.0
+offset_right = 320.0
+offset_bottom = 300.0
+
+[node name="Title" type="Label" parent="ModeSelector/Classic"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.067
+anchor_right = 0.5
+anchor_bottom = 0.067
+offset_left = -164.0
+offset_top = -26.5761
+offset_right = 164.0
+offset_bottom = 26.4239
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Classic Pong"
+horizontal_alignment = 1
+
+[node name="Underline" type="ColorRect" parent="ModeSelector/Classic/Title"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -164.0
+offset_top = -2.0
+offset_right = 164.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Body" type="Panel" parent="ModeSelector/Classic"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.592
+anchor_right = 0.5
+anchor_bottom = 0.592
+offset_left = -280.0
+offset_top = -245.2
+offset_right = 280.0
+offset_bottom = 244.8
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Content" type="Control" parent="ModeSelector/Classic/Body"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -94.0
+offset_right = 250.0
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Body" type="VBoxContainer" parent="ModeSelector/Classic/Body/Content"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.351
+anchor_right = 0.5
+anchor_bottom = 0.351
+offset_left = -250.0
+offset_top = -65.988
+offset_right = 250.0
+offset_bottom = 66.012
+
+[node name="LeftTitle" type="Label" parent="ModeSelector/Classic/Body/Content/Body"]
+layout_mode = 2
+text = "Left Paddle"
+
+[node name="LeftOptions" type="OptionButton" parent="ModeSelector/Classic/Body/Content/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EMPTY1" type="Control" parent="ModeSelector/Classic/Body/Content/Body"]
+layout_mode = 2
+
+[node name="Separator1" type="HSeparator" parent="ModeSelector/Classic/Body/Content/Body"]
+layout_mode = 2
+
+[node name="RightTitle" type="Label" parent="ModeSelector/Classic/Body/Content/Body"]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+text = "Right Paddle"
+
+[node name="RightOptions" type="OptionButton" parent="ModeSelector/Classic/Body/Content/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SPButton" parent="ModeSelector/Classic/Body/Content" instance=ExtResource("9_w075v")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.502
+anchor_top = 0.915
+anchor_right = 0.502
+anchor_bottom = 0.915
+offset_left = -70.0
+offset_top = -16.02
+offset_right = 70.0
+offset_bottom = 15.98
+text = "Play"
+
+[node name="Separator" type="ColorRect" parent="ModeSelector"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.502
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -300.0
+offset_right = -0.560059
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Super" type="Control" parent="ModeSelector"]
+layout_mode = 1
+anchor_left = 0.75
+anchor_top = 0.5
+anchor_right = 0.75
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -300.0
+offset_right = 320.0
+offset_bottom = 300.0
+
+[node name="Title" type="Label" parent="ModeSelector/Super"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.067
+anchor_right = 0.5
+anchor_bottom = 0.067
+offset_left = -164.0
+offset_top = -26.5761
+offset_right = 164.0
+offset_bottom = 26.4239
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Super Pong"
+horizontal_alignment = 1
+
+[node name="Underline" type="ColorRect" parent="ModeSelector/Super/Title"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -164.0
+offset_top = -2.0
+offset_right = 164.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Body" type="Panel" parent="ModeSelector/Super"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.592
+anchor_right = 0.5
+anchor_bottom = 0.592
+offset_left = -280.0
+offset_top = -245.2
+offset_right = 280.0
+offset_bottom = 244.8
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SoonText" type="Label" parent="ModeSelector/Super/Body"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -15.0
+offset_right = 41.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "SOON..."
+horizontal_alignment = 1
+
+[connection signal="pressed" from="ModeSelector/Classic/Body/Content/SPButton" to="." method="_on_play_pressed"]

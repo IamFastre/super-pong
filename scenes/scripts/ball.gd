@@ -9,7 +9,7 @@ class_name BallNode extends CharacterBody2D
 	get: return speed_multiplier
 	set(value): speed_multiplier = clampf(value, speed_min, speed_max)
 @export var speed_hit_interval:int = 2
-@export var speed_step:float = 25
+@export var speed_acceleration_step:float = 25
 
 @onready var wait_timer:Timer = $WaitTime
 
@@ -35,7 +35,7 @@ func handle_collision(collision:KinematicCollision2D) -> void:
 	if collider is PaddleNode:
 		hit_count += 1
 		if hit_count % speed_hit_interval == 0:
-			speed_multiplier += speed_step
+			speed_multiplier += speed_acceleration_step
 
 		var paddle := collider as PaddleNode
 		var rot_dir:float = 1 if direction.x == 0.0 else direction.x / abs(direction.x)
