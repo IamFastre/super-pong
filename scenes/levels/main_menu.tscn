@@ -1,16 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtb3npgdaqjd0"]
+[gd_scene load_steps=8 format=3 uid="uid://dtb3npgdaqjd0"]
 
 [ext_resource type="Script" path="res://scenes/levels/scripts/main_menu.gd" id="1_e3ahr"]
 [ext_resource type="FontFile" uid="uid://b5sue0dl0b1fx" path="res://assets/fonts/PIXY.ttf" id="1_h3yb7"]
 [ext_resource type="PackedScene" uid="uid://cbyt41bw88jin" path="res://scenes/ball.tscn" id="2_xjwow"]
 [ext_resource type="PackedScene" uid="uid://dvb1h8bxlrwhn" path="res://scenes/wall.tscn" id="3_77xda"]
 [ext_resource type="PackedScene" uid="uid://d3g5bwy2mslin" path="res://ui/sp_button.tscn" id="5_8bsmr"]
+[ext_resource type="Texture2D" uid="uid://b3hxlcenmpw17" path="res://ui/assets/fullscreen.png" id="5_ui13h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_656b1"]
 size = Vector2(520, 66.25)
 
-[node name="Menu" type="Node"]
+[node name="Menu" type="Node" node_paths=PackedStringArray("expand_button")]
 script = ExtResource("1_e3ahr")
+expand_button = NodePath("MainMenu/ExpandButton")
 
 [node name="BG" type="Node" parent="."]
 
@@ -45,10 +47,10 @@ anchor_left = 0.5
 anchor_top = 0.396
 anchor_right = 0.5
 anchor_bottom = 0.396
-offset_left = -200.0
-offset_top = -35.12
-offset_right = 200.0
-offset_bottom = 34.88
+offset_left = -254.0
+offset_top = -46.12
+offset_right = 254.0
+offset_bottom = 45.88
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_h3yb7")
@@ -64,13 +66,30 @@ points = PackedVector2Array(380, 325, 900, 325)
 width = 5.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="MainMenu/Label"]
-position = Vector2(254, 59.25)
+position = Vector2(254, 64.25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainMenu/Label/StaticBody2D"]
-position = Vector2(0, 4.875)
+position = Vector2(0, -0.125)
 shape = SubResource("RectangleShape2D_656b1")
 
-[node name="SPButton" parent="MainMenu" instance=ExtResource("5_8bsmr")]
+[node name="ExpandButton" type="Button" parent="MainMenu"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.055
+anchor_top = 0.097
+anchor_right = 0.055
+anchor_bottom = 0.097
+offset_left = -20.4
+offset_top = -19.84
+offset_right = 19.6
+offset_bottom = 20.16
+mouse_default_cursor_shape = 2
+icon = ExtResource("5_ui13h")
+flat = true
+expand_icon = true
+
+[node name="StartButton" parent="MainMenu" instance=ExtResource("5_8bsmr")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -84,10 +103,27 @@ offset_bottom = 22.68
 text = "Start"
 metadata/_edit_use_anchors_ = true
 
+[node name="QuitButton" parent="MainMenu" instance=ExtResource("5_8bsmr")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.633778
+anchor_right = 0.5
+anchor_bottom = 0.633778
+offset_left = -89.0
+offset_top = -23.32
+offset_right = 89.0
+offset_bottom = 22.68
+text = "Quit"
+flat = true
+metadata/_edit_use_anchors_ = true
+
 [node name="Border" type="Line2D" parent="MainMenu"]
 points = PackedVector2Array(35, 35, 1245, 35, 1245, 685, 35, 685)
 closed = true
-width = 2.0
+width = 3.0
 antialiased = true
 
-[connection signal="pressed" from="MainMenu/SPButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MainMenu/ExpandButton" to="." method="_on_expand_pressed"]
+[connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MainMenu/QuitButton" to="." method="_on_quit_pressed"]
