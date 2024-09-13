@@ -43,10 +43,16 @@ func handle_collision(collision:KinematicCollision2D) -> void:
 		var angle = lerp_angle(0, PI/6 * strength, 1 - abs(direction.y)) * rot_dir
 		direction = direction.rotated(angle)
 
-	elif collider is WallNode and abs(direction.y) >= 0.9:
-		var rot_dir:float = 1 if direction.x == 0.0 else -direction.x / abs(direction.x)
-		var angle = PI/6 * direction.y * rot_dir
-		direction = direction.rotated(angle)
+	elif collider is WallNode:
+		if abs(direction.y) >= 0.9:
+			var rot_dir:float = 1 if direction.x == 0.0 else -direction.x / abs(direction.x)
+			var angle = PI/6 * direction.y * rot_dir
+			direction = direction.rotated(angle)
+
+		elif abs(direction.x) >= 0.9:
+			var rot_dir:float = 1 if direction.y == 0.0 else direction.y / abs(direction.y)
+			var angle = PI/6 * direction.x * rot_dir
+			direction = direction.rotated(angle)
 
 #=====================================================================#
 
