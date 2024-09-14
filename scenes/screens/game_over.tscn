@@ -1,0 +1,167 @@
+[gd_scene load_steps=8 format=3 uid="uid://7jn2a2xbdg3p"]
+
+[ext_resource type="Script" path="res://scenes/screens/scripts/game_over.gd" id="1_4jlqi"]
+[ext_resource type="Theme" uid="uid://6okv6pwxtji0" path="res://ui/themes/main.tres" id="2_jagcd"]
+[ext_resource type="Texture2D" uid="uid://c2wrk2bpc4ahm" path="res://ui/assets/home.png" id="3_1gw46"]
+[ext_resource type="Texture2D" uid="uid://bjj85emwhul8i" path="res://ui/assets/retry.png" id="3_dgqa6"]
+
+[sub_resource type="Animation" id="Animation_6f188"]
+resource_name = "start"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_aqret"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fg7m5"]
+_data = {
+"RESET": SubResource("Animation_aqret"),
+"start": SubResource("Animation_6f188")
+}
+
+[node name="GameOver" type="CanvasLayer" node_paths=PackedStringArray("animation", "label_title", "label_subtitle", "label_suptitle")]
+script = ExtResource("1_4jlqi")
+animation = NodePath("AnimationPlayer")
+label_title = NodePath("Menu/Title")
+label_subtitle = NodePath("Menu/Title/Subtitle")
+label_suptitle = NodePath("Menu/Title/Suptitle")
+
+[node name="Menu" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme = ExtResource("2_jagcd")
+
+[node name="Background" type="ColorRect" parent="Menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 0.686275)
+
+[node name="Title" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.467
+anchor_right = 0.5
+anchor_bottom = 0.467
+offset_left = -223.5
+offset_top = -39.74
+offset_right = 223.5
+offset_bottom = 39.26
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 75
+text = "Player won!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Menu/Title"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.025
+anchor_right = 0.5
+anchor_bottom = 1.025
+offset_left = -29.5
+offset_top = -10.975
+offset_right = 29.5
+offset_bottom = 11.025
+grow_horizontal = 2
+grow_vertical = 0
+text = "(Side)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Suptitle" type="Label" parent="Menu/Title"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.0123418
+anchor_right = 0.5
+anchor_bottom = 0.0123418
+offset_left = -29.5
+offset_top = -10.975
+offset_right = 29.5
+offset_bottom = 11.025
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "0 - 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RetryButton" type="Button" parent="Menu"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.475
+anchor_top = 0.612
+anchor_right = 0.475
+anchor_bottom = 0.612
+offset_left = -24.0
+offset_top = -23.64
+offset_right = 24.0
+offset_bottom = 24.36
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("3_dgqa6")
+expand_icon = true
+
+[node name="HomeButton" type="Button" parent="Menu"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.525
+anchor_top = 0.612
+anchor_right = 0.525
+anchor_bottom = 0.612
+offset_left = -24.0002
+offset_top = -23.64
+offset_right = 23.9998
+offset_bottom = 24.36
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("3_1gw46")
+expand_icon = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fg7m5")
+}
+
+[connection signal="pressed" from="Menu/RetryButton" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Menu/HomeButton" to="." method="_on_home_pressed"]
