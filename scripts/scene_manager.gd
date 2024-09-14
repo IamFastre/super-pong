@@ -40,7 +40,7 @@ func back() -> void:
 #=====================================================================#
 
 func _deferred_switch_to_node(scene:Node) -> void:
-	if current:
+	if current and is_instance_valid(current):
 		current.free()
 	current = scene
 
