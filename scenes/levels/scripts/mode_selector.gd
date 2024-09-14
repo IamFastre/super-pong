@@ -28,7 +28,7 @@ func _on_back_pressed() -> void:
 	SceneManager.back()
 
 func _on_play_pressed() -> void:
-	var game := classic_packed_scene.instantiate() as GameManagerNode
+	var game := classic_packed_scene.instantiate() as ClassicGame
 	game.left_info = get_selected(classic_left_options)
 	game.right_info = get_selected(classic_right_options)
 	SceneManager.switch_to_node(game)
