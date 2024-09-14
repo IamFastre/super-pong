@@ -3,8 +3,9 @@ extends Node
 @export_group("Classic", "classic_")
 @export var classic_packed_scene:PackedScene
 @export var classic_players_infos:Array[PlayerInfo] = []
-@export var classic_left_options: OptionButton
-@export var classic_right_options: OptionButton
+@export var classic_left_options:OptionButton
+@export var classic_right_options:OptionButton
+@export var classic_score_goal:SpinBox
 
 @onready var players_options := classic_players_infos
 
@@ -31,6 +32,7 @@ func _on_play_pressed() -> void:
 	var game := classic_packed_scene.instantiate() as ClassicGame
 	game.left_info = get_selected(classic_left_options)
 	game.right_info = get_selected(classic_right_options)
+	game.go_score_goal = int(classic_score_goal.value)
 	SceneManager.switch_to_node(game)
 
 #=====================================================================#

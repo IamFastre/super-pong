@@ -14,12 +14,13 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gh2n6"]
 
-[node name="Menu" type="Node" node_paths=PackedStringArray("classic_left_options", "classic_right_options")]
+[node name="Menu" type="Node" node_paths=PackedStringArray("classic_left_options", "classic_right_options", "classic_score_goal")]
 script = ExtResource("1_nrs7d")
 classic_packed_scene = ExtResource("2_335go")
 classic_players_infos = Array[ExtResource("2_mia73")]([ExtResource("3_i2quq"), ExtResource("4_fq63y"), ExtResource("5_p0p7i"), ExtResource("6_2yf2p"), ExtResource("7_juk2u")])
-classic_left_options = NodePath("ModeSelector/Classic/Body/Content/Body/LeftOptions")
-classic_right_options = NodePath("ModeSelector/Classic/Body/Content/Body/RightOptions")
+classic_left_options = NodePath("ModeSelector/Classic/Panel/Control/Body/LeftOptions")
+classic_right_options = NodePath("ModeSelector/Classic/Panel/Control/Body/RightOptions")
+classic_score_goal = NodePath("ModeSelector/Classic/Panel/Control/Body/GoalInput")
 
 [node name="ModeSelector" type="Control" parent="."]
 layout_mode = 3
@@ -69,7 +70,7 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Body" type="Panel" parent="ModeSelector/Classic"]
+[node name="Panel" type="Panel" parent="ModeSelector/Classic"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -83,7 +84,7 @@ offset_bottom = 234.85
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Content" type="Control" parent="ModeSelector/Classic/Body"]
+[node name="Control" type="Control" parent="ModeSelector/Classic/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -91,65 +92,81 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -250.0
-offset_top = -100.0
+offset_top = -138.0
 offset_right = 250.0
-offset_bottom = 100.0
+offset_bottom = 138.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Body" type="VBoxContainer" parent="ModeSelector/Classic/Body/Content"]
+[node name="Body" type="VBoxContainer" parent="ModeSelector/Classic/Panel/Control"]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 0.36
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.36
+anchor_bottom = 0.5
 offset_left = -250.0
-offset_top = -72.0
+offset_top = -138.0
 offset_right = 250.0
-offset_bottom = 72.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="LeftTitle" type="Label" parent="ModeSelector/Classic/Body/Content/Body"]
+[node name="LeftTitle" type="Label" parent="ModeSelector/Classic/Panel/Control/Body"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "Left Paddle"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LeftOptions" type="OptionButton" parent="ModeSelector/Classic/Body/Content/Body"]
+[node name="LeftOptions" type="OptionButton" parent="ModeSelector/Classic/Panel/Control/Body"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="EMPTY1" type="Control" parent="ModeSelector/Classic/Body/Content/Body"]
+[node name="Sep1" type="HSeparator" parent="ModeSelector/Classic/Panel/Control/Body"]
 layout_mode = 2
 
-[node name="Separator1" type="HSeparator" parent="ModeSelector/Classic/Body/Content/Body"]
-layout_mode = 2
-
-[node name="RightTitle" type="Label" parent="ModeSelector/Classic/Body/Content/Body"]
+[node name="RightTitle" type="Label" parent="ModeSelector/Classic/Panel/Control/Body"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "Right Paddle"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RightOptions" type="OptionButton" parent="ModeSelector/Classic/Body/Content/Body"]
+[node name="RightOptions" type="OptionButton" parent="ModeSelector/Classic/Panel/Control/Body"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SPButton" parent="ModeSelector/Classic/Body/Content" instance=ExtResource("9_w075v")]
+[node name="Sep2" type="HSeparator" parent="ModeSelector/Classic/Panel/Control/Body"]
+layout_mode = 2
+
+[node name="GoalTitle" type="Label" parent="ModeSelector/Classic/Panel/Control/Body"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Score Goal"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GoalInput" type="SpinBox" parent="ModeSelector/Classic/Panel/Control/Body"]
+layout_mode = 2
+min_value = 1.0
+value = 10.0
+
+[node name="SPButton" parent="ModeSelector/Classic/Panel/Control" instance=ExtResource("9_w075v")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.936
-anchor_right = 0.5
-anchor_bottom = 0.936
-offset_left = -69.0
-offset_top = -27.2
-offset_right = 71.0
-offset_bottom = 12.8
+anchor_left = 0.498
+anchor_top = 0.743
+anchor_right = 0.498
+anchor_bottom = 0.743
+offset_left = -70.0
+offset_top = 30.932
+offset_right = 70.0
+offset_bottom = 70.932
+grow_horizontal = 2
+grow_vertical = 2
 text = "Play"
 
 [node name="Separator" type="ColorRect" parent="ModeSelector"]
@@ -207,7 +224,7 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Body" type="Panel" parent="ModeSelector/Super"]
+[node name="Panel" type="Panel" parent="ModeSelector/Super"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -221,7 +238,7 @@ offset_bottom = 234.85
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SoonText" type="Label" parent="ModeSelector/Super/Body"]
+[node name="SoonText" type="Label" parent="ModeSelector/Super/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -256,5 +273,5 @@ icon = ExtResource("11_ps74u")
 flat = true
 expand_icon = true
 
-[connection signal="pressed" from="ModeSelector/Classic/Body/Content/SPButton" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="ModeSelector/Classic/Panel/Control/SPButton" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="ModeSelector/BackButton" to="." method="_on_back_pressed"]

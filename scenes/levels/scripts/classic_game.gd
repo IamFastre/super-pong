@@ -127,7 +127,6 @@ func _ready() -> void:
 func _process(_delta:float) -> void:
 	if running and score_goal_met():
 		game_over()
-		print(running)
 
 	left_label.text = str(left_score)
 	right_label.text = str(right_score)
