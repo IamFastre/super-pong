@@ -87,6 +87,8 @@ func game_over() -> void:
 	elif left_score < right_score:
 		go_screen.winner_name = right_info.name
 		go_screen.winner_side = "right"
+	else:
+		go_screen.score_is_tied = true
 
 	add_child(go_screen)
 

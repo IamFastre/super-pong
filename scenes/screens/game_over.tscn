@@ -45,6 +45,7 @@ _data = {
 [node name="GameOver" type="CanvasLayer" node_paths=PackedStringArray("animation", "label_title", "label_subtitle", "label_suptitle")]
 script = ExtResource("1_4jlqi")
 animation = NodePath("AnimationPlayer")
+score_is_tied = false
 label_title = NodePath("Menu/Title")
 label_subtitle = NodePath("Menu/Title/Subtitle")
 label_suptitle = NodePath("Menu/Title/Suptitle")

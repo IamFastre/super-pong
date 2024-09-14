@@ -7,6 +7,7 @@ class_name GameOverScreen extends CanvasLayer
 @export_group("Scores", "score_")
 @export var score_left:int = 0
 @export var score_right:int = 0
+@export var score_is_tied:bool = false
 
 @export_group("Winner", "winner_")
 @export var winner_name:String = "Player"
@@ -20,18 +21,28 @@ class_name GameOverScreen extends CanvasLayer
 #=====================================================================#
 
 func set_texts() -> void:
-	label_title.text = "%s won!" % winner_name
-	label_subtitle.text = "(%s)" % winner_side
-	label_suptitle.text = "%s - %s" % [str(score_left), str(score_right)]
+	if not score_is_tied:
+		label_title.text = "%s won!" % winner_name
+		label_subtitle.text = "(%s)" % winner_side
+		label_suptitle.text = "%s - %s" % [str(score_left), str(score_right)]
+	else:
+		label_title.text = "It's a tie!"
+		label_subtitle.text = "(no one won)"
+		label_suptitle.text = "%s - %s" % [str(score_left), str(score_right)]
 
 #=====================================================================#
+
+func _on_death_animation_finished(_s:StringName):
+	queue_free()
 
 func _on_home_pressed() -> void:
 	SceneManager.switch(SceneManager.Scene.MainMenu)
 
 func _on_retry_pressed() -> void:
-	game.restart()
-	queue_free()
+	if game and is_instance_valid(game):
+		game.restart()
+	animation.animation_finished.connect(_on_death_animation_finished)
+	animation.play_backwards("start")
 
 #=====================================================================#
 
