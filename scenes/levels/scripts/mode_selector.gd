@@ -15,9 +15,12 @@ func add_separator(label:String) -> void:
 	classic_left_options.add_separator(label)
 	classic_right_options.add_separator(label)
 
-func add_item(label:String) -> void:
+func add_item(label:String, icon:Texture2D, idx:int) -> void:
 	classic_left_options.add_item(label)
 	classic_right_options.add_item(label)
+
+	classic_left_options.set_item_icon(idx, icon)
+	classic_right_options.set_item_icon(idx, icon)
 
 func get_selected(button:OptionButton) -> PlayerInfo:
 	var text := button.get_item_text(button.selected)
@@ -39,17 +42,19 @@ func _on_play_pressed() -> void:
 
 func _ready() -> void:
 	var options_len := len(players_options)
+	var seps_len := 0
 	for i in range(options_len):
 		var option := players_options[i]
 
 		# Rule #1 of control flow: don't trust and/or precedence
 		if (i == 0 and option.is_human) or (option.is_human and not players_options[i-1].is_human):
 			add_separator("Human")
-			options_len += 1
+			seps_len += 1
 		elif (i == 0 and not option.is_human) or (not option.is_human and players_options[i-1].is_human):
 			add_separator("CPU")
-			options_len += 1
-		add_item(option.name)
+			seps_len += 1
+
+		add_item(option.name, option.icon, i + seps_len)
 
 	classic_left_options.select(1)
-	classic_right_options.select(options_len - 1)
+	classic_right_options.select(options_len + seps_len - 1)
