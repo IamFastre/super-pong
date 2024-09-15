@@ -23,13 +23,20 @@ class_name ClassicGame extends Node
 @export var go_scene:PackedScene = preload("res://scenes/screens/game_over.tscn")
 @export var go_score_goal:int = 10
 
+@export_group("Pause Screen", "ps_")
+@export var ps_scene:PackedScene = preload("res://scenes/screens/pause_menu.tscn")
+
 var running:bool = true :
 	get: return running
 	set(value):
+		running = value
+
 		if left_paddle.movement and right_paddle.movement:
 			left_paddle.movement.disabled = not value
 			right_paddle.movement.disabled = not value
-		running = value
+
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN if value else Input.MOUSE_MODE_VISIBLE)
+		
 
 signal ball_spawned(ball:BallNode)
 
@@ -72,11 +79,10 @@ func setup_paddle(paddle:PaddleNode, info:PlayerInfo) -> void:
 
 func game_over() -> void:
 	running = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	left_label.visible = false
 	right_label.visible = false
 
-	var go_screen = go_scene.instantiate() as GameOverScreen
+	var go_screen := go_scene.instantiate() as GameOverScreen
 	go_screen.game = self
 	go_screen.score_left = left_score
 	go_screen.score_right = right_score
@@ -92,9 +98,26 @@ func game_over() -> void:
 
 	add_child(go_screen)
 
+func pause() -> void:
+	running = false
+
+	for c in get_children():
+		if c is BallNode:
+			c.movement_disabled = true
+
+	var ps_screen := ps_scene.instantiate() as PauseScreen
+	ps_screen.game = self
+	add_child(ps_screen)
+
+func unpause() -> void:
+	running = true
+
+	for c in get_children():
+		if c is BallNode:
+			c.movement_disabled = false
+
 func restart() -> void:
 	running = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	left_label.visible = true
 	right_label.visible = true
 
@@ -115,6 +138,13 @@ func _enter_tree() -> void:
 
 func _exit_tree() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func _input(event:InputEvent) -> void:
+	if event.is_action_pressed("pause_game"):
+		if running:
+			pause()
+		else:
+			unpause()
 
 func _ready() -> void:
 	setup_paddle(left_paddle, left_info)
