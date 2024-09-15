@@ -5,6 +5,21 @@
 [ext_resource type="Texture2D" uid="uid://c2wrk2bpc4ahm" path="res://ui/assets/home.png" id="3_1gw46"]
 [ext_resource type="Texture2D" uid="uid://bjj85emwhul8i" path="res://ui/assets/retry.png" id="3_dgqa6"]
 
+[sub_resource type="Animation" id="Animation_aqret"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_6f188"]
 resource_name = "start"
 length = 0.5
@@ -21,21 +36,6 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_aqret"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Menu:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fg7m5"]
 _data = {
 "RESET": SubResource("Animation_aqret"),
@@ -45,7 +45,6 @@ _data = {
 [node name="GameOver" type="CanvasLayer" node_paths=PackedStringArray("animation", "label_title", "label_subtitle", "label_suptitle")]
 script = ExtResource("1_4jlqi")
 animation = NodePath("AnimationPlayer")
-score_is_tied = false
 label_title = NodePath("Menu/Title")
 label_subtitle = NodePath("Menu/Title/Subtitle")
 label_suptitle = NodePath("Menu/Title/Suptitle")

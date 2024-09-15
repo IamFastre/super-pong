@@ -2,6 +2,8 @@ class_name BallNode extends CharacterBody2D
 
 ## Initial direction of the ball, leave (0, 0) for random.
 @export var initial_direction:Vector2 = Vector2.ZERO
+@export var movement_disabled:bool = false
+
 @export_group("Speed", "speed_")
 @export var speed_min:float = 500
 @export var speed_max:float = 2000
@@ -15,6 +17,8 @@ class_name BallNode extends CharacterBody2D
 
 var direction:Vector2 = Vector2.ZERO
 var hit_count:int = 0
+
+#=====================================================================#
 
 func random_direction() -> Vector2:
 	var x = [-1, 1].pick_random()
@@ -65,7 +69,7 @@ func _on_wait_timeout() -> void:
 #=====================================================================#
 
 func _process(delta:float) -> void:
-	var collision := move_and_collide(direction * speed_multiplier * delta)
-
-	if collision:
-		handle_collision(collision)
+	if not movement_disabled:
+		var collision := move_and_collide(direction * speed_multiplier * delta)
+		if collision:
+			handle_collision(collision)
