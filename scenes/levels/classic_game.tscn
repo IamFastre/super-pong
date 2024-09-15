@@ -13,16 +13,18 @@
 [ext_resource type="Theme" uid="uid://6okv6pwxtji0" path="res://ui/themes/main.tres" id="9_gurx6"]
 [ext_resource type="Texture2D" uid="uid://bhbp6560u0mtw" path="res://ui/assets/pause.png" id="10_n6lk1"]
 
-[node name="Classic" type="Node" node_paths=PackedStringArray("left_goal", "left_label", "left_paddle", "right_goal", "right_label", "right_paddle")]
+[node name="Classic" type="Node" node_paths=PackedStringArray("left_paddle", "left_goal", "left_label", "left_icon", "right_paddle", "right_goal", "right_label", "right_icon")]
 script = ExtResource("1_ubcwj")
 left_info = ExtResource("2_s2r8m")
+left_paddle = NodePath("PaddleLeft")
 left_goal = NodePath("GoalLeft")
 left_label = NodePath("Background/Scores/P1")
-left_paddle = NodePath("PaddleLeft")
+left_icon = NodePath("Background/Icons/P1")
 right_info = ExtResource("3_6vntd")
+right_paddle = NodePath("PaddleRight")
 right_goal = NodePath("GoalRight")
 right_label = NodePath("Background/Scores/P2")
-right_paddle = NodePath("PaddleRight")
+right_icon = NodePath("Background/Icons/P2")
 
 [node name="Background" type="Control" parent="."]
 layout_mode = 3
@@ -83,6 +85,7 @@ autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Icons" type="Control" parent="Background"]
+modulate = Color(1, 1, 1, 0.247059)
 layout_mode = 1
 anchor_left = 0.5
 anchor_top = 0.5

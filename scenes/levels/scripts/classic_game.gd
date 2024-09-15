@@ -3,16 +3,18 @@ class_name ClassicGame extends Node
 @export_group("Player 1", "left_")
 @export var left_score:int = 0
 @export var left_info:PlayerInfo
+@export var left_paddle:PaddleNode
 @export var left_goal:GoalNode
 @export var left_label:Label
-@export var left_paddle:PaddleNode
+@export var left_icon:TextureRect
 
 @export_group("Player 2", "right_")
 @export var right_score:int = 0
 @export var right_info:PlayerInfo
+@export var right_paddle:PaddleNode
 @export var right_goal:GoalNode
 @export var right_label:Label
-@export var right_paddle:PaddleNode
+@export var right_icon:TextureRect
 
 @export_group("Ball")
 @export var spawn_ball_on_start:bool = true
@@ -152,6 +154,9 @@ func _ready() -> void:
 
 	left_goal.scored.connect(on_score.bind(Side.RIGHT))
 	right_goal.scored.connect(on_score.bind(Side.LEFT))
+
+	left_icon.texture = left_info.icon
+	right_icon.texture = right_info.icon
 
 	if spawn_ball_on_start:
 		spawn_ball()

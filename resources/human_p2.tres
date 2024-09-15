@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="PlayerInfo" load_steps=2 format=3 uid="uid://dco0lfefh4by6"]
+[gd_resource type="Resource" script_class="PlayerInfo" load_steps=3 format=3 uid="uid://dco0lfefh4by6"]
 
 [ext_resource type="Script" path="res://resources/scripts/player_info.gd" id="1_6dvjd"]
+[ext_resource type="Texture2D" uid="uid://cgnujjig68lr6" path="res://assets/icons/human-2.png" id="1_tl3my"]
 
 [resource]
 script = ExtResource("1_6dvjd")
 name = "Player #2"
+icon = ExtResource("1_tl3my")
 is_human = true
 id = 2
 difficulty = 0

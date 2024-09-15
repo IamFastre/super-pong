@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="PlayerInfo" load_steps=2 format=3 uid="uid://ps6ymvpsma85"]
+[gd_resource type="Resource" script_class="PlayerInfo" load_steps=3 format=3 uid="uid://ps6ymvpsma85"]
 
 [ext_resource type="Script" path="res://resources/scripts/player_info.gd" id="1_3478u"]
+[ext_resource type="Texture2D" uid="uid://ciro8d2vniis5" path="res://assets/icons/e-cpu.png" id="1_uq2u4"]
 
 [resource]
 script = ExtResource("1_3478u")
 name = "E-CPU"
+icon = ExtResource("1_uq2u4")
 is_human = false
 id = 0
 difficulty = 1
