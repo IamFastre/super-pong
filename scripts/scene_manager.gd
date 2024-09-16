@@ -30,7 +30,7 @@ func switch_to_node(scene:Node) -> void:
 	call_deferred("_deferred_switch_to_node", scene)
 
 func back() -> void:
-	var prev = history.pop_at(-2)
+	var prev = history.pop_at(-2) if len(history) > 1 else null
 
 	if prev != null:
 		switch(prev)
