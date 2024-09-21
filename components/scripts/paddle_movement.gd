@@ -1,4 +1,4 @@
-class_name PaddleMovement extends ComponentNode
+class_name PaddleMovement extends ComponentNode2D
 
 @export var speed_multiplier:float = 500
 @export var sprint_speed_multiplier:float = 1000

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/scripts/paddle.gd" id="1_ebeho"]
 [ext_resource type="Texture2D" uid="uid://d0vr40io70kc5" path="res://assets/sprites/player.png" id="1_ww6gk"]
-[ext_resource type="PackedScene" uid="uid://chyef038ssmgn" path="res://components/movement_clamp.tscn" id="3_fc3nj"]
+[ext_resource type="Script" path="res://components/scripts/movement_clamp.gd" id="3_a2dkk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vn8v2"]
 size = Vector2(8, 216)
@@ -18,4 +18,5 @@ texture = ExtResource("1_ww6gk")
 position = Vector2(4, 0)
 shape = SubResource("RectangleShape2D_vn8v2")
 
-[node name="MovementClamp" parent="." instance=ExtResource("3_fc3nj")]
+[node name="MovementClamp" type="Node" parent="."]
+script = ExtResource("3_a2dkk")
