@@ -43,6 +43,8 @@ offset_left = -640.0
 offset_top = -360.0
 offset_right = 640.0
 offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="P1" type="Label" parent="Background/Scores"]
 layout_mode = 1
@@ -97,6 +99,8 @@ offset_left = -640.0
 offset_top = -360.0
 offset_right = 640.0
 offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="P1" type="TextureRect" parent="Background/Icons"]
 texture_filter = 1
@@ -148,19 +152,17 @@ position = Vector2(640, 720)
 scale = Vector2(1, -1)
 
 [node name="Net" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(640, 360)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_4ac5h")
 
-[node name="PaddleLeft" parent="." groups=["paddle"] instance=ExtResource("7_2a724")]
+[node name="PaddleLeft" parent="." instance=ExtResource("7_2a724")]
 position = Vector2(50, 360)
 
-[node name="PaddleRight" parent="." groups=["paddle"] instance=ExtResource("7_2a724")]
+[node name="PaddleRight" parent="." instance=ExtResource("7_2a724")]
 position = Vector2(1230, 360)
 scale = Vector2(-1, 1)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(640, 360)
 
 [node name="Border" type="Line2D" parent="."]
 points = PackedVector2Array(1, 1, 1279, 1, 1279, 719, 1, 719)
@@ -191,5 +193,8 @@ offset_bottom = 20.36
 grow_horizontal = 2
 icon = ExtResource("10_n6lk1")
 expand_icon = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
 
 [connection signal="pressed" from="HUD/PauseButton" to="." method="pause"]
