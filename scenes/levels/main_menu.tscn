@@ -124,6 +124,9 @@ closed = true
 width = 3.0
 antialiased = true
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
 [connection signal="pressed" from="MainMenu/ExpandButton" to="." method="_on_expand_pressed"]
 [connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MainMenu/QuitButton" to="." method="_on_quit_pressed"]

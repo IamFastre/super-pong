@@ -273,5 +273,8 @@ icon = ExtResource("11_ps74u")
 flat = true
 expand_icon = true
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
 [connection signal="pressed" from="ModeSelector/Classic/Panel/Control/SPButton" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="ModeSelector/BackButton" to="." method="_on_back_pressed"]
