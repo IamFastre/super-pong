@@ -34,6 +34,7 @@ offset_bottom = 720.0
 
 [node name="Scores" type="Control" parent="Background"]
 layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -87,6 +88,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Icons" type="Control" parent="Background"]
 modulate = Color(1, 1, 1, 0.247059)
 layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -150,10 +152,10 @@ position = Vector2(640, 360)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_4ac5h")
 
-[node name="PaddleLeft" parent="." instance=ExtResource("7_2a724")]
+[node name="PaddleLeft" parent="." groups=["paddle"] instance=ExtResource("7_2a724")]
 position = Vector2(50, 360)
 
-[node name="PaddleRight" parent="." instance=ExtResource("7_2a724")]
+[node name="PaddleRight" parent="." groups=["paddle"] instance=ExtResource("7_2a724")]
 position = Vector2(1230, 360)
 scale = Vector2(-1, 1)
 
