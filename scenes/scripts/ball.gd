@@ -17,6 +17,7 @@ class_name BallNode extends CharacterBody2D
 
 var direction:Vector2 = Vector2.ZERO
 var hit_count:int = 0
+var last_thrower:PaddleNode
 
 #=====================================================================#
 
@@ -38,6 +39,7 @@ func handle_collision(collision:KinematicCollision2D) -> void:
 
 	if collider is PaddleNode:
 		hit_count += 1
+		last_thrower = collider
 		if hit_count % speed_hit_interval == 0:
 			speed_multiplier += speed_acceleration_step
 
