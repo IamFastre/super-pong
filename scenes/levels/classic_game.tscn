@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://dltch8mu6bqjt"]
 
 [ext_resource type="Script" path="res://scenes/levels/scripts/classic_game.gd" id="1_ubcwj"]
-[ext_resource type="Resource" uid="uid://dqeana3x1moju" path="res://resources/human_p1.tres" id="2_s2r8m"]
+[ext_resource type="Resource" uid="uid://dqeana3x1moju" path="res://resources/player_info/human_p1.tres" id="2_s2r8m"]
 [ext_resource type="FontFile" uid="uid://b5sue0dl0b1fx" path="res://assets/fonts/PIXY.ttf" id="3_6oe0o"]
-[ext_resource type="Resource" uid="uid://dbskre3v64m5" path="res://resources/cpu_medium.tres" id="3_6vntd"]
+[ext_resource type="Resource" uid="uid://dbskre3v64m5" path="res://resources/player_info/cpu_medium.tres" id="3_6vntd"]
 [ext_resource type="PackedScene" uid="uid://lpkcoh61r2ge" path="res://scenes/goal.tscn" id="4_tbatq"]
 [ext_resource type="Texture2D" uid="uid://myh5fbkadyuv" path="res://assets/icons/human.png" id="5_i1nia"]
 [ext_resource type="PackedScene" uid="uid://dvb1h8bxlrwhn" path="res://scenes/wall.tscn" id="5_vegqf"]

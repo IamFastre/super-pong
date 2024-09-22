@@ -2,9 +2,9 @@
 
 [ext_resource type="FontFile" uid="uid://b5sue0dl0b1fx" path="res://assets/fonts/PIXY.ttf" id="1_l7dku"]
 [ext_resource type="Script" path="res://scenes/levels/scripts/super_game.gd" id="1_s71rq"]
-[ext_resource type="Resource" uid="uid://dqeana3x1moju" path="res://resources/human_p1.tres" id="2_4xtrh"]
+[ext_resource type="Resource" uid="uid://dqeana3x1moju" path="res://resources/player_info/human_p1.tres" id="2_4xtrh"]
 [ext_resource type="Texture2D" uid="uid://myh5fbkadyuv" path="res://assets/icons/human.png" id="2_287pu"]
-[ext_resource type="Resource" uid="uid://bh6pjt4b1kjr2" path="res://resources/cpu_hard.tres" id="3_od1on"]
+[ext_resource type="Resource" uid="uid://bh6pjt4b1kjr2" path="res://resources/player_info/cpu_hard.tres" id="3_od1on"]
 [ext_resource type="Texture2D" uid="uid://c4ttu450ldlbl" path="res://assets/icons/cpu.png" id="3_yupyo"]
 [ext_resource type="PackedScene" uid="uid://lpkcoh61r2ge" path="res://scenes/goal.tscn" id="4_a45hc"]
 [ext_resource type="PackedScene" uid="uid://dvb1h8bxlrwhn" path="res://scenes/wall.tscn" id="5_lcdnq"]
