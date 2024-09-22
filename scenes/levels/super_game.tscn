@@ -1,0 +1,171 @@
+[gd_scene load_steps=13 format=3 uid="uid://bcsvmm8h7gobe"]
+
+[ext_resource type="FontFile" uid="uid://b5sue0dl0b1fx" path="res://assets/fonts/PIXY.ttf" id="1_l7dku"]
+[ext_resource type="Script" path="res://scenes/levels/scripts/super_game.gd" id="1_s71rq"]
+[ext_resource type="Resource" uid="uid://dqeana3x1moju" path="res://resources/human_p1.tres" id="2_4xtrh"]
+[ext_resource type="Texture2D" uid="uid://myh5fbkadyuv" path="res://assets/icons/human.png" id="2_287pu"]
+[ext_resource type="Resource" uid="uid://bh6pjt4b1kjr2" path="res://resources/cpu_hard.tres" id="3_od1on"]
+[ext_resource type="Texture2D" uid="uid://c4ttu450ldlbl" path="res://assets/icons/cpu.png" id="3_yupyo"]
+[ext_resource type="PackedScene" uid="uid://lpkcoh61r2ge" path="res://scenes/goal.tscn" id="4_a45hc"]
+[ext_resource type="PackedScene" uid="uid://dvb1h8bxlrwhn" path="res://scenes/wall.tscn" id="5_lcdnq"]
+[ext_resource type="Texture2D" uid="uid://cydgbs0cjm5ip" path="res://assets/sprites/net.png" id="6_liov1"]
+[ext_resource type="PackedScene" uid="uid://da7h22hlyy5v1" path="res://scenes/paddle.tscn" id="7_ufdwy"]
+[ext_resource type="Theme" uid="uid://6okv6pwxtji0" path="res://ui/themes/main.tres" id="8_gshl0"]
+[ext_resource type="Texture2D" uid="uid://bhbp6560u0mtw" path="res://ui/assets/pause.png" id="9_yhjls"]
+
+[node name="SuperGame" type="Node" node_paths=PackedStringArray("left_paddle", "left_goal", "left_label", "left_icon", "right_paddle", "right_goal", "right_label", "right_icon")]
+script = ExtResource("1_s71rq")
+left_info = ExtResource("2_4xtrh")
+left_paddle = NodePath("PaddleLeft")
+left_goal = NodePath("GoalLeft")
+left_label = NodePath("Background/ScoreLeft")
+left_icon = NodePath("Background/IconLeft")
+right_info = ExtResource("3_od1on")
+right_paddle = NodePath("PaddleRight")
+right_goal = NodePath("GoalRight")
+right_label = NodePath("Background/ScoreRight")
+right_icon = NodePath("Background/IconRight")
+
+[node name="Background" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="ScoreLeft" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.461
+anchor_top = 0.493
+anchor_right = 0.461
+anchor_bottom = 0.493
+offset_left = -50.08
+offset_top = -19.96
+offset_right = -0.0800171
+offset_bottom = 20.04
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_l7dku")
+theme_override_font_sizes/font_size = 38
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreRight" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.539
+anchor_top = 0.493
+anchor_right = 0.539
+anchor_bottom = 0.493
+offset_left = 0.0799561
+offset_top = -19.96
+offset_right = 50.08
+offset_bottom = 20.04
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_l7dku")
+theme_override_font_sizes/font_size = 38
+text = "0"
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="IconLeft" type="TextureRect" parent="Background"]
+modulate = Color(1, 1, 1, 0.25098)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.5
+anchor_right = 0.25
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_287pu")
+metadata/_edit_use_anchors_ = true
+
+[node name="IconRight" type="TextureRect" parent="Background"]
+modulate = Color(1, 1, 1, 0.25098)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.5
+anchor_right = 0.75
+anchor_bottom = 0.5
+offset_left = -20.0001
+offset_top = -20.0
+offset_right = 19.9999
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_yupyo")
+metadata/_edit_use_anchors_ = true
+
+[node name="GoalLeft" parent="." instance=ExtResource("4_a45hc")]
+position = Vector2(-25, 360)
+
+[node name="GoalRight" parent="." instance=ExtResource("4_a45hc")]
+position = Vector2(1305, 360)
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="UpperWall" parent="Walls" instance=ExtResource("5_lcdnq")]
+position = Vector2(640, 0)
+
+[node name="LowerWall" parent="Walls" instance=ExtResource("5_lcdnq")]
+position = Vector2(640, 720)
+scale = Vector2(1, -1)
+
+[node name="Net" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(640, 360)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_liov1")
+
+[node name="PaddleLeft" parent="." instance=ExtResource("7_ufdwy")]
+position = Vector2(50, 360)
+
+[node name="PaddleRight" parent="." instance=ExtResource("7_ufdwy")]
+position = Vector2(1230, 360)
+scale = Vector2(-1, 1)
+
+[node name="Border" type="Line2D" parent="."]
+points = PackedVector2Array(1, 1, 1279, 1, 1279, 719, 1, 719)
+closed = true
+width = 2.0
+antialiased = true
+
+[node name="HUD" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme = ExtResource("8_gshl0")
+
+[node name="PauseButton" type="Button" parent="HUD"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035
+anchor_top = 0.062
+anchor_right = 0.035
+anchor_bottom = 0.062
+offset_left = -19.8
+offset_top = -19.64
+offset_right = 20.2
+offset_bottom = 20.36
+grow_horizontal = 2
+icon = ExtResource("9_yhjls")
+expand_icon = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)

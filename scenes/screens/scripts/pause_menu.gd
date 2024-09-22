@@ -1,6 +1,6 @@
 class_name PauseScreen extends CanvasLayer
 
-@export var game:ClassicGame
+@export var game:GameMode
 @export var animation:AnimationPlayer
 
 var dying:bool = false

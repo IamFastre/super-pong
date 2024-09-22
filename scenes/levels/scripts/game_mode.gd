@@ -16,17 +16,17 @@ class_name GameMode extends Node
 @export var right_label:Label
 @export var right_icon:TextureRect
 
-@export_group("Ball")
-@export var spawn_ball_on_start:bool = true
-@export var ball_packed:PackedScene = preload("res://scenes/ball.tscn")
-@export var initial_position:Vector2 = Vector2(640, 360)
+@export_group("Ball", "ball_")
+@export var ball_spawn_on_start:bool = true
+@export var ball_packed_scene:PackedScene = preload("res://scenes/ball.tscn")
+@export var ball_initial_position:Vector2 = Vector2(640, 360)
+
+@export_group("Pause Screen", "ps_")
+@export var ps_scene:PackedScene = preload("res://scenes/screens/pause_menu.tscn")
 
 @export_group("Game Over Screen", "go_")
 @export var go_scene:PackedScene = preload("res://scenes/screens/game_over.tscn")
 @export var go_score_goal:int = 10
-
-@export_group("Pause Screen", "ps_")
-@export var ps_scene:PackedScene = preload("res://scenes/screens/pause_menu.tscn")
 
 var running:bool = true :
 	get: return running
@@ -57,9 +57,9 @@ func score_goal_met() -> bool:
 func get_winner() -> bool:
 	return left_score >= go_score_goal or right_score >= go_score_goal
 
-func spawn_ball(custom_initial_position:Vector2 = initial_position) -> void:
+func spawn_ball(custom_initial_position:Vector2 = ball_initial_position) -> void:
 	if running:
-		var ball_node := ball_packed.instantiate() as BallNode
+		var ball_node := ball_packed_scene.instantiate() as BallNode
 		ball_node.position = custom_initial_position
 		call_deferred('add_child', ball_node)
 		ball_spawned.emit(ball_node)
@@ -161,7 +161,7 @@ func _ready() -> void:
 	left_icon.texture = left_info.icon
 	right_icon.texture = right_info.icon
 
-	if spawn_ball_on_start:
+	if ball_spawn_on_start:
 		spawn_ball()
 
 func _process(_delta:float) -> void:

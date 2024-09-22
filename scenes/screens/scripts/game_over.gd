@@ -1,7 +1,7 @@
 @tool
 class_name GameOverScreen extends CanvasLayer
 
-@export var game:ClassicGame
+@export var game:GameMode
 @export var animation:AnimationPlayer
 
 @export_group("Scores", "score_")

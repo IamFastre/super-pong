@@ -4,12 +4,13 @@ enum Scene {
 	MainMenu,
 	ModeSelector,
 	ClassicGame,
-	# SuperPong,
+	SuperGame,
 }
 
 const MAIN_MENU:PackedScene     = preload("res://scenes/levels/main_menu.tscn")
 const MODE_SELECTOR:PackedScene = preload("res://scenes/levels/mode_selector.tscn")
 const CLASSIC_GAME:PackedScene  = preload("res://scenes/levels/classic_game.tscn")
+const SUPER_GAME:PackedScene  = preload("res://scenes/levels/super_game.tscn")
 
 var current:Node
 var history:Array[Scene] = []
@@ -21,6 +22,7 @@ func switch(scene:Scene) -> void:
 		Scene.MainMenu:     s = MAIN_MENU
 		Scene.ModeSelector: s = MODE_SELECTOR
 		Scene.ClassicGame:  s = CLASSIC_GAME
+		Scene.SuperGame:    s = SUPER_GAME
 		_: assert(false, "Unknown scene id")
 
 	call_deferred("_deferred_switch_to_node", s.instantiate())
