@@ -44,8 +44,8 @@ func handle_collision(collision:KinematicCollision2D) -> void:
 			speed_multiplier += speed_acceleration_step
 
 		var paddle := collider as PaddleNode
-		var rot_dir:float = 1 if direction.x == 0.0 else direction.x / abs(direction.x)
-		var strength:float = paddle.movement.velocity / paddle.movement.speed_multiplier / 2
+		var rot_dir:float = 1.0 if direction.x == 0.0 else direction.x / abs(direction.x)
+		var strength:float = 1.0 if paddle.movement.is_sprinting else 0.5 if paddle.movement.is_moving else 0.0
 		var angle = lerp_angle(0, PI/6 * strength, 1 - abs(direction.y)) * rot_dir
 		direction = direction.rotated(angle)
 
