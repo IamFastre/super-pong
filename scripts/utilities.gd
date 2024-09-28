@@ -1,5 +1,8 @@
 extends Node
 
+@onready var screensize:Vector2 = get_viewport().content_scale_size
+@onready var center:Vector2 = screensize / 2
+
 func _input(event:InputEvent) -> void:
 	if event.is_action_pressed("quit_app"):
 		Game.quit()

@@ -14,6 +14,7 @@ class_name BallNode extends CharacterBody2D
 @export var speed_acceleration_step:float = 25
 
 @onready var wait_timer:Timer = $WaitTime
+@onready var initial_modulate:Color = modulate
 
 var direction:Vector2 = Vector2.ZERO
 var hit_count:int = 0
@@ -40,6 +41,7 @@ func handle_collision(collision:KinematicCollision2D) -> void:
 	if collider is PaddleNode:
 		hit_count += 1
 		last_thrower = collider
+
 		if hit_count % speed_hit_interval == 0:
 			speed_multiplier += speed_acceleration_step
 

@@ -86,7 +86,7 @@ func setup_paddle(paddle:PaddleNode, info:PlayerInfo) -> void:
 	if paddle == left_paddle:
 		paddle.position.x = paddle_initial_displacement.x
 	elif paddle == right_paddle:
-		paddle.position.x = Constants.screensize.x - paddle_initial_displacement.x
+		paddle.position.x = Utilities.screensize.x - paddle_initial_displacement.x
 		paddle.scale.x *= -1
 
 	# Paddle movement setup
@@ -149,8 +149,8 @@ func restart() -> void:
 
 	left_score = 0
 	right_score = 0
-	left_paddle.position.y = Constants.screensize.y / 2
-	right_paddle.position.y = Constants.screensize.y / 2
+	left_paddle.position.y = Utilities.screensize.y / 2
+	right_paddle.position.y = Utilities.screensize.y / 2
 	spawn_ball()
 
 func startup() -> void:

@@ -17,8 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Shortcuts="res://scripts/shortcuts.gd"
-Constants="*res://scripts/constants.gd"
+Utilities="*res://scripts/utilities.gd"
 SceneManager="*res://scripts/scene_manager.gd"
 Game="*res://scripts/game.gd"
 

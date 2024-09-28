@@ -6,7 +6,7 @@ var get_input:Callable
 var ball:BallNode
 var delta:float = 0
 
-@onready var center:Vector2 = Constants.screensize / 2
+@onready var center:Vector2 = Utilities.screensize / 2
 @onready var view_area:Area2D = $Area2D
 
 #=====================================================================#
