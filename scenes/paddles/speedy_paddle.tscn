@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/scripts/paddle.gd" id="1_wxkbx"]
 [ext_resource type="Script" path="res://components/scripts/movement_clamp.gd" id="2_2axn4"]
-[ext_resource type="Texture2D" uid="uid://m0ao3fe8pg64" path="res://assets/icons/lightning.png" id="2_cjh6l"]
+[ext_resource type="Texture2D" uid="uid://bp2b3u5lb2dgr" path="res://assets/icons/lightning.png" id="2_cjh6l"]
 [ext_resource type="Script" path="res://components/scripts/paddle_movement.gd" id="3_sdg25"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vn8v2"]
@@ -19,12 +19,11 @@ offset_right = 8.0
 offset_bottom = 70.0
 color = Color(0.960784, 0.686275, 0.164706, 1)
 
-[node name="Lightning" type="TextureRect" parent="."]
-texture_filter = 1
-offset_left = 16.0
-offset_top = -7.0
-offset_right = 30.0
-offset_bottom = 25.0
+[node name="Icon" type="TextureRect" parent="."]
+offset_left = 20.0
+offset_top = -20.0
+offset_right = 60.0
+offset_bottom = 20.0
 rotation = 1.5708
 texture = ExtResource("2_cjh6l")
 expand_mode = 1
