@@ -51,7 +51,7 @@ func cpu_medium():
 func cpu_hard():
 	var target = ball.position if ball_heading_here() and ball_in_my_half() else center
 	direction = direction_to(target) if away(target, 2) else 0.0
-	is_sprinting = away(target, 8) and ball_in_my_half()
+	is_sprinting = away(target, 5) and ball_in_my_half()
 
 func setup(cpu_difficulty:PlayerInfo.DIFFICULTY):
 	difficulty = cpu_difficulty

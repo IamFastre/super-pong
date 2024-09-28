@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dux475wbhf53b"]
+
+[ext_resource type="Script" path="res://scenes/scripts/paddle.gd" id="1_m5d3l"]
+[ext_resource type="Texture2D" uid="uid://cv47h51npi8x3" path="res://assets/icons/shield.png" id="2_6vxd8"]
+[ext_resource type="Script" path="res://components/scripts/movement_clamp.gd" id="2_vgtvv"]
+[ext_resource type="Script" path="res://components/scripts/paddle_movement.gd" id="3_wu6m5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vn8v2"]
+size = Vector2(16, 350)
+
+[node name="ClassicPaddle" type="StaticBody2D" node_paths=PackedStringArray("movement")]
+script = ExtResource("1_m5d3l")
+movement = NodePath("PaddleMovement")
+
+[node name="Sprite" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_top = -175.0
+offset_right = 8.0
+offset_bottom = 175.0
+color = Color(0.266, 0.3458, 0.95, 1)
+
+[node name="Lightning" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 15.0
+offset_top = -14.0
+offset_right = 43.0
+offset_bottom = 16.0
+rotation = 1.5708
+texture = ExtResource("2_6vxd8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vn8v2")
+debug_color = Color(0, 0.6, 0.7, 0)
+
+[node name="MovementClamp" type="Node" parent="."]
+script = ExtResource("2_vgtvv")
+
+[node name="PaddleMovement" type="Node2D" parent="."]
+script = ExtResource("3_wu6m5")
+move_speed = 400.0
+sprint_speed = 500.0
+can_sprint = false

@@ -1,5 +1,7 @@
 class_name GameMode extends Node
 
+@export var score_goal:int = 10
+
 @export_group("Player 1", "left_")
 @export var left_score:int = 0
 @export var left_info:PlayerInfo
@@ -24,12 +26,9 @@ class_name GameMode extends Node
 @export var ball_packed_scene:PackedScene = preload("res://scenes/ball.tscn")
 @export var ball_initial_position:Vector2 = Vector2(640, 360)
 
-@export_group("Pause Screen", "ps_")
-@export var ps_scene:PackedScene = preload("res://scenes/screens/pause_menu.tscn")
-
-@export_group("Game Over Screen", "go_")
-@export var go_scene:PackedScene = preload("res://scenes/screens/game_over.tscn")
-@export var go_score_goal:int = 10
+@export_group("Menus", "menu_")
+@export var menu_pause:PackedScene = preload("res://scenes/screens/pause_menu.tscn") # menu pause lol
+@export var menu_game_over:PackedScene = preload("res://scenes/screens/game_over.tscn")
 
 var left_paddle:PaddleNode
 var right_paddle:PaddleNode
@@ -58,10 +57,10 @@ enum Side {
 #=====================================================================#
 
 func score_goal_met() -> bool:
-	return left_score >= go_score_goal or right_score >= go_score_goal
+	return left_score >= score_goal or right_score >= score_goal
 
 func get_winner() -> bool:
-	return left_score >= go_score_goal or right_score >= go_score_goal
+	return left_score >= score_goal or right_score >= score_goal
 
 func spawn_ball(custom_initial_position:Vector2 = ball_initial_position) -> void:
 	if running:
@@ -88,6 +87,7 @@ func setup_paddle(paddle:PaddleNode, info:PlayerInfo) -> void:
 		paddle.position.x = paddle_initial_displacement.x
 	elif paddle == right_paddle:
 		paddle.position.x = Constants.screensize.x - paddle_initial_displacement.x
+		paddle.scale.x *= -1
 
 	# Paddle movement setup
 	var movement = info.get_movement_node()
@@ -104,7 +104,7 @@ func game_over() -> void:
 	left_label.visible = false
 	right_label.visible = false
 
-	var go_screen := go_scene.instantiate() as GameOverScreen
+	var go_screen := menu_game_over.instantiate() as GameOverScreen
 	go_screen.game = self
 	go_screen.score_left = left_score
 	go_screen.score_right = right_score
@@ -127,7 +127,7 @@ func pause() -> void:
 		if c is BallNode:
 			c.movement_disabled = true
 
-	var ps_screen := ps_scene.instantiate() as PauseScreen
+	var ps_screen := menu_pause.instantiate() as PauseScreen
 	ps_screen.game = self
 	add_child(ps_screen)
 
