@@ -9,7 +9,6 @@ radius = 8.0
 [node name="Ball" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_jusfw")
-initial_direction = Vector2(-1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
