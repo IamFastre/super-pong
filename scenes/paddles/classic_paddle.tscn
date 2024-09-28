@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://da7h22hlyy5v1"]
 
-[ext_resource type="Script" path="res://scenes/scripts/paddle.gd" id="1_ebeho"]
-[ext_resource type="Script" path="res://components/scripts/movement_clamp.gd" id="3_a2dkk"]
-[ext_resource type="Script" path="res://components/scripts/paddle_movement.gd" id="3_s2w7s"]
+[ext_resource type="Script" path="res://scenes/scripts/paddle.gd" id="1_n4bcr"]
+[ext_resource type="Script" path="res://components/scripts/movement_clamp.gd" id="2_0fs3l"]
+[ext_resource type="Script" path="res://components/scripts/paddle_movement.gd" id="3_5xsuc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vn8v2"]
 size = Vector2(16, 200)
 
 [node name="Paddle" type="StaticBody2D" node_paths=PackedStringArray("movement")]
-script = ExtResource("1_ebeho")
+script = ExtResource("1_n4bcr")
 movement = NodePath("PaddleMovement")
 
 [node name="Sprite" type="ColorRect" parent="."]
@@ -22,7 +22,7 @@ shape = SubResource("RectangleShape2D_vn8v2")
 debug_color = Color(0, 0.6, 0.7, 0)
 
 [node name="MovementClamp" type="Node" parent="."]
-script = ExtResource("3_a2dkk")
+script = ExtResource("2_0fs3l")
 
 [node name="PaddleMovement" type="Node2D" parent="."]
-script = ExtResource("3_s2w7s")
+script = ExtResource("3_5xsuc")
