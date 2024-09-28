@@ -24,7 +24,7 @@ func direction_to(vec:Vector2) -> float:
 
 func away(vec:Vector2, steps:float) -> bool:
 	var dif = dif_from(vec)
-	return abs(dif) > properties.speed * delta * steps
+	return abs(dif) > move_speed * delta * steps
 
 func ball_heading_here(tolerance:float = 0) -> bool:
 	if is_right():

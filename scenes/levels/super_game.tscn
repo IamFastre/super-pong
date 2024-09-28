@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bcsvmm8h7gobe"]
+[gd_scene load_steps=14 format=3 uid="uid://bcsvmm8h7gobe"]
 
 [ext_resource type="FontFile" uid="uid://b5sue0dl0b1fx" path="res://assets/fonts/PIXY.ttf" id="1_l7dku"]
 [ext_resource type="Script" path="res://scenes/levels/scripts/super_game.gd" id="1_s71rq"]
@@ -9,20 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://lpkcoh61r2ge" path="res://scenes/goal.tscn" id="4_a45hc"]
 [ext_resource type="PackedScene" uid="uid://dvb1h8bxlrwhn" path="res://scenes/wall.tscn" id="5_lcdnq"]
 [ext_resource type="Texture2D" uid="uid://cydgbs0cjm5ip" path="res://assets/sprites/net.png" id="6_liov1"]
-[ext_resource type="PackedScene" uid="uid://da7h22hlyy5v1" path="res://scenes/paddle.tscn" id="7_ufdwy"]
+[ext_resource type="PackedScene" uid="uid://da7h22hlyy5v1" path="res://scenes/paddles/classic_paddle.tscn" id="7_ufdwy"]
 [ext_resource type="Theme" uid="uid://6okv6pwxtji0" path="res://ui/themes/main.tres" id="8_gshl0"]
 [ext_resource type="Texture2D" uid="uid://bhbp6560u0mtw" path="res://ui/assets/pause.png" id="9_yhjls"]
-[ext_resource type="Script" path="res://resources/paddle_properties/script.gd" id="11_lom6n"]
-
-[sub_resource type="Resource" id="Resource_yckdc"]
-script = ExtResource("11_lom6n")
-name = "Paddle"
-speed = 750.0
-sprint_speed = 1000.0
-can_sprint = true
-color = Color(1, 1, 0.435294, 1)
-scale = Vector2(1, 0.75)
-displacement = Vector2(0, 0)
+[ext_resource type="PackedScene" uid="uid://5i38r16ygifq" path="res://scenes/paddles/speedy_paddle.tscn" id="10_fefa7"]
 
 [node name="SuperGame" type="Node" node_paths=PackedStringArray("left_paddle", "left_goal", "left_label", "left_icon", "right_paddle", "right_goal", "right_label", "right_icon")]
 script = ExtResource("1_s71rq")
@@ -141,15 +131,14 @@ position = Vector2(640, 360)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_liov1")
 
-[node name="PaddleLeft" parent="." instance=ExtResource("7_ufdwy")]
+[node name="PaddleLeft" parent="." instance=ExtResource("10_fefa7")]
 position = Vector2(50, 360)
-properties = SubResource("Resource_yckdc")
 
 [node name="PaddleRight" parent="." instance=ExtResource("7_ufdwy")]
 position = Vector2(1230, 360)
-properties = SubResource("Resource_yckdc")
 
 [node name="Border" type="Line2D" parent="."]
+visible = false
 points = PackedVector2Array(1, 1, 1279, 1, 1279, 719, 1, 719)
 closed = true
 width = 2.0

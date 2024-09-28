@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://da7h22hlyy5v1"]
+[gd_scene load_steps=5 format=3 uid="uid://da7h22hlyy5v1"]
 
 [ext_resource type="Script" path="res://scenes/scripts/paddle.gd" id="1_ebeho"]
-[ext_resource type="Resource" uid="uid://ccwj7x8fwrprk" path="res://resources/paddle_properties/classic_paddle.tres" id="2_hr3dx"]
 [ext_resource type="Script" path="res://components/scripts/movement_clamp.gd" id="3_a2dkk"]
 [ext_resource type="Script" path="res://components/scripts/paddle_movement.gd" id="3_s2w7s"]
 
@@ -10,7 +9,6 @@ size = Vector2(16, 200)
 
 [node name="Paddle" type="StaticBody2D" node_paths=PackedStringArray("movement")]
 script = ExtResource("1_ebeho")
-properties = ExtResource("2_hr3dx")
 movement = NodePath("PaddleMovement")
 
 [node name="Sprite" type="ColorRect" parent="."]
@@ -21,6 +19,7 @@ offset_bottom = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vn8v2")
+debug_color = Color(0, 0.6, 0.7, 0)
 
 [node name="MovementClamp" type="Node" parent="."]
 script = ExtResource("3_a2dkk")

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PaddleProperties" load_steps=2 format=3 uid="uid://cqe6x3mafihej"]
+
+[ext_resource type="Script" path="res://resources/paddle_properties/script.gd" id="1_ywnju"]
+
+[resource]
+script = ExtResource("1_ywnju")
+color = Color(1, 1, 0.435294, 1)
+scale = Vector2(1, 0.7)
+displacement = Vector2(0, 0)
