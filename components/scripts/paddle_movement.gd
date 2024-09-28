@@ -3,6 +3,7 @@ class_name PaddleMovement extends ComponentNode2D
 @export var move_speed:float = 500
 @export var sprint_speed:float = 750
 @export var can_sprint:bool = true
+@export_range(0, 1) var ball_maneuver:float = 0.5
 
 var velocity = 0.0
 var direction:float = 0.0
@@ -20,6 +21,7 @@ func inherit(old:PaddleMovement):
 	move_speed = old.move_speed
 	sprint_speed = old.sprint_speed
 	can_sprint = old.can_sprint
+	ball_maneuver = old.ball_maneuver
 	old.queue_free()
 
 func move(delta:float) -> void:

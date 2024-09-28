@@ -41,3 +41,4 @@ script = ExtResource("3_wu6m5")
 move_speed = 400.0
 sprint_speed = 500.0
 can_sprint = false
+ball_maneuver = 0.6

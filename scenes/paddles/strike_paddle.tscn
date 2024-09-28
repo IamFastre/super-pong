@@ -40,3 +40,4 @@ script = ExtResource("3_60yo0")
 [node name="PaddleMovement" type="Node2D" parent="."]
 script = ExtResource("4_vahnh")
 sprint_speed = 850.0
+ball_maneuver = 0.85

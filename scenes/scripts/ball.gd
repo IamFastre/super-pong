@@ -46,7 +46,7 @@ func handle_collision(collision:KinematicCollision2D) -> void:
 		var paddle := collider as PaddleNode
 		var rot_dir:float = 1.0 if direction.x == 0.0 else direction.x / abs(direction.x) * paddle.movement.direction
 		var strength:float = 1.0 if paddle.movement.is_sprinting else 0.5 if paddle.movement.is_moving else 0.0
-		var angle = lerp_angle(0, PI/6 * strength, 1 - abs(direction.y)) * rot_dir
+		var angle = lerp_angle(0, (PI/3) * strength * paddle.movement.ball_maneuver, 1 - abs(direction.y)) * rot_dir
 		direction = direction.rotated(angle)
 
 	elif collider is WallNode:
