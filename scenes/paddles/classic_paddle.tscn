@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vn8v2"]
 size = Vector2(16, 200)
 
-[node name="Paddle" type="StaticBody2D" node_paths=PackedStringArray("movement")]
+[node name="ClassicPaddle" type="StaticBody2D" node_paths=PackedStringArray("movement")]
 script = ExtResource("1_n4bcr")
 movement = NodePath("PaddleMovement")
 

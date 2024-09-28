@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bcsvmm8h7gobe"]
+[gd_scene load_steps=13 format=3 uid="uid://bcsvmm8h7gobe"]
 
 [ext_resource type="FontFile" uid="uid://b5sue0dl0b1fx" path="res://assets/fonts/PIXY.ttf" id="1_l7dku"]
 [ext_resource type="Script" path="res://scenes/levels/scripts/super_game.gd" id="1_s71rq"]
@@ -9,23 +9,22 @@
 [ext_resource type="PackedScene" uid="uid://lpkcoh61r2ge" path="res://scenes/goal.tscn" id="4_a45hc"]
 [ext_resource type="PackedScene" uid="uid://dvb1h8bxlrwhn" path="res://scenes/wall.tscn" id="5_lcdnq"]
 [ext_resource type="Texture2D" uid="uid://cydgbs0cjm5ip" path="res://assets/sprites/net.png" id="6_liov1"]
-[ext_resource type="PackedScene" uid="uid://da7h22hlyy5v1" path="res://scenes/paddles/classic_paddle.tscn" id="7_ufdwy"]
 [ext_resource type="Theme" uid="uid://6okv6pwxtji0" path="res://ui/themes/main.tres" id="8_gshl0"]
 [ext_resource type="Texture2D" uid="uid://bhbp6560u0mtw" path="res://ui/assets/pause.png" id="9_yhjls"]
 [ext_resource type="PackedScene" uid="uid://5i38r16ygifq" path="res://scenes/paddles/speedy_paddle.tscn" id="10_fefa7"]
 
-[node name="SuperGame" type="Node" node_paths=PackedStringArray("left_paddle", "left_goal", "left_label", "left_icon", "right_paddle", "right_goal", "right_label", "right_icon")]
+[node name="SuperGame" type="Node" node_paths=PackedStringArray("left_goal", "left_label", "left_icon", "right_goal", "right_label", "right_icon")]
 script = ExtResource("1_s71rq")
 left_info = ExtResource("2_4xtrh")
-left_paddle = NodePath("PaddleLeft")
 left_goal = NodePath("GoalLeft")
 left_label = NodePath("Background/ScoreLeft")
 left_icon = NodePath("Background/IconLeft")
 right_info = ExtResource("3_od1on")
-right_paddle = NodePath("PaddleRight")
 right_goal = NodePath("GoalRight")
 right_label = NodePath("Background/ScoreRight")
 right_icon = NodePath("Background/IconRight")
+paddle_left_scene = ExtResource("10_fefa7")
+paddle_right_scene = ExtResource("10_fefa7")
 
 [node name="Background" type="Control" parent="."]
 layout_mode = 3
@@ -131,12 +130,6 @@ texture_filter = 1
 position = Vector2(640, 360)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_liov1")
-
-[node name="PaddleLeft" parent="." instance=ExtResource("10_fefa7")]
-position = Vector2(50, 360)
-
-[node name="PaddleRight" parent="." instance=ExtResource("7_ufdwy")]
-position = Vector2(1230, 360)
 
 [node name="Border" type="Line2D" parent="."]
 visible = false

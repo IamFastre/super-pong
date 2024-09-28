@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vn8v2"]
 size = Vector2(16, 140)
 
-[node name="Paddle" type="StaticBody2D" node_paths=PackedStringArray("movement")]
+[node name="SpeedyPaddle" type="StaticBody2D" node_paths=PackedStringArray("movement")]
 script = ExtResource("1_wxkbx")
 movement = NodePath("PaddleMovement")
 
@@ -19,11 +19,16 @@ offset_right = 8.0
 offset_bottom = 70.0
 color = Color(0.960784, 0.686275, 0.164706, 1)
 
-[node name="Lightning" type="Sprite2D" parent="."]
+[node name="Lightning" type="TextureRect" parent="."]
 texture_filter = 1
+offset_left = 16.0
+offset_top = -7.0
+offset_right = 30.0
+offset_bottom = 25.0
 rotation = 1.5708
-scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_cjh6l")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vn8v2")

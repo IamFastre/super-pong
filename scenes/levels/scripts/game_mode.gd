@@ -3,7 +3,6 @@ class_name GameMode extends Node
 @export_group("Player 1", "left_")
 @export var left_score:int = 0
 @export var left_info:PlayerInfo
-@export var left_paddle:PaddleNode
 @export var left_goal:GoalNode
 @export var left_label:Label
 @export var left_icon:TextureRect
@@ -11,10 +10,14 @@ class_name GameMode extends Node
 @export_group("Player 2", "right_")
 @export var right_score:int = 0
 @export var right_info:PlayerInfo
-@export var right_paddle:PaddleNode
 @export var right_goal:GoalNode
 @export var right_label:Label
 @export var right_icon:TextureRect
+
+@export_group("Paddles", "paddle_")
+@export var paddle_left_scene:PackedScene = preload("res://scenes/paddles/classic_paddle.tscn")
+@export var paddle_right_scene:PackedScene = preload("res://scenes/paddles/classic_paddle.tscn")
+@export var paddle_initial_displacement:Vector2 = Vector2(50, 360)
 
 @export_group("Ball", "ball_")
 @export var ball_spawn_on_start:bool = true
@@ -27,6 +30,9 @@ class_name GameMode extends Node
 @export_group("Game Over Screen", "go_")
 @export var go_scene:PackedScene = preload("res://scenes/screens/game_over.tscn")
 @export var go_score_goal:int = 10
+
+var left_paddle:PaddleNode
+var right_paddle:PaddleNode
 
 var running:bool = true :
 	get: return running
@@ -73,6 +79,17 @@ func on_score(to_player:Side) -> void:
 		spawn_ball()
 
 func setup_paddle(paddle:PaddleNode, info:PlayerInfo) -> void:
+	add_child(paddle)
+
+	# Paddle position setup
+	paddle.position.y = paddle_initial_displacement.y
+
+	if paddle == left_paddle:
+		paddle.position.x = paddle_initial_displacement.x
+	elif paddle == right_paddle:
+		paddle.position.x = Constants.screensize.x - paddle_initial_displacement.x
+
+	# Paddle movement setup
 	var movement = info.get_movement_node()
 
 	if movement is HumanMovement:
@@ -136,6 +153,23 @@ func restart() -> void:
 	right_paddle.position.y = Constants.screensize.y / 2
 	spawn_ball()
 
+func startup() -> void:
+	left_paddle = paddle_left_scene.instantiate()
+	right_paddle = paddle_right_scene.instantiate()
+
+	setup_paddle(left_paddle, left_info)
+	setup_paddle(right_paddle, right_info)
+
+	left_goal.scored.connect(on_score.bind(Side.RIGHT))
+	right_goal.scored.connect(on_score.bind(Side.LEFT))
+
+	left_icon.texture = left_info.icon
+	right_icon.texture = right_info.icon
+
+	if ball_spawn_on_start:
+		spawn_ball()
+
+
 #=====================================================================#
 
 func _enter_tree() -> void:
@@ -152,17 +186,7 @@ func _input(event:InputEvent) -> void:
 			unpause()
 
 func _ready() -> void:
-	setup_paddle(left_paddle, left_info)
-	setup_paddle(right_paddle, right_info)
-
-	left_goal.scored.connect(on_score.bind(Side.RIGHT))
-	right_goal.scored.connect(on_score.bind(Side.LEFT))
-
-	left_icon.texture = left_info.icon
-	right_icon.texture = right_info.icon
-
-	if ball_spawn_on_start:
-		spawn_ball()
+	startup()
 
 func _process(_delta:float) -> void:
 	if running and score_goal_met():
