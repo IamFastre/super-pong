@@ -1,6 +1,6 @@
 class_name CPUController extends PaddleController
 
-@export var mode:PlayerInfo.DIFFICULTY = PlayerInfo.DIFFICULTY.MEDIUM
+@export_enum("Disabled", "Easy", "Medium", "Hard") var mode:int = 0
 
 @onready var game:GameMode = GameMode.get_instance(parent)
 @onready var center:Vector2 = Utilities.screensize / 2
@@ -69,6 +69,6 @@ func hard():
 
 func _process(_delta:float) -> void:
 	if ball: match mode:
-		PlayerInfo.DIFFICULTY.EASY:   easy()
-		PlayerInfo.DIFFICULTY.MEDIUM: medium()
-		PlayerInfo.DIFFICULTY.HARD:   hard()
+		1: easy()
+		2: medium()
+		3: hard()
