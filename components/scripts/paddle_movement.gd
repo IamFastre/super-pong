@@ -29,10 +29,6 @@ func move(delta:float) -> void:
 
 #=====================================================================#
 
-func _ready() -> void:
-	if "movement" in parent:
-		parent.movement = self
-
 func _process(delta:float) -> void:
 	direction = controller.v_axis
 	is_sprinting = controller.sprint_down

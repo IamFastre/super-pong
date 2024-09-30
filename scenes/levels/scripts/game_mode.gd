@@ -102,9 +102,7 @@ func setup_paddle(paddle:PaddleNode, info:PlayerInfo) -> void:
 		paddle.scale.x *= -1
 
 	# Paddle controller setup
-	var controller = info.get_controller()
-	paddle.movement.controller = controller
-	paddle.add_child(controller)
+	paddle.setup_controller(info.get_controller())
 
 func game_over() -> void:
 	running = false
