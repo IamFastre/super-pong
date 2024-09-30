@@ -42,10 +42,12 @@ var running:bool = true :
 			left_paddle.movement.disabled = not value
 			right_paddle.movement.disabled = not value
 
+		for b in balls:
+			b.movement_disabled = not running
+
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN if value else Input.MOUSE_MODE_VISIBLE)
 		
-
-signal ball_spawned(ball:BallNode)
+var balls:Array[BallNode]
 
 #=====================================================================#
 
@@ -53,6 +55,16 @@ enum Side {
 	LEFT,
 	RIGHT,
 }
+
+#=====================================================================#
+
+static func get_instance(node:Node) -> GameMode:
+	var parent := node.get_parent()
+
+	if parent is GameMode or parent == null:
+		return parent
+
+	return get_instance(parent)
 
 #=====================================================================#
 
@@ -65,9 +77,10 @@ func get_winner() -> bool:
 func spawn_ball(custom_initial_position:Vector2 = ball_initial_position) -> void:
 	if running:
 		var ball_node := ball_packed_scene.instantiate() as BallNode
+		ball_node.tree_entered.connect(balls.append.bind(ball_node))
+		ball_node.tree_exited.connect(balls.erase.bind(ball_node))
 		ball_node.position = custom_initial_position
 		call_deferred('add_child', ball_node)
-		ball_spawned.emit(ball_node)
 
 func on_score(to_player:Side) -> void:
 	match to_player:
@@ -123,10 +136,6 @@ func game_over() -> void:
 func pause() -> void:
 	running = false
 
-	for c in get_children():
-		if c is BallNode:
-			c.movement_disabled = true
-
 	var ps_screen := menu_pause.instantiate() as PauseScreen
 	ps_screen.game = self
 	add_child(ps_screen)
@@ -134,18 +143,13 @@ func pause() -> void:
 func unpause() -> void:
 	running = true
 
-	for c in get_children():
-		if c is BallNode:
-			c.movement_disabled = false
-
 func restart() -> void:
 	running = true
 	left_label.visible = true
 	right_label.visible = true
 
-	for c in get_children():
-		if c is BallNode:
-			c.queue_free()
+	for b in balls:
+		b.queue_free()
 
 	left_score = 0
 	right_score = 0
