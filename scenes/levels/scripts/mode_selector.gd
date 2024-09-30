@@ -35,7 +35,7 @@ func _on_play_pressed() -> void:
 	var game := classic_packed_scene.instantiate() as ClassicGame
 	game.left_info = get_selected(classic_left_options)
 	game.right_info = get_selected(classic_right_options)
-	game.go_score_goal = int(classic_score_goal.value)
+	game.score_goal = int(classic_score_goal.value)
 	SceneManager.switch_to_node(game)
 
 #=====================================================================#
