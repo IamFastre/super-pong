@@ -95,22 +95,16 @@ func setup_paddle(paddle:PaddleNode, info:PlayerInfo) -> void:
 
 	# Paddle position setup
 	paddle.position.y = paddle_initial_displacement.y
-
 	if paddle == left_paddle:
 		paddle.position.x = paddle_initial_displacement.x
 	elif paddle == right_paddle:
 		paddle.position.x = Utilities.screensize.x - paddle_initial_displacement.x
 		paddle.scale.x *= -1
 
-	# Paddle movement setup
-	var movement = info.get_movement_node()
-
-	if movement is HumanMovement:
-		(movement as HumanMovement).setup(info.id)
-	elif movement is CPUMovement:
-		(movement as CPUMovement).setup(info.difficulty)
-
-	paddle.add_child(movement)
+	# Paddle controller setup
+	var controller = info.get_controller()
+	paddle.movement.controller = controller
+	paddle.add_child(controller)
 
 func game_over() -> void:
 	running = false

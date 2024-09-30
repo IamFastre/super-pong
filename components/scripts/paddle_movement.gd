@@ -1,5 +1,7 @@
 class_name PaddleMovement extends ComponentNode2D
 
+@export var controller:PaddleController
+
 @export var move_speed:float = 500
 @export var sprint_speed:float = 750
 @export var can_sprint:bool = true
@@ -17,13 +19,6 @@ var is_sprinting:bool = false :
 
 #=====================================================================#
 
-func inherit(old:PaddleMovement):
-	move_speed = old.move_speed
-	sprint_speed = old.sprint_speed
-	can_sprint = old.can_sprint
-	ball_maneuver = old.ball_maneuver
-	old.queue_free()
-
 func move(delta:float) -> void:
 	if disabled:
 		return
@@ -36,6 +31,9 @@ func move(delta:float) -> void:
 
 func _ready() -> void:
 	if "movement" in parent:
-		if parent.movement:
-			inherit(parent.movement)
 		parent.movement = self
+
+func _process(delta:float) -> void:
+	direction = controller.v_axis
+	is_sprinting = controller.sprint_down
+	move(delta)
