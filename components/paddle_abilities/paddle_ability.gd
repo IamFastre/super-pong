@@ -8,6 +8,7 @@ class_name PaddleAbility extends Component2D
 @onready var opponent := game.right_paddle if is_left else game.left_paddle
 
 var sprinting_activates:bool = false
+var disabled:bool = false
 
 var started:bool = false
 var running:bool = false
@@ -22,6 +23,8 @@ func on_finish()  -> void: pass
 #=====================================================================#
 
 func _process(_delta:float) -> void:
+	if disabled: return
+
 	started  = controller.ability_down     or (controller.sprint_down    and sprinting_activates)
 	running  = controller.ability_pressed  or (controller.sprint_pressed and sprinting_activates)
 	finished = controller.ability_up       or (controller.sprint_up      and sprinting_activates)
