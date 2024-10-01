@@ -1,4 +1,4 @@
-class_name PressEffect extends ComponentNode
+class_name PressEffect extends Component
 
 func _on_button_down() -> void:
 	if parent.text:

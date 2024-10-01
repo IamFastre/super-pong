@@ -1,4 +1,4 @@
-class_name PaddleMovement extends ComponentNode2D
+class_name PaddleMovement extends Component2D
 
 @export var controller:PaddleController
 
@@ -31,5 +31,5 @@ func move(delta:float) -> void:
 
 func _process(delta:float) -> void:
 	direction = controller.v_axis
-	is_sprinting = controller.sprint_down
+	is_sprinting = controller.sprint_pressed
 	move(delta)

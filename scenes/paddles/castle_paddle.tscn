@@ -1,22 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://dux475wbhf53b"]
+[gd_scene load_steps=7 format=3 uid="uid://dux475wbhf53b"]
 
 [ext_resource type="Script" path="res://scenes/scripts/paddle.gd" id="1_m5d3l"]
 [ext_resource type="Texture2D" uid="uid://dqv4wvvhuoscl" path="res://assets/icons/shield.png" id="2_6vxd8"]
-[ext_resource type="Script" path="res://components/scripts/movement_clamp.gd" id="2_vgtvv"]
-[ext_resource type="Script" path="res://components/scripts/paddle_movement.gd" id="3_wu6m5"]
+[ext_resource type="Script" path="res://components/movement_clamp.gd" id="2_vgtvv"]
+[ext_resource type="Script" path="res://components/paddle_movement.gd" id="3_wu6m5"]
+[ext_resource type="Script" path="res://components/paddle_abilities/paddle_ability.gd" id="5_wij37"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vn8v2"]
-size = Vector2(16, 350)
+size = Vector2(16, 320)
 
-[node name="CastlePaddle" type="StaticBody2D" node_paths=PackedStringArray("movement")]
+[node name="CastlePaddle" type="StaticBody2D" node_paths=PackedStringArray("movement", "ability")]
 script = ExtResource("1_m5d3l")
 movement = NodePath("PaddleMovement")
+ability = NodePath("PaddleAbility")
 
 [node name="Sprite" type="ColorRect" parent="."]
 offset_left = -8.0
-offset_top = -175.0
+offset_top = -160.0
 offset_right = 8.0
-offset_bottom = 175.0
+offset_bottom = 160.0
 color = Color(0.266, 0.3458, 0.95, 1)
 
 [node name="Icon" type="TextureRect" parent="."]
@@ -42,3 +44,6 @@ move_speed = 400.0
 sprint_speed = 500.0
 can_sprint = false
 ball_maneuver = 0.6
+
+[node name="PaddleAbility" type="Node2D" parent="."]
+script = ExtResource("5_wij37")

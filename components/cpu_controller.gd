@@ -63,7 +63,7 @@ func medium():
 func hard():
 	var target = ball.position if ball_heading_here() and ball_in_my_half() else center
 	v_axis = direction_to(target) if away(target, 2) else 0.0
-	sprint_down = away(target, 5) and ball_in_my_half()
+	sprint_pressed = away(target, 5) and ball_in_my_half()
 
 #=====================================================================#
 

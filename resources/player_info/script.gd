@@ -1,7 +1,7 @@
 class_name PlayerInfo extends Resource
 
-const HUMAN_CONTROLLER:GDScript = preload("res://components/scripts/human_controller.gd")
-const CPU_CONTROLLER:GDScript = preload("res://components/scripts/cpu_controller.gd")
+const HUMAN_CONTROLLER:GDScript = preload("res://components/human_controller.gd")
+const CPU_CONTROLLER:GDScript = preload("res://components/cpu_controller.gd")
 
 @export var name:String
 @export var icon:Texture2D

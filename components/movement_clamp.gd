@@ -1,4 +1,4 @@
-class_name MovementClamp extends ComponentNode
+class_name MovementClamp extends Component
 
 func _ready():
 	process_priority = 2
