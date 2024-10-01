@@ -38,9 +38,11 @@ var running:bool = true :
 	set(value):
 		running = value
 
-		if left_paddle.movement and right_paddle.movement:
-			left_paddle.movement.disabled = not value
-			right_paddle.movement.disabled = not value
+		left_paddle.movement.disabled = not running
+		left_paddle.ability.disabled = not running
+
+		right_paddle.movement.disabled = not running
+		right_paddle.ability.disabled = not running
 
 		for b in balls:
 			b.movement_disabled = not running
@@ -67,6 +69,22 @@ static func get_instance(node:Node) -> GameMode:
 	return get_instance(parent)
 
 #=====================================================================#
+
+func closest_ball_to(side:Side) -> BallNode:
+	if len(balls) == 0:
+		return null
+	if len(balls) == 1:
+		return balls[0]
+
+	var left = func(x:BallNode, y:BallNode): return x.position.x < y.position.x
+	var right = func(x:BallNode, y:BallNode): return x.position.x > y.position.x
+
+	match side:
+		Side.LEFT:
+			balls.sort_custom(left)
+		Side.RIGHT:
+			balls.sort_custom(right)
+	return balls[0]
 
 func score_goal_met() -> bool:
 	return left_score >= score_goal or right_score >= score_goal
