@@ -25,9 +25,11 @@ func on_start() -> void:
 	run_tween(tween, shape, "size:y", original_length + extend_by)
 	run_tween(tween, sprite, "size:y", original_length + extend_by)
 	run_tween(tween, sprite, "position:y", original_y - extend_by / 2)
+	paddle.movement.speed_effectiveness = 0.5
 
 func on_finish() -> void:
 	var tween := create_tween()
 	run_tween(tween, shape, "size:y", original_length)
 	run_tween(tween, sprite, "size:y", original_length)
 	run_tween(tween, sprite, "position:y", original_y)
+	paddle.movement.speed_effectiveness = 1

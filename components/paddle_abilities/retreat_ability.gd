@@ -19,7 +19,11 @@ func run_tween(tween:Tween, object:Object, property:NodePath, final_val:Variant)
 func on_start() -> void:
 	var tween := create_tween()
 	run_tween(tween, paddle, "position:x", original_x - retreat_by)
+	paddle.movement.can_sprint = false
+	paddle.movement.speed_effectiveness = 0.5
 
 func on_finish() -> void:
 	var tween := create_tween()
 	run_tween(tween, paddle, "position:x", original_x)
+	paddle.movement.can_sprint = true
+	paddle.movement.speed_effectiveness = 1
