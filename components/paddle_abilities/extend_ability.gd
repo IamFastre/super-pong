@@ -22,12 +22,12 @@ func run_tween(tween:Tween, object:Object, property:NodePath, final_val:Variant)
 
 func on_start() -> void:
 	var tween := create_tween()
-	run_tween(tween, shape, "size", Vector2(sprite.size.x, original_length + extend_by))
-	run_tween(tween, sprite, "size", Vector2(sprite.size.x, original_length + extend_by))
-	run_tween(tween, sprite, "position", Vector2(sprite.position.x, original_y - extend_by / 2))
+	run_tween(tween, shape, "size:y", original_length + extend_by)
+	run_tween(tween, sprite, "size:y", original_length + extend_by)
+	run_tween(tween, sprite, "position:y", original_y - extend_by / 2)
 
 func on_finish() -> void:
 	var tween := create_tween()
-	run_tween(tween, shape, "size", Vector2(sprite.size.x, original_length))
-	run_tween(tween, sprite, "size", Vector2(sprite.size.x, original_length))
-	run_tween(tween, sprite, "position", Vector2(sprite.position.x, original_y))
+	run_tween(tween, shape, "size:y", original_length)
+	run_tween(tween, sprite, "size:y", original_length)
+	run_tween(tween, sprite, "position:y", original_y)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bcsvmm8h7gobe"]
+[gd_scene load_steps=13 format=3 uid="uid://bcsvmm8h7gobe"]
 
 [ext_resource type="FontFile" uid="uid://b5sue0dl0b1fx" path="res://assets/fonts/PIXY.ttf" id="1_l7dku"]
 [ext_resource type="Script" path="res://scenes/levels/scripts/super_game.gd" id="1_s71rq"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://dqeana3x1moju" path="res://resources/player_info/human_p1.tres" id="2_wa8xp"]
 [ext_resource type="Texture2D" uid="uid://c4ttu450ldlbl" path="res://assets/icons/cpu.png" id="3_yupyo"]
 [ext_resource type="PackedScene" uid="uid://lpkcoh61r2ge" path="res://scenes/goal.tscn" id="4_a45hc"]
+[ext_resource type="PackedScene" uid="uid://d1nv57ljdxd67" path="res://scenes/paddles/strike_paddle.tscn" id="4_ow7ju"]
 [ext_resource type="PackedScene" uid="uid://dvb1h8bxlrwhn" path="res://scenes/wall.tscn" id="5_lcdnq"]
 [ext_resource type="Texture2D" uid="uid://cydgbs0cjm5ip" path="res://assets/sprites/net.png" id="6_liov1"]
 [ext_resource type="Theme" uid="uid://6okv6pwxtji0" path="res://ui/themes/main.tres" id="8_gshl0"]
@@ -22,6 +23,7 @@ right_info = ExtResource("2_fc74v")
 right_goal = NodePath("GoalRight")
 right_label = NodePath("Background/ScoreRight")
 right_icon = NodePath("Background/IconRight")
+paddle_left_scene = ExtResource("4_ow7ju")
 
 [node name="Background" type="Control" parent="."]
 layout_mode = 3

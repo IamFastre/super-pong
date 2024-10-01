@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://5asvt0fi4m8j" path="res://assets/icons/sword.png" id="2_vx1r3"]
 [ext_resource type="Script" path="res://components/movement_clamp.gd" id="3_60yo0"]
 [ext_resource type="Script" path="res://components/paddle_movement.gd" id="4_vahnh"]
-[ext_resource type="Script" path="res://components/paddle_ability.gd" id="5_cy675"]
+[ext_resource type="Script" path="res://components/paddle_abilities/retreat_ability.gd" id="5_l2jor"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vn8v2"]
 size = Vector2(16, 200)
@@ -12,7 +12,7 @@ size = Vector2(16, 200)
 [node name="StrikePaddle" type="StaticBody2D" node_paths=PackedStringArray("movement", "ability")]
 script = ExtResource("1_25vpp")
 movement = NodePath("PaddleMovement")
-ability = NodePath("PaddleAbility")
+ability = NodePath("RetreatAbility")
 
 [node name="Sprite" type="ColorRect" parent="."]
 offset_left = 92.0
@@ -44,5 +44,5 @@ script = ExtResource("4_vahnh")
 sprint_speed = 850.0
 ball_maneuver = 0.85
 
-[node name="PaddleAbility" type="Node2D" parent="."]
-script = ExtResource("5_cy675")
+[node name="RetreatAbility" type="Node2D" parent="."]
+script = ExtResource("5_l2jor")
