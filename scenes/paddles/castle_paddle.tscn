@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dqv4wvvhuoscl" path="res://assets/icons/shield.png" id="2_6vxd8"]
 [ext_resource type="Script" path="res://components/movement_clamp.gd" id="2_vgtvv"]
 [ext_resource type="Script" path="res://components/paddle_movement.gd" id="3_wu6m5"]
-[ext_resource type="Script" path="res://components/paddle_abilities/paddle_ability.gd" id="5_wij37"]
+[ext_resource type="Script" path="res://components/paddle_abilities/extend_ability.gd" id="5_gkjpm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vn8v2"]
 size = Vector2(16, 320)
@@ -12,7 +12,7 @@ size = Vector2(16, 320)
 [node name="CastlePaddle" type="StaticBody2D" node_paths=PackedStringArray("movement", "ability")]
 script = ExtResource("1_m5d3l")
 movement = NodePath("PaddleMovement")
-ability = NodePath("PaddleAbility")
+ability = NodePath("ExtendAbility")
 
 [node name="Sprite" type="ColorRect" parent="."]
 offset_left = -8.0
@@ -45,5 +45,7 @@ sprint_speed = 500.0
 can_sprint = false
 ball_maneuver = 0.6
 
-[node name="PaddleAbility" type="Node2D" parent="."]
-script = ExtResource("5_wij37")
+[node name="ExtendAbility" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "collision")]
+script = ExtResource("5_gkjpm")
+sprite = NodePath("../Sprite")
+collision = NodePath("../CollisionShape2D")
