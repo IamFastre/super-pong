@@ -18,7 +18,7 @@ func elastic_tween(tween:Tween, object:Object, property:NodePath, final_val:Vari
 
 func on_start() -> void:
 	var tween := create_tween()
-	elastic_tween(tween, paddle, "position:x", original_x - retreat_by)
+	elastic_tween(tween, paddle, "position:x", original_x - retreat_by * (1 if is_left else -1))
 	paddle.movement.can_sprint = false
 	paddle.movement.speed_effectiveness = 0.5
 

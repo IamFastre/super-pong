@@ -109,8 +109,6 @@ func on_score(to_player:Side) -> void:
 		spawn_ball()
 
 func setup_paddle(paddle:PaddleNode, info:PlayerInfo) -> void:
-	add_child(paddle)
-
 	# Paddle position setup
 	paddle.position.y = paddle_initial_displacement.y
 	if paddle == left_paddle:
@@ -121,6 +119,8 @@ func setup_paddle(paddle:PaddleNode, info:PlayerInfo) -> void:
 
 	# Paddle controller setup
 	paddle.setup_controller(info.get_controller())
+
+	add_child(paddle)
 
 func game_over() -> void:
 	running = false
