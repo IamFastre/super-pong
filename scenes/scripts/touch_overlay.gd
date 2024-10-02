@@ -27,8 +27,7 @@ func _ready() -> void:
 		left_up.action      = "p%s_up" % game.left_info.mode
 		left_ability.action = "p%s_ability" % game.left_info.mode
 		left_down.action    = "p%s_down" % game.left_info.mode
-		var icon := game.left_paddle.get_node("Icon") as TextureRect
-		if icon: left_ability_icon.texture = icon.texture
+		left_ability_icon.texture = game.left_paddle.icon.texture
 
 	else:
 		left_parent.visible = false
@@ -37,7 +36,6 @@ func _ready() -> void:
 		right_up.action      = "p%s_up" % game.right_info.mode
 		right_ability.action = "p%s_ability" % game.right_info.mode
 		right_down.action    = "p%s_down" % game.right_info.mode
-		var icon := game.right_paddle.get_node("Icon") as TextureRect
-		if icon: right_ability_icon.texture = icon.texture
+		right_ability_icon.texture = game.right_paddle.icon.texture
 	else:
 		right_parent.visible = false

@@ -9,8 +9,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vn8v2"]
 size = Vector2(16, 140)
 
-[node name="SpeedyPaddle" type="StaticBody2D" node_paths=PackedStringArray("movement", "ability")]
+[node name="SpeedyPaddle" type="StaticBody2D" node_paths=PackedStringArray("icon", "movement", "ability")]
 script = ExtResource("1_wxkbx")
+icon = NodePath("Icon")
 movement = NodePath("PaddleMovement")
 ability = NodePath("ZoomAbility")
 
