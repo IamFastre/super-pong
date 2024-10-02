@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dvb1h8bxlrwhn" path="res://scenes/wall.tscn" id="5_lcdnq"]
 [ext_resource type="PackedScene" uid="uid://d1nv57ljdxd67" path="res://scenes/paddles/strike_paddle.tscn" id="5_revpd"]
 [ext_resource type="Texture2D" uid="uid://cydgbs0cjm5ip" path="res://assets/sprites/net.png" id="6_liov1"]
-[ext_resource type="PackedScene" uid="uid://dkxh6emd3snvb" path="res://scenes/touch_overlay.tscn" id="11_lbd37"]
+[ext_resource type="PackedScene" uid="uid://dkxh6emd3snvb" path="res://scenes/overlays/touch_overlay.tscn" id="11_lbd37"]
 
 [node name="SuperGame" type="Node" node_paths=PackedStringArray("left_goal", "left_label", "left_icon", "right_goal", "right_label", "right_icon")]
 script = ExtResource("1_s71rq")

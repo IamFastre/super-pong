@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PaddleInfo" load_steps=4 format=3 uid="uid://ciksk0q7psgw2"]
+
+[ext_resource type="Texture2D" uid="uid://bp2b3u5lb2dgr" path="res://assets/icons/lightning.png" id="1_fubmb"]
+[ext_resource type="PackedScene" uid="uid://5i38r16ygifq" path="res://scenes/paddles/speedy_paddle.tscn" id="2_gnc44"]
+[ext_resource type="Script" path="res://resources/paddle_info/script.gd" id="3_bxu51"]
+
+[resource]
+script = ExtResource("3_bxu51")
+name = "Speedy"
+icon = ExtResource("1_fubmb")
+scene = ExtResource("2_gnc44")

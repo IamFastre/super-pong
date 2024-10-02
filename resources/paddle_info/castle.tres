@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PaddleInfo" load_steps=4 format=3 uid="uid://osf1bt1v0kph"]
+
+[ext_resource type="Texture2D" uid="uid://dqv4wvvhuoscl" path="res://assets/icons/shield.png" id="1_w1rxv"]
+[ext_resource type="PackedScene" uid="uid://dux475wbhf53b" path="res://scenes/paddles/castle_paddle.tscn" id="2_dy242"]
+[ext_resource type="Script" path="res://resources/paddle_info/script.gd" id="3_kpqt0"]
+
+[resource]
+script = ExtResource("3_kpqt0")
+name = "Castle"
+icon = ExtResource("1_w1rxv")
+scene = ExtResource("2_dy242")

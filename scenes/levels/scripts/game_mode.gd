@@ -27,8 +27,8 @@ class_name GameMode extends Node
 @export var ball_initial_position:Vector2 = Vector2(640, 360)
 
 @export_group("Menus", "menu_")
-@export var menu_pause:PackedScene = preload("res://scenes/screens/pause_menu.tscn") # menu pause lol
-@export var menu_game_over:PackedScene = preload("res://scenes/screens/game_over.tscn")
+@export var menu_pause:PackedScene = preload("res://scenes/overlays/pause_menu.tscn") # menu pause lol
+@export var menu_game_over:PackedScene = preload("res://scenes/overlays/game_over.tscn")
 
 var left_paddle:PaddleNode
 var right_paddle:PaddleNode

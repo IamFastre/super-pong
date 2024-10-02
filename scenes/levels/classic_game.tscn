@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dvb1h8bxlrwhn" path="res://scenes/wall.tscn" id="5_vegqf"]
 [ext_resource type="Texture2D" uid="uid://cydgbs0cjm5ip" path="res://assets/sprites/net.png" id="6_4ac5h"]
 [ext_resource type="Texture2D" uid="uid://c4ttu450ldlbl" path="res://assets/icons/cpu.png" id="6_gs3vl"]
-[ext_resource type="PackedScene" uid="uid://dkxh6emd3snvb" path="res://scenes/touch_overlay.tscn" id="10_jr1qp"]
+[ext_resource type="PackedScene" uid="uid://dkxh6emd3snvb" path="res://scenes/overlays/touch_overlay.tscn" id="10_jr1qp"]
 
 [node name="Classic" type="Node" node_paths=PackedStringArray("left_goal", "left_label", "left_icon", "right_goal", "right_label", "right_icon")]
 script = ExtResource("1_ubcwj")

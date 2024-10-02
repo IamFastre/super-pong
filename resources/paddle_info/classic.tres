@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PaddleInfo" load_steps=4 format=3 uid="uid://b4dchrkk5lu80"]
+
+[ext_resource type="Script" path="res://resources/paddle_info/script.gd" id="1_agr7x"]
+[ext_resource type="Texture2D" uid="uid://cplj3hdtqs8pm" path="res://assets/sprites/ball.png" id="1_wu7rl"]
+[ext_resource type="PackedScene" uid="uid://da7h22hlyy5v1" path="res://scenes/paddles/classic_paddle.tscn" id="2_5cmxi"]
+
+[resource]
+script = ExtResource("1_agr7x")
+name = "Classic"
+icon = ExtResource("1_wu7rl")
+scene = ExtResource("2_5cmxi")
