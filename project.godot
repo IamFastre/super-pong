@@ -88,6 +88,10 @@ pause_game={
 ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.0470588, 0.0470588, 0.0470588, 1)

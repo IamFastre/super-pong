@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://dkxh6emd3snvb"]
+
+[ext_resource type="Theme" uid="uid://6okv6pwxtji0" path="res://ui/themes/main.tres" id="1_ybbqi"]
+[ext_resource type="Script" path="res://scenes/scripts/touch_overlay.gd" id="2_cqu4o"]
+[ext_resource type="Texture2D" uid="uid://bhbp6560u0mtw" path="res://ui/assets/pause.png" id="3_73ras"]
+[ext_resource type="Texture2D" uid="uid://ksnba1r771nk" path="res://ui/assets/dropdown.png" id="4_q2lri"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_okuox"]
+size = Vector2(320, 285)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ony81"]
+size = Vector2(320, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pddn"]
+size = Vector2(320, 285)
+
+[node name="TouchOverlay" type="Control" node_paths=PackedStringArray("left_parent", "left_up", "left_ability", "left_down", "right_parent", "right_up", "right_ability", "right_down")]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme = ExtResource("1_ybbqi")
+script = ExtResource("2_cqu4o")
+left_parent = NodePath("PlayerLeft")
+left_up = NodePath("PlayerLeft/Up")
+left_ability = NodePath("PlayerLeft/Ability")
+left_down = NodePath("PlayerLeft/Down")
+right_parent = NodePath("PlayerRight")
+right_up = NodePath("PlayerRight/Up")
+right_ability = NodePath("PlayerRight/Ability")
+right_down = NodePath("PlayerRight/Down")
+
+[node name="PauseButton" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035
+anchor_top = 0.062
+anchor_right = 0.035
+anchor_bottom = 0.062
+offset_left = -19.8
+offset_top = -19.64
+offset_right = 20.2
+offset_bottom = 20.36
+grow_horizontal = 2
+icon = ExtResource("3_73ras")
+expand_icon = true
+
+[node name="PlayerLeft" type="Node2D" parent="."]
+position = Vector2(160, 360)
+
+[node name="Up" type="TouchScreenButton" parent="PlayerLeft"]
+position = Vector2(0, -217.5)
+shape = SubResource("RectangleShape2D_okuox")
+passby_press = true
+
+[node name="Icon" type="Sprite2D" parent="PlayerLeft/Up"]
+modulate = Color(1, 1, 1, 0.137255)
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("4_q2lri")
+flip_v = true
+
+[node name="Ability" type="TouchScreenButton" parent="PlayerLeft"]
+shape = SubResource("RectangleShape2D_ony81")
+
+[node name="Down" type="TouchScreenButton" parent="PlayerLeft"]
+position = Vector2(0, 217.5)
+shape = SubResource("RectangleShape2D_8pddn")
+passby_press = true
+
+[node name="Icon" type="Sprite2D" parent="PlayerLeft/Down"]
+modulate = Color(1, 1, 1, 0.137255)
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("4_q2lri")
+
+[node name="PlayerRight" type="Node2D" parent="."]
+position = Vector2(1120, 360)
+
+[node name="Up" type="TouchScreenButton" parent="PlayerRight"]
+position = Vector2(0, -217.5)
+shape = SubResource("RectangleShape2D_okuox")
+passby_press = true
+
+[node name="Icon" type="Sprite2D" parent="PlayerRight/Up"]
+modulate = Color(1, 1, 1, 0.137255)
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("4_q2lri")
+flip_v = true
+
+[node name="Ability" type="TouchScreenButton" parent="PlayerRight"]
+shape = SubResource("RectangleShape2D_ony81")
+
+[node name="Down" type="TouchScreenButton" parent="PlayerRight"]
+position = Vector2(0, 217.5)
+shape = SubResource("RectangleShape2D_8pddn")
+passby_press = true
+
+[node name="Icon" type="Sprite2D" parent="PlayerRight/Down"]
+modulate = Color(1, 1, 1, 0.137255)
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("4_q2lri")

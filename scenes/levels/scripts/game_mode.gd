@@ -47,7 +47,7 @@ var running:bool = true :
 		for b in balls:
 			b.movement_disabled = not running
 
-		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN if value else Input.MOUSE_MODE_VISIBLE)
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN if running else Input.MOUSE_MODE_VISIBLE)
 		
 var balls:Array[BallNode]
 
