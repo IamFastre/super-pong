@@ -14,7 +14,7 @@ size = Vector2(320, 150)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8pddn"]
 size = Vector2(320, 285)
 
-[node name="TouchOverlay" type="Control" node_paths=PackedStringArray("left_parent", "left_up", "left_ability", "left_down", "right_parent", "right_up", "right_ability", "right_down")]
+[node name="TouchOverlay" type="Control" node_paths=PackedStringArray("left_parent", "left_up", "left_ability", "left_down", "left_ability_icon", "right_parent", "right_up", "right_ability", "right_down", "right_ability_icon")]
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
@@ -26,10 +26,12 @@ left_parent = NodePath("PlayerLeft")
 left_up = NodePath("PlayerLeft/Up")
 left_ability = NodePath("PlayerLeft/Ability")
 left_down = NodePath("PlayerLeft/Down")
+left_ability_icon = NodePath("PlayerLeft/Ability/Icon")
 right_parent = NodePath("PlayerRight")
 right_up = NodePath("PlayerRight/Up")
 right_ability = NodePath("PlayerRight/Ability")
 right_down = NodePath("PlayerRight/Down")
+right_ability_icon = NodePath("PlayerRight/Ability/Icon")
 
 [node name="PauseButton" type="Button" parent="."]
 texture_filter = 1
@@ -58,12 +60,23 @@ passby_press = true
 [node name="Icon" type="Sprite2D" parent="PlayerLeft/Up"]
 modulate = Color(1, 1, 1, 0.137255)
 texture_filter = 1
-scale = Vector2(5, 5)
+scale = Vector2(4, 4)
 texture = ExtResource("4_q2lri")
 flip_v = true
 
 [node name="Ability" type="TouchScreenButton" parent="PlayerLeft"]
 shape = SubResource("RectangleShape2D_ony81")
+
+[node name="Icon" type="TextureRect" parent="PlayerLeft/Ability"]
+modulate = Color(1, 1, 1, 0.137255)
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+rotation = 1.5708
+pivot_offset = Vector2(30, 30)
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Down" type="TouchScreenButton" parent="PlayerLeft"]
 position = Vector2(0, 217.5)
@@ -73,7 +86,7 @@ passby_press = true
 [node name="Icon" type="Sprite2D" parent="PlayerLeft/Down"]
 modulate = Color(1, 1, 1, 0.137255)
 texture_filter = 1
-scale = Vector2(5, 5)
+scale = Vector2(4, 4)
 texture = ExtResource("4_q2lri")
 
 [node name="PlayerRight" type="Node2D" parent="."]
@@ -87,12 +100,24 @@ passby_press = true
 [node name="Icon" type="Sprite2D" parent="PlayerRight/Up"]
 modulate = Color(1, 1, 1, 0.137255)
 texture_filter = 1
-scale = Vector2(5, 5)
+scale = Vector2(4, 4)
 texture = ExtResource("4_q2lri")
 flip_v = true
 
 [node name="Ability" type="TouchScreenButton" parent="PlayerRight"]
 shape = SubResource("RectangleShape2D_ony81")
+
+[node name="Icon" type="TextureRect" parent="PlayerRight/Ability"]
+modulate = Color(1, 1, 1, 0.137255)
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+rotation = 1.5708
+scale = Vector2(1, -1)
+pivot_offset = Vector2(30, 30)
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Down" type="TouchScreenButton" parent="PlayerRight"]
 position = Vector2(0, 217.5)
@@ -102,5 +127,5 @@ passby_press = true
 [node name="Icon" type="Sprite2D" parent="PlayerRight/Down"]
 modulate = Color(1, 1, 1, 0.137255)
 texture_filter = 1
-scale = Vector2(5, 5)
+scale = Vector2(4, 4)
 texture = ExtResource("4_q2lri")
