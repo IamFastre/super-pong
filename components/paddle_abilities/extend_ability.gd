@@ -2,8 +2,9 @@ class_name ExtendAbility extends PaddleAbility
 
 @export var sprite:ColorRect
 @export var collision:CollisionShape2D
-@export var extend_by:float = 80
 @export var duration:float = 0.75
+@export var extend_by:float = 80
+@export_range(0 , 1) var extended_speed_effectiveness:float = 0.6
 
 @onready var shape := collision.shape as RectangleShape2D
 @onready var original_length:float = sprite.size.y
@@ -25,7 +26,7 @@ func on_start() -> void:
 	elastic_tween(tween, shape, "size:y", original_length + extend_by)
 	elastic_tween(tween, sprite, "size:y", original_length + extend_by)
 	elastic_tween(tween, sprite, "position:y", original_y - extend_by / 2)
-	paddle.movement.speed_effectiveness = 0.5
+	paddle.movement.speed_effectiveness = extended_speed_effectiveness
 
 func on_finish() -> void:
 	var tween := create_tween()
