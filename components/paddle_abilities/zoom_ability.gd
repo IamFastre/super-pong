@@ -4,7 +4,7 @@ class_name ZoomAbility extends PaddleAbility
 @export var timer:Timer
 @export var inactive_color:Color = Color("404040")
 @export var general_duration:float = 0.25
-@export var rotation_duration:float = 0.5
+@export var rotation_duration:float = 1.0
 
 @onready var original_color:Color = icon.modulate
 
