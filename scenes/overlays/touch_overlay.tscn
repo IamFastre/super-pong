@@ -17,9 +17,11 @@ size = Vector2(320, 285)
 [node name="TouchOverlay" type="Control" node_paths=PackedStringArray("left_parent", "left_up", "left_ability", "left_down", "left_ability_icon", "right_parent", "right_up", "right_ability", "right_down", "right_ability_icon")]
 z_index = 1
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1280.0
-offset_bottom = 720.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_ybbqi")
 script = ExtResource("2_cqu4o")
 left_parent = NodePath("PlayerLeft")
