@@ -4,12 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://cbyt41bw88jin" path="res://scenes/ball.tscn" id="2_xjwow"]
 [ext_resource type="PackedScene" uid="uid://dvb1h8bxlrwhn" path="res://scenes/wall.tscn" id="3_77xda"]
 [ext_resource type="Theme" uid="uid://6okv6pwxtji0" path="res://ui/themes/main.tres" id="4_qoxsg"]
-[ext_resource type="Texture2D" uid="uid://dv4kfu71pve7h" path="res://icon.svg" id="5_05uhu"]
 [ext_resource type="PackedScene" uid="uid://d3g5bwy2mslin" path="res://ui/sp_button.tscn" id="5_8bsmr"]
+[ext_resource type="Texture2D" uid="uid://bojmkywk7yhxk" path="res://assets/logo/main.svg" id="5_oko60"]
 [ext_resource type="Texture2D" uid="uid://b3hxlcenmpw17" path="res://ui/assets/fullscreen.png" id="5_ui13h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_656b1"]
-size = Vector2(264, 174)
+size = Vector2(284, 204)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_av836"]
 size = Vector2(2, 500)
@@ -63,7 +63,7 @@ offset_right = 175.0
 offset_bottom = 175.0
 pivot_offset = Vector2(175, 175)
 theme = ExtResource("4_qoxsg")
-texture = ExtResource("5_05uhu")
+texture = ExtResource("5_oko60")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
