@@ -47,6 +47,7 @@ offset_top = -26.5761
 offset_right = 164.0
 offset_bottom = 26.4239
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.988235, 0.694118, 0.254902, 1)
 theme_override_font_sizes/font_size = 50
 text = "Classic Pong"
 horizontal_alignment = 1
@@ -118,6 +119,7 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="Info" type="OptionButton" parent="Classic/Panel/Control/Body/LeftOptions"]
+texture_filter = 1
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -137,6 +139,7 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="Info" type="OptionButton" parent="Classic/Panel/Control/Body/RightOptions"]
+texture_filter = 1
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -216,6 +219,7 @@ offset_top = -26.5761
 offset_right = 164.0
 offset_bottom = 26.4239
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.988235, 0.694118, 0.254902, 1)
 theme_override_font_sizes/font_size = 50
 text = "Super Pong"
 horizontal_alignment = 1
@@ -287,12 +291,14 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="Info" type="OptionButton" parent="Super/Panel/Control/Body/LeftOptions"]
+texture_filter = 1
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
 expand_icon = true
 
 [node name="Paddle" type="OptionButton" parent="Super/Panel/Control/Body/LeftOptions"]
+texture_filter = 1
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -312,12 +318,14 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="Info" type="OptionButton" parent="Super/Panel/Control/Body/RightOptions"]
+texture_filter = 1
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
 expand_icon = true
 
 [node name="Paddle" type="OptionButton" parent="Super/Panel/Control/Body/RightOptions"]
+texture_filter = 1
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
