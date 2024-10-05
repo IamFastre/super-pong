@@ -14,15 +14,15 @@
 
 [node name="SuperGame" type="Node" node_paths=PackedStringArray("left_goal", "left_label", "left_icon", "right_goal", "right_label", "right_icon")]
 script = ExtResource("1_s71rq")
-left_info = ExtResource("2_fc74v")
+left_info = ExtResource("2_wa8xp")
 left_goal = NodePath("GoalLeft")
 left_label = NodePath("Background/ScoreLeft")
 left_icon = NodePath("Background/IconLeft")
-right_info = ExtResource("2_wa8xp")
+right_info = ExtResource("2_fc74v")
 right_goal = NodePath("GoalRight")
 right_label = NodePath("Background/ScoreRight")
 right_icon = NodePath("Background/IconRight")
-paddle_right_scene = ExtResource("5_revpd")
+paddle_left_scene = ExtResource("5_revpd")
 
 [node name="Background" type="Control" parent="."]
 layout_mode = 3
