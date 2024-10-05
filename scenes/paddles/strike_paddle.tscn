@@ -37,8 +37,9 @@ position = Vector2(100, 0)
 shape = SubResource("RectangleShape2D_vn8v2")
 debug_color = Color(0, 0.6, 0.7, 0)
 
-[node name="MovementClamp" type="Node" parent="."]
+[node name="MovementClamp" type="Node" parent="." node_paths=PackedStringArray("shape")]
 script = ExtResource("3_60yo0")
+shape = NodePath("../CollisionShape2D")
 
 [node name="PaddleMovement" type="Node2D" parent="."]
 script = ExtResource("4_vahnh")
