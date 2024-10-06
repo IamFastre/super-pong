@@ -51,6 +51,9 @@ var running:bool = true :
 		
 var balls:Array[BallNode]
 
+signal ball_spawned(ball:BallNode)
+signal ball_despawned()
+
 #=====================================================================#
 
 enum Side {
@@ -99,12 +102,14 @@ func spawn_ball(custom_initial_position:Vector2 = ball_initial_position) -> void
 		ball_node.tree_exited.connect(balls.erase.bind(ball_node))
 		ball_node.position = custom_initial_position
 		call_deferred('add_child', ball_node)
+		ball_spawned.emit(ball_node)
 
 func on_score(to_player:Side) -> void:
 	match to_player:
 		Side.LEFT: left_score += 1
 		Side.RIGHT: right_score += 1
 
+	ball_despawned.emit()
 	if not score_goal_met():
 		spawn_ball()
 

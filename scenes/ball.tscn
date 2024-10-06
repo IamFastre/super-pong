@@ -1,18 +1,52 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbyt41bw88jin"]
+[gd_scene load_steps=9 format=3 uid="uid://cbyt41bw88jin"]
 
 [ext_resource type="Texture2D" uid="uid://cplj3hdtqs8pm" path="res://assets/sprites/ball.png" id="1_h8iw0"]
 [ext_resource type="Script" path="res://scenes/scripts/ball.gd" id="1_jusfw"]
 
+[sub_resource type="Gradient" id="Gradient_47orn"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5upwh"]
+gradient = SubResource("Gradient_47orn")
+
+[sub_resource type="Curve" id="Curve_cgdb1"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_vrh13"]
+curve = SubResource("Curve_cgdb1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8l84u"]
+particle_flag_disable_z = true
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_vrh13")
+color_ramp = SubResource("GradientTexture1D_5upwh")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bqum"]
 radius = 8.0
 
-[node name="Ball" type="CharacterBody2D"]
+[node name="Ball" type="CharacterBody2D" node_paths=PackedStringArray("particles")]
 motion_mode = 1
 script = ExtResource("1_jusfw")
+particles = NodePath("Sprite2D/Particles")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_h8iw0")
+
+[node name="Particles" type="GPUParticles2D" parent="Sprite2D"]
+visible = false
+modulate = Color(0.466667, 0.466667, 0.466667, 1)
+show_behind_parent = true
+scale = Vector2(1, 1)
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_8l84u")
+texture = ExtResource("1_h8iw0")
+lifetime = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1bqum")

@@ -13,6 +13,9 @@ class_name BallNode extends CharacterBody2D
 @export var speed_hit_interval:int = 2
 @export var speed_acceleration_step:float = 25
 
+@export_group("Other")
+@export var particles:GPUParticles2D
+
 @onready var wait_timer:Timer = $WaitTime
 @onready var initial_modulate:Color = modulate
 
@@ -73,6 +76,9 @@ func _on_wait_timeout() -> void:
 
 func _process(delta:float) -> void:
 	if not movement_disabled:
+		particles.speed_scale = 1
 		var collision := move_and_collide(direction * speed_multiplier * delta)
 		if collision:
 			handle_collision(collision)
+	else:
+		particles.speed_scale = 0
