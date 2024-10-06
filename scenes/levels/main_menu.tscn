@@ -41,6 +41,9 @@ rotation = -1.57079
 [node name="Ball" parent="BG" instance=ExtResource("2_xjwow")]
 position = Vector2(640, 360)
 
+[node name="Particles" parent="BG/Ball/Sprite2D" index="0"]
+visible = true
+
 [node name="WaitTime" parent="BG/Ball" index="2"]
 wait_time = 0.05
 
