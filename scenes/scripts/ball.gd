@@ -31,6 +31,9 @@ func random_direction() -> Vector2:
 	return Vector2(x, y).normalized()
 
 func reflect(contact_direction:Vector2) -> Vector2:
+	if abs(direction.angle_to(contact_direction)) >= PI/2:
+		return direction
+
 	# v' = v - 2 * (v ∙ p) * p
 	var reflection := direction - 2 * direction.dot(contact_direction) * contact_direction
 	return reflection.normalized()

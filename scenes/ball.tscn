@@ -42,7 +42,6 @@ texture = ExtResource("1_h8iw0")
 visible = false
 modulate = Color(0.466667, 0.466667, 0.466667, 1)
 show_behind_parent = true
-scale = Vector2(1, 1)
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_8l84u")
 texture = ExtResource("1_h8iw0")
