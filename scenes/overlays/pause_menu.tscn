@@ -41,9 +41,10 @@ _data = {
 "start": SubResource("Animation_6f188")
 }
 
-[node name="PauseMenu" type="CanvasLayer" node_paths=PackedStringArray("animation")]
+[node name="PauseMenu" type="CanvasLayer" node_paths=PackedStringArray("animation", "suptitle")]
 script = ExtResource("1_ulpuc")
 animation = NodePath("AnimationPlayer")
+suptitle = NodePath("Menu/Panel/Control/Suptitle")
 
 [node name="Menu" type="Control" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -92,7 +93,26 @@ offset_bottom = 148.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Menu/Panel/Control"]
+[node name="Suptitle" type="Label" parent="Menu/Panel/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.02
+anchor_right = 0.5
+anchor_bottom = 0.02
+offset_left = -29.5
+offset_top = -10.94
+offset_right = 29.5
+offset_bottom = 11.06
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.192157, 0.192157, 0.192157, 1)
+theme_override_font_sizes/font_size = 20
+text = "Super"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title" type="Label" parent="Menu/Panel/Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5

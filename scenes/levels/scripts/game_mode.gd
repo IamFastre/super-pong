@@ -150,9 +150,9 @@ func game_over() -> void:
 
 func pause() -> void:
 	running = false
-
 	var ps_screen := menu_pause.instantiate() as PauseScreen
 	ps_screen.game = self
+	ps_screen.is_super = self is SuperGame
 	add_child(ps_screen)
 
 func unpause() -> void:
