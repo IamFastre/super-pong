@@ -107,10 +107,10 @@ texture = ExtResource("6_gs3vl")
 metadata/_edit_use_anchors_ = true
 
 [node name="GoalLeft" parent="." instance=ExtResource("4_tbatq")]
-position = Vector2(0, 360)
+position = Vector2(-20, 360)
 
 [node name="GoalRight" parent="." instance=ExtResource("4_tbatq")]
-position = Vector2(1280, 360)
+position = Vector2(1300, 360)
 scale = Vector2(-1, 1)
 
 [node name="Walls" type="Node" parent="."]
