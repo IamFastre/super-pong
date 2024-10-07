@@ -23,11 +23,12 @@ offset_bottom = 160.0
 color = Color(0.266, 0.3458, 0.95, 1)
 
 [node name="Icon" type="TextureRect" parent="."]
-offset_left = 20.0
+offset_left = -20.0
 offset_top = -20.0
-offset_right = 60.0
+offset_right = 20.0
 offset_bottom = 20.0
 rotation = 1.5708
+pivot_offset = Vector2(20, 20)
 texture = ExtResource("2_6vxd8")
 expand_mode = 1
 stretch_mode = 5
@@ -47,7 +48,8 @@ sprint_speed = 500.0
 can_sprint = false
 ball_maneuver = 0.6
 
-[node name="ExtendAbility" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "collision")]
+[node name="ExtendAbility" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "collision", "icon")]
 script = ExtResource("5_gkjpm")
 sprite = NodePath("../Sprite")
 collision = NodePath("../CollisionShape2D")
+icon = NodePath("../Icon")
