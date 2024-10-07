@@ -1,4 +1,4 @@
-class_name BallNode extends CharacterBody2D
+class_name BallNode extends RigidBody2D
 
 ## Initial direction of the ball, leave (0, 0) for random.
 @export var initial_direction:Vector2 = Vector2.ZERO
@@ -30,19 +30,14 @@ func random_direction() -> Vector2:
 	var y = randf_range(-1, 1)
 	return Vector2(x, y).normalized()
 
-func reflect(contact_direction:Vector2) -> Vector2:
-	if abs(direction.angle_to(contact_direction)) >= PI/2:
-		return direction
-
-	# v' = v - 2 * (v ∙ p) * p
-	var reflection := direction - 2 * direction.dot(contact_direction) * contact_direction
-	return reflection.normalized()
-
 func handle_collision(collision:KinematicCollision2D) -> void:
 	var collider := collision.get_collider()
 	var collision_pos := collision.get_position() - position
 	var contact_direction := collision_pos.normalized()
-	direction = reflect(contact_direction)
+
+	if abs(direction.angle_to(contact_direction)) < PI/2:
+		# v' = v - 2 * (v ∙ p) * p
+		direction = direction.bounce(contact_direction).normalized()
 
 	if collider is PaddleNode:
 		hit_count += 1
