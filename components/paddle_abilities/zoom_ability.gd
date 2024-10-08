@@ -8,7 +8,7 @@ class_name ZoomAbility extends PaddleAbility
 
 @onready var original_color:Color = icon.modulate
 
-var on_cooldown:bool = false
+var recharging:bool = false
 var closest_ball:BallNode :
 	get:
 		return game.closest_ball_to((not is_left) as int)
@@ -31,19 +31,19 @@ func ease_in_tween(tween:Tween, object:Object, property:NodePath, final_val:Vari
 #=====================================================================#
 
 func on_start() -> void:
-	if on_cooldown or not closest_ball: return
+	if recharging or not closest_ball: return
 
-	on_cooldown = true
 	var tween1 := create_tween()
 	elastic_tween(tween1, paddle, "position:y", closest_ball.position.y)
 	ease_in_tween(tween1, icon, "modulate:r", inactive_color.r)
 	ease_in_tween(tween1, icon, "modulate:g", inactive_color.g)
 	ease_in_tween(tween1, icon, "modulate:b", inactive_color.b)
 
+	recharging = true
 	timer.start()
 	await timer.timeout
+	recharging = false
 
-	on_cooldown = false
 	var tween2 := create_tween()
 	elastic_tween(tween2, icon, "rotation", icon.rotation + 2 * PI, rotation_duration)
 	ease_in_tween(tween2, icon, "modulate:r", original_color.r)

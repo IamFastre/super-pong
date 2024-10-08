@@ -5,7 +5,9 @@ class_name ReflectAbility extends PaddleAbility
 @export var general_duration:float = 0.5
 
 @onready var original_pos:Vector2 = icon.position
-@onready var target_ball:BallNode :
+
+var recharging:bool = false
+var target_ball:BallNode :
 	get:
 		game.closest_ball_to(not is_left as int)
 
@@ -45,24 +47,27 @@ func spring_tween(tween:Tween, object:Object, property:NodePath, final_val:Varia
 #=====================================================================#
 
 func on_start() -> void:
-	if target_ball:
-		var ball := target_ball
-		var tween1 := create_tween()
-		spring_tween(tween1, icon, "position", (ball.position - paddle.position) / 2)
-		spring_tween(tween1, icon, "scale", Vector2.ZERO, general_duration)
-		spring_tween(tween1, icon, "rotation", (ball.position - paddle.position).angle() + PI/2, general_duration / 2)
+	if recharging or not target_ball: return
 
-		ball.direction.x *= -1
-		ball.hit_count += 3
+	var ball := target_ball
+	var tween1 := create_tween()
+	spring_tween(tween1, icon, "position", (ball.position - paddle.position) / 2)
+	spring_tween(tween1, icon, "scale", Vector2.ZERO, general_duration)
+	spring_tween(tween1, icon, "rotation", (ball.position - paddle.position).angle() + PI/2, general_duration / 2)
 
-		timer.start()
-		await timer.timeout
+	ball.direction.x *= -1
+	ball.hit_count += 3
 
-		var tween2 := create_tween()
-		icon.position = original_pos
-		icon.rotation = 1.5 * PI
-		elastic_tween(tween2, icon, "rotation", PI/2, general_duration * 3)
-		elastic_tween(tween2, icon, "scale", Vector2.ONE, general_duration * 3)
+	recharging = true
+	timer.start()
+	await timer.timeout
+	recharging = false
+
+	var tween2 := create_tween()
+	icon.position = original_pos
+	icon.rotation = 1.5 * PI
+	elastic_tween(tween2, icon, "rotation", PI/2, general_duration * 3)
+	elastic_tween(tween2, icon, "scale", Vector2.ONE, general_duration * 3)
 
 #=====================================================================#
 
