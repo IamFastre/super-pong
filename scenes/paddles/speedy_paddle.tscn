@@ -20,10 +20,10 @@ offset_left = -8.0
 offset_top = -70.0
 offset_right = 8.0
 offset_bottom = 70.0
-color = Color(1, 0.785333, 0.08, 1)
+color = Color(1, 0.792157, 0.0588235, 1)
 
 [node name="Icon" type="TextureRect" parent="."]
-modulate = Color(0.909804, 0.333333, 0.113725, 1)
+modulate = Color(0.952941, 0.486275, 0.227451, 1)
 offset_left = -20.0
 offset_top = -20.0
 offset_right = 20.0

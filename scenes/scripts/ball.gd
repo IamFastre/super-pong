@@ -19,7 +19,7 @@ class_name BallNode extends RigidBody2D
 @onready var wait_timer:Timer = $WaitTime
 @onready var initial_modulate:Color = modulate
 
-var speed_effectiveness:float = 1
+var speed_effectiveness:float = 1.0
 var direction:Vector2 = Vector2.ZERO
 var hit_count:int = 0
 var last_thrower:PaddleNode

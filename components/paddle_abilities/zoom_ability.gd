@@ -2,7 +2,7 @@ class_name ZoomAbility extends PaddleAbility
 
 @export var icon:TextureRect
 @export var timer:Timer
-@export var inactive_color:Color = Color("404040")
+@export var inactive_color:Color = Color("777777")
 @export var general_duration:float = 0.25
 @export var rotation_duration:float = 1.0
 

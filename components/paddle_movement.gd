@@ -11,7 +11,7 @@ class_name PaddleMovement extends Component2D
 var velocity = 0.0
 var direction:float = 0.0
 var disabled:bool = false
-var speed_effectiveness:float = 1
+var speed_effectiveness:float = 1.0
 
 var is_moving:bool = false :
 	get: return abs(velocity) > 0.0
