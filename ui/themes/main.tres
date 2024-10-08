@@ -1,7 +1,6 @@
-[gd_resource type="Theme" load_steps=15 format=3 uid="uid://6okv6pwxtji0"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://6okv6pwxtji0"]
 
 [ext_resource type="Texture2D" uid="uid://ksnba1r771nk" path="res://ui/assets/dropdown.png" id="1_qpoob"]
-[ext_resource type="FontFile" uid="uid://b5sue0dl0b1fx" path="res://assets/fonts/PIXY.ttf" id="1_ws8su"]
 [ext_resource type="Texture2D" uid="uid://cmdvffbeo1gg7" path="res://ui/assets/updown.png" id="2_5obiv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvu4s"]
@@ -128,7 +127,6 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [resource]
-default_font = ExtResource("1_ws8su")
 default_font_size = 20
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_disabled_color = Color(0.705882, 0.705882, 0.705882, 1)
