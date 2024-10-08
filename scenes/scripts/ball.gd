@@ -19,6 +19,7 @@ class_name BallNode extends RigidBody2D
 @onready var wait_timer:Timer = $WaitTime
 @onready var initial_modulate:Color = modulate
 
+var speed_effectiveness:float = 1
 var direction:Vector2 = Vector2.ZERO
 var hit_count:int = 0
 var last_thrower:PaddleNode
@@ -75,7 +76,7 @@ func _on_wait_timeout() -> void:
 func _process(delta:float) -> void:
 	if not movement_disabled:
 		particles.speed_scale = 1
-		var collision := move_and_collide(direction * speed_multiplier * delta)
+		var collision := move_and_collide(direction * speed_multiplier * speed_effectiveness * delta)
 		if collision:
 			handle_collision(collision)
 	else:
