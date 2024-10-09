@@ -356,6 +356,7 @@ grow_vertical = 2
 text = "Play"
 
 [node name="BackButton" type="Button" parent="."]
+modulate = Color(0.988235, 0.694118, 0.254902, 1)
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1

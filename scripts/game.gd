@@ -1,5 +1,7 @@
 extends Node
 
+var version:String = ProjectSettings.get_setting("application/config/version")
+
 func is_fullscreen():
 	return DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
 

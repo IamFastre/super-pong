@@ -17,8 +17,9 @@ size = Vector2(2, 500)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swsip"]
 size = Vector2(298, 148)
 
-[node name="Menu" type="Node" node_paths=PackedStringArray("expand_button")]
+[node name="Menu" type="Node" node_paths=PackedStringArray("version_label", "expand_button")]
 script = ExtResource("1_e3ahr")
+version_label = NodePath("MainMenu/Logo/Version")
 expand_button = NodePath("MainMenu/ExpandButton")
 
 [node name="BG" type="Node" parent="."]
@@ -53,7 +54,7 @@ anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 
-[node name="Label" type="TextureRect" parent="MainMenu"]
+[node name="Logo" type="TextureRect" parent="MainMenu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.25
@@ -71,11 +72,31 @@ expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="MainMenu/Label"]
+[node name="StaticBody2D" type="StaticBody2D" parent="MainMenu/Logo"]
 position = Vector2(175, 175)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MainMenu/Label/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainMenu/Logo/StaticBody2D"]
 shape = SubResource("RectangleShape2D_656b1")
+
+[node name="Version" type="Label" parent="MainMenu/Logo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.169
+anchor_right = 0.5
+anchor_bottom = 0.169
+offset_left = -142.0
+offset_top = -11.15
+offset_right = 142.0
+offset_bottom = 10.85
+grow_horizontal = 0
+grow_vertical = 0
+tooltip_text = "SuperPong Version"
+mouse_filter = 1
+text = "x.x.x"
+vertical_alignment = 1
+text_overrun_behavior = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ExpandButton" type="Button" parent="MainMenu"]
 texture_filter = 1
