@@ -48,11 +48,15 @@ var running:bool = true :
 			b.movement_disabled = not running
 
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN if running else Input.MOUSE_MODE_VISIBLE)
+
+		running_changed.emit()
 		
 var balls:Array[BallNode]
 
 signal ball_spawned(ball:BallNode)
 signal ball_despawned()
+
+signal running_changed()
 
 #=====================================================================#
 
