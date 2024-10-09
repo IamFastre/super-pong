@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://5i38r16ygifq"]
+[gd_scene load_steps=7 format=3 uid="uid://5i38r16ygifq"]
 
 [ext_resource type="Script" path="res://scenes/scripts/paddle.gd" id="1_wxkbx"]
 [ext_resource type="Script" path="res://components/movement_clamp.gd" id="2_2axn4"]
@@ -45,7 +45,7 @@ shape = NodePath("../CollisionShape2D")
 script = ExtResource("3_sdg25")
 move_speed = 750.0
 sprint_speed = 1125.0
-ball_maneuver = 0.4
+ball_maneuver = 0.35
 
 [node name="ZoomAbility" type="Node2D" parent="." node_paths=PackedStringArray("icon", "timer")]
 script = ExtResource("5_4sqtu")

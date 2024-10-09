@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://vh6hira7jomx"]
+[gd_scene load_steps=8 format=3 uid="uid://vh6hira7jomx"]
 
 [ext_resource type="Script" path="res://scenes/scripts/paddle.gd" id="1_0qltr"]
 [ext_resource type="Script" path="res://components/movement_clamp.gd" id="2_jbx7n"]
@@ -74,6 +74,8 @@ shape = NodePath("../CollisionShape2D")
 
 [node name="PaddleMovement" type="Node2D" parent="."]
 script = ExtResource("3_r5v3q")
+sprint_speed = 600.0
+ball_maneuver = 0.66
 
 [node name="SlowMotionAbility" type="Node2D" parent="." node_paths=PackedStringArray("icons", "icon_fg", "icon_bg", "effect_timer", "recharge_timer")]
 script = ExtResource("4_c8uqg")

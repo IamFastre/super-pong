@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dux475wbhf53b"]
+[gd_scene load_steps=7 format=3 uid="uid://dux475wbhf53b"]
 
 [ext_resource type="Script" path="res://scenes/scripts/paddle.gd" id="1_m5d3l"]
 [ext_resource type="Texture2D" uid="uid://dqv4wvvhuoscl" path="res://assets/paddle-icons/shield.png" id="2_6vxd8"]
@@ -45,7 +45,7 @@ script = ExtResource("3_wu6m5")
 move_speed = 400.0
 sprint_speed = 500.0
 can_sprint = false
-ball_maneuver = 0.6
+ball_maneuver = 0.66
 
 [node name="ExtendAbility" type="Node2D" parent="." node_paths=PackedStringArray("sprite", "collision", "icon")]
 script = ExtResource("5_gkjpm")

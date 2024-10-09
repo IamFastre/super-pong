@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://da7h22hlyy5v1"]
+[gd_scene load_steps=6 format=3 uid="uid://da7h22hlyy5v1"]
 
 [ext_resource type="Script" path="res://scenes/scripts/paddle.gd" id="1_n4bcr"]
 [ext_resource type="Script" path="res://components/movement_clamp.gd" id="2_0fs3l"]
