@@ -5,10 +5,10 @@
 [ext_resource type="FontFile" uid="uid://b5sue0dl0b1fx" path="res://assets/fonts/PIXY.ttf" id="3_6oe0o"]
 [ext_resource type="Resource" uid="uid://dbskre3v64m5" path="res://resources/player_info/cpu_medium.tres" id="3_6vntd"]
 [ext_resource type="PackedScene" uid="uid://lpkcoh61r2ge" path="res://scenes/goal.tscn" id="4_tbatq"]
-[ext_resource type="Texture2D" uid="uid://myh5fbkadyuv" path="res://assets/icons/human.png" id="5_i1nia"]
+[ext_resource type="Texture2D" uid="uid://myh5fbkadyuv" path="res://assets/player-icons/human.png" id="5_i1nia"]
 [ext_resource type="PackedScene" uid="uid://dvb1h8bxlrwhn" path="res://scenes/wall.tscn" id="5_vegqf"]
 [ext_resource type="Texture2D" uid="uid://cydgbs0cjm5ip" path="res://assets/sprites/net.png" id="6_4ac5h"]
-[ext_resource type="Texture2D" uid="uid://c4ttu450ldlbl" path="res://assets/icons/cpu.png" id="6_gs3vl"]
+[ext_resource type="Texture2D" uid="uid://c4ttu450ldlbl" path="res://assets/player-icons/cpu.png" id="6_gs3vl"]
 [ext_resource type="PackedScene" uid="uid://dkxh6emd3snvb" path="res://scenes/overlays/touch_overlay.tscn" id="10_jr1qp"]
 
 [node name="Classic" type="Node" node_paths=PackedStringArray("left_goal", "left_label", "left_icon", "right_goal", "right_label", "right_icon")]

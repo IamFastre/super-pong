@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PaddleInfo" load_steps=4 format=3 uid="uid://cyxmh7fcre7bj"]
 
-[ext_resource type="Texture2D" uid="uid://danhj4gfjq0ui" path="res://assets/icons/clock.png" id="1_qm4qb"]
+[ext_resource type="Texture2D" uid="uid://danhj4gfjq0ui" path="res://assets/paddle-icons/clock.png" id="1_qm4qb"]
 [ext_resource type="PackedScene" uid="uid://vh6hira7jomx" path="res://scenes/paddles/tempo_paddle.tscn" id="2_5oebg"]
 [ext_resource type="Script" path="res://resources/paddle_info/script.gd" id="3_1w08k"]
 

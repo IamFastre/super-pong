@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4uggp4jslj5n"
-path="res://.godot/imported/human-o.png-dc76a035c35d657d972f1ee359cc3a2e.ctex"
+uid="uid://danhj4gfjq0ui"
+path="res://.godot/imported/clock.png-06f23b7378476b55fd9641ad4c27043b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/human-o.png"
-dest_files=["res://.godot/imported/human-o.png-dc76a035c35d657d972f1ee359cc3a2e.ctex"]
+source_file="res://assets/paddle-icons/clock.png"
+dest_files=["res://.godot/imported/clock.png-06f23b7378476b55fd9641ad4c27043b.ctex"]
 
 [params]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/scripts/paddle.gd" id="1_wxkbx"]
 [ext_resource type="Script" path="res://components/movement_clamp.gd" id="2_2axn4"]
-[ext_resource type="Texture2D" uid="uid://bp2b3u5lb2dgr" path="res://assets/icons/lightning.png" id="2_cjh6l"]
+[ext_resource type="Texture2D" uid="uid://bp2b3u5lb2dgr" path="res://assets/paddle-icons/lightning.png" id="2_cjh6l"]
 [ext_resource type="Script" path="res://components/paddle_movement.gd" id="3_sdg25"]
 [ext_resource type="Script" path="res://components/paddle_abilities/zoom_ability.gd" id="5_4sqtu"]
 

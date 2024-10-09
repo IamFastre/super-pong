@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://myh5fbkadyuv"
-path="res://.godot/imported/human.png-6d7b695ddd30ccbced9e56418ea66f32.ctex"
+uid="uid://bp2b3u5lb2dgr"
+path="res://.godot/imported/lightning.png-92937369f4c8af6472b7feba4aabe614.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/human.png"
-dest_files=["res://.godot/imported/human.png-6d7b695ddd30ccbced9e56418ea66f32.ctex"]
+source_file="res://assets/paddle-icons/lightning.png"
+dest_files=["res://.godot/imported/lightning.png-92937369f4c8af6472b7feba4aabe614.ctex"]
 
 [params]
 

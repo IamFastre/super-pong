@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dux475wbhf53b"]
 
 [ext_resource type="Script" path="res://scenes/scripts/paddle.gd" id="1_m5d3l"]
-[ext_resource type="Texture2D" uid="uid://dqv4wvvhuoscl" path="res://assets/icons/shield.png" id="2_6vxd8"]
+[ext_resource type="Texture2D" uid="uid://dqv4wvvhuoscl" path="res://assets/paddle-icons/shield.png" id="2_6vxd8"]
 [ext_resource type="Script" path="res://components/movement_clamp.gd" id="2_vgtvv"]
 [ext_resource type="Script" path="res://components/paddle_movement.gd" id="3_wu6m5"]
 [ext_resource type="Script" path="res://components/paddle_abilities/extend_ability.gd" id="5_gkjpm"]

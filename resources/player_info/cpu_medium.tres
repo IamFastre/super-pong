@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CPUInfo" load_steps=3 format=3 uid="uid://dbskre3v64m5"]
 
-[ext_resource type="Texture2D" uid="uid://d0qtmppk4dmvx" path="res://assets/icons/m-cpu.png" id="1_sn1sj"]
+[ext_resource type="Texture2D" uid="uid://d0qtmppk4dmvx" path="res://assets/player-icons/cpu-m.png" id="1_sn1sj"]
 [ext_resource type="Script" path="res://resources/player_info/cpu.gd" id="1_xjdo6"]
 
 [resource]

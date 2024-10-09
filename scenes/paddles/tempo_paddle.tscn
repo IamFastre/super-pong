@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scenes/scripts/paddle.gd" id="1_0qltr"]
 [ext_resource type="Script" path="res://components/movement_clamp.gd" id="2_jbx7n"]
-[ext_resource type="Texture2D" uid="uid://c6i5rfm7cge4o" path="res://assets/icons/clock_bg.png" id="2_r81wu"]
-[ext_resource type="Texture2D" uid="uid://dxhugg7llp2f8" path="res://assets/icons/clock_fg.png" id="3_g1sxn"]
+[ext_resource type="Texture2D" uid="uid://c6i5rfm7cge4o" path="res://assets/paddle-icons/clock_bg.png" id="2_r81wu"]
+[ext_resource type="Texture2D" uid="uid://dxhugg7llp2f8" path="res://assets/paddle-icons/clock_fg.png" id="3_g1sxn"]
 [ext_resource type="Script" path="res://components/paddle_movement.gd" id="3_r5v3q"]
 [ext_resource type="Script" path="res://components/paddle_abilities/slow_motion_ability.gd" id="4_c8uqg"]
 

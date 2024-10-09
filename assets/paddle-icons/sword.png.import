@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6i5rfm7cge4o"
-path="res://.godot/imported/clock_bg.png-2af27272beb3faab8b540026e4b06b28.ctex"
+uid="uid://5asvt0fi4m8j"
+path="res://.godot/imported/sword.png-fbfd0f5c3dbd40184b51fd0a73951967.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/clock_bg.png"
-dest_files=["res://.godot/imported/clock_bg.png-2af27272beb3faab8b540026e4b06b28.ctex"]
+source_file="res://assets/paddle-icons/sword.png"
+dest_files=["res://.godot/imported/sword.png-fbfd0f5c3dbd40184b51fd0a73951967.ctex"]
 
 [params]
 

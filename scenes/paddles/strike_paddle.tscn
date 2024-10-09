@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://d1nv57ljdxd67"]
 
 [ext_resource type="Script" path="res://scenes/scripts/paddle.gd" id="1_25vpp"]
-[ext_resource type="Texture2D" uid="uid://5asvt0fi4m8j" path="res://assets/icons/sword.png" id="2_vx1r3"]
+[ext_resource type="Texture2D" uid="uid://5asvt0fi4m8j" path="res://assets/paddle-icons/sword.png" id="2_vx1r3"]
 [ext_resource type="Script" path="res://components/movement_clamp.gd" id="3_60yo0"]
 [ext_resource type="Script" path="res://components/paddle_movement.gd" id="4_vahnh"]
 [ext_resource type="Script" path="res://components/paddle_abilities/reflect_ability.gd" id="5_bm35s"]
