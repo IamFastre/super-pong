@@ -1,17 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://5i38r16ygifq"]
+[gd_scene load_steps=8 format=3 uid="uid://5i38r16ygifq"]
 
 [ext_resource type="Script" path="res://scenes/scripts/paddle.gd" id="1_wxkbx"]
 [ext_resource type="Script" path="res://components/movement_clamp.gd" id="2_2axn4"]
 [ext_resource type="Texture2D" uid="uid://bp2b3u5lb2dgr" path="res://assets/icons/lightning.png" id="2_cjh6l"]
+[ext_resource type="Resource" uid="uid://ciksk0q7psgw2" path="res://resources/paddle_info/speedy.tres" id="2_cvs00"]
 [ext_resource type="Script" path="res://components/paddle_movement.gd" id="3_sdg25"]
 [ext_resource type="Script" path="res://components/paddle_abilities/zoom_ability.gd" id="5_4sqtu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vn8v2"]
 size = Vector2(16, 140)
 
-[node name="SpeedyPaddle" type="StaticBody2D" node_paths=PackedStringArray("icon", "movement", "ability")]
+[node name="SpeedyPaddle" type="StaticBody2D" node_paths=PackedStringArray("movement", "ability")]
 script = ExtResource("1_wxkbx")
-icon = NodePath("Icon")
+info = ExtResource("2_cvs00")
 movement = NodePath("PaddleMovement")
 ability = NodePath("ZoomAbility")
 

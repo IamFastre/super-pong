@@ -38,19 +38,19 @@ func add_paddle_item(label:String, icon:Texture2D, idx:int) -> void:
 	left_paddle_options.set_item_icon(idx, icon)
 	right_paddle_options.set_item_icon(idx, icon)
 
-func get_selected_paddle(button:OptionButton) -> PackedScene:
+func get_selected_paddle(button:OptionButton) -> PaddleInfo:
 	var text := button.get_item_text(button.selected)
-	return paddles_options.filter(func(info:PaddleInfo): return info.name == text)[0].scene
+	return paddles_options.filter(func(info:PaddleInfo): return info.name == text)[0]
 
 #=====================================================================#
 
 func _on_play_pressed() -> void:
 	var game := packed_scene.instantiate() as SuperGame
 	game.left_info = get_selected_info(left_info_options)
-	game.paddle_left_scene = get_selected_paddle(left_paddle_options)
+	game.paddle_left_info = get_selected_paddle(left_paddle_options)
 
 	game.right_info = get_selected_info(right_info_options)
-	game.paddle_right_scene = get_selected_paddle(right_paddle_options)
+	game.paddle_right_info = get_selected_paddle(right_paddle_options)
 	game.score_goal = int(score_goal.value)
 	SceneManager.switch_to_node(game)
 

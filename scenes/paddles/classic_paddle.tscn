@@ -1,16 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://da7h22hlyy5v1"]
+[gd_scene load_steps=7 format=3 uid="uid://da7h22hlyy5v1"]
 
 [ext_resource type="Script" path="res://scenes/scripts/paddle.gd" id="1_n4bcr"]
 [ext_resource type="Script" path="res://components/movement_clamp.gd" id="2_0fs3l"]
+[ext_resource type="Resource" uid="uid://b4dchrkk5lu80" path="res://resources/paddle_info/classic.tres" id="2_jx0e5"]
 [ext_resource type="Script" path="res://components/paddle_movement.gd" id="3_5xsuc"]
 [ext_resource type="Script" path="res://components/paddle_abilities/paddle_ability.gd" id="4_fcdkd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vn8v2"]
 size = Vector2(16, 200)
 
-[node name="ClassicPaddle" type="StaticBody2D" node_paths=PackedStringArray("icon", "movement", "ability")]
+[node name="ClassicPaddle" type="StaticBody2D" node_paths=PackedStringArray("movement", "ability")]
 script = ExtResource("1_n4bcr")
-icon = NodePath("Icon")
+info = ExtResource("2_jx0e5")
 movement = NodePath("PaddleMovement")
 ability = NodePath("PaddleAbility")
 

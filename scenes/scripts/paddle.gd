@@ -1,7 +1,7 @@
 class_name PaddleNode extends StaticBody2D
 
 @export_group("Components")
-@export var icon:TextureRect
+@export var info:PaddleInfo
 @export var controller:PaddleController
 @export var movement:PaddleMovement
 @export var ability:PaddleAbility

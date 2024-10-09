@@ -17,8 +17,8 @@ class_name GameMode extends Node
 @export var right_icon:TextureRect
 
 @export_group("Paddles", "paddle_")
-@export var paddle_left_scene:PackedScene = preload("res://scenes/paddles/classic_paddle.tscn")
-@export var paddle_right_scene:PackedScene = preload("res://scenes/paddles/classic_paddle.tscn")
+@export var paddle_left_info:PaddleInfo = preload("res://resources/paddle_info/classic.tres")
+@export var paddle_right_info:PaddleInfo = preload("res://resources/paddle_info/classic.tres")
 @export var paddle_initial_displacement:Vector2 = Vector2(50, 360)
 
 @export_group("Ball", "ball_")
@@ -177,8 +177,8 @@ func restart() -> void:
 	spawn_ball()
 
 func startup() -> void:
-	left_paddle = paddle_left_scene.instantiate()
-	right_paddle = paddle_right_scene.instantiate()
+	left_paddle = paddle_left_info.scene.instantiate()
+	right_paddle = paddle_right_info.scene.instantiate()
 
 	setup_paddle(left_paddle, left_info)
 	setup_paddle(right_paddle, right_info)
