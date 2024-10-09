@@ -13,6 +13,7 @@ class_name ModeSelector extends Control
 	preload("res://resources/paddle_info/castle.tres"),
 	preload("res://resources/paddle_info/speedy.tres"),
 	preload("res://resources/paddle_info/strike.tres"),
+	preload("res://resources/paddle_info/tempo.tres"),
 ]
 
 #=====================================================================#

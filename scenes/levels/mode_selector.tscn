@@ -1,16 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://ofsvc163sub"]
+[gd_scene load_steps=10 format=3 uid="uid://ofsvc163sub"]
 
 [ext_resource type="Script" path="res://scenes/levels/scripts/mode_selector.gd" id="1_nrs7d"]
 [ext_resource type="PackedScene" uid="uid://dltch8mu6bqjt" path="res://scenes/levels/classic_game.tscn" id="2_335go"]
 [ext_resource type="Theme" uid="uid://6okv6pwxtji0" path="res://ui/themes/main.tres" id="2_cynth"]
-[ext_resource type="Script" path="res://resources/paddle_info/script.gd" id="3_hpodr"]
 [ext_resource type="Script" path="res://scenes/levels/scripts/mode_classic.gd" id="3_ulvhd"]
-[ext_resource type="Resource" uid="uid://b4dchrkk5lu80" path="res://resources/paddle_info/classic.tres" id="4_nmp4a"]
-[ext_resource type="Resource" uid="uid://osf1bt1v0kph" path="res://resources/paddle_info/castle.tres" id="5_6w61u"]
 [ext_resource type="Script" path="res://scenes/levels/scripts/mode_super.gd" id="5_y4lss"]
-[ext_resource type="Resource" uid="uid://ciksk0q7psgw2" path="res://resources/paddle_info/speedy.tres" id="6_joq1o"]
-[ext_resource type="Resource" uid="uid://brbf6ex037wjk" path="res://resources/paddle_info/strike.tres" id="7_kb3oh"]
-[ext_resource type="Resource" uid="uid://cyxmh7fcre7bj" path="res://resources/paddle_info/tempo.tres" id="8_720xd"]
 [ext_resource type="PackedScene" uid="uid://d3g5bwy2mslin" path="res://ui/sp_button.tscn" id="9_w075v"]
 [ext_resource type="Texture2D" uid="uid://d1j7fwmau8epk" path="res://ui/assets/back.png" id="11_ps74u"]
 [ext_resource type="PackedScene" uid="uid://bcsvmm8h7gobe" path="res://scenes/levels/super_game.tscn" id="13_w5jy0"]
@@ -24,7 +18,6 @@ offset_right = 1280.0
 offset_bottom = 720.0
 theme = ExtResource("2_cynth")
 script = ExtResource("1_nrs7d")
-paddles_infos = Array[ExtResource("3_hpodr")]([ExtResource("4_nmp4a"), ExtResource("5_6w61u"), ExtResource("6_joq1o"), ExtResource("7_kb3oh"), ExtResource("8_720xd")])
 
 [node name="Classic" type="Control" parent="." node_paths=PackedStringArray("score_goal", "left_info_options", "right_info_options")]
 layout_mode = 1
