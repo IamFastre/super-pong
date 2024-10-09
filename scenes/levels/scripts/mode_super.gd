@@ -82,7 +82,7 @@ func _ready() -> void:
 
 	for i in range(paddle_options_len):
 		var option := paddles_options[i]
-		add_paddle_item(option.name, null, i)
+		add_paddle_item(option.name, option.icon, i)
 
 	left_paddle_options.select(0)
 	right_paddle_options.select(0)

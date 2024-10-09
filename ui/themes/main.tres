@@ -152,6 +152,7 @@ OptionButton/styles/hover_pressed = SubResource("StyleBoxFlat_25uvn")
 OptionButton/styles/pressed = SubResource("StyleBoxFlat_25uvn")
 Panel/styles/panel = SubResource("StyleBoxFlat_j32b6")
 PopupMenu/constants/h_separation = 10
+PopupMenu/constants/icon_max_width = 25
 PopupMenu/constants/item_end_padding = 4
 PopupMenu/constants/item_start_padding = 4
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_t6jlw")

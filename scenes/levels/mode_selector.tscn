@@ -119,7 +119,6 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="Info" type="OptionButton" parent="Classic/Panel/Control/Body/LeftOptions"]
-texture_filter = 1
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -139,7 +138,6 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="Info" type="OptionButton" parent="Classic/Panel/Control/Body/RightOptions"]
-texture_filter = 1
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -291,14 +289,12 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="Info" type="OptionButton" parent="Super/Panel/Control/Body/LeftOptions"]
-texture_filter = 1
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
 expand_icon = true
 
 [node name="Paddle" type="OptionButton" parent="Super/Panel/Control/Body/LeftOptions"]
-texture_filter = 1
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -318,14 +314,12 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="Info" type="OptionButton" parent="Super/Panel/Control/Body/RightOptions"]
-texture_filter = 1
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
 expand_icon = true
 
 [node name="Paddle" type="OptionButton" parent="Super/Panel/Control/Body/RightOptions"]
-texture_filter = 1
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
