@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://scenes/scripts/paddle.gd" id="1_m5d3l"]
 [ext_resource type="Texture2D" uid="uid://dqv4wvvhuoscl" path="res://assets/icons/shield.png" id="2_6vxd8"]
-[ext_resource type="Resource" uid="uid://osf1bt1v0kph" path="res://resources/paddle_info/castle.tres" id="2_402s2"]
 [ext_resource type="Script" path="res://components/movement_clamp.gd" id="2_vgtvv"]
 [ext_resource type="Script" path="res://components/paddle_movement.gd" id="3_wu6m5"]
 [ext_resource type="Script" path="res://components/paddle_abilities/extend_ability.gd" id="5_gkjpm"]
@@ -12,7 +11,6 @@ size = Vector2(16, 320)
 
 [node name="CastlePaddle" type="StaticBody2D" node_paths=PackedStringArray("movement", "ability")]
 script = ExtResource("1_m5d3l")
-info = ExtResource("2_402s2")
 movement = NodePath("PaddleMovement")
 ability = NodePath("ExtendAbility")
 
