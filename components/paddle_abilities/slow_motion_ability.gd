@@ -14,9 +14,11 @@ class_name SlowMotionAbility extends PaddleAbility
 
 @export_group("Stats")
 @export var slowed_ball_maneuver:float = 1.25
+@export var slowed_speed_effectiveness:float = 1.25
 
 @onready var original_fg_color:Color = icon_fg.modulate
 @onready var original_ball_maneuver:float = paddle.movement.ball_maneuver
+@onready var original_speed_effectiveness:float = paddle.movement.speed_effectiveness
 
 var recharging:bool = false
 var effect_active:bool = false :
@@ -24,8 +26,12 @@ var effect_active:bool = false :
 		effect_active = value
 		var tween := create_tween()
 		if effect_active:
+			paddle.movement.ball_maneuver = slowed_ball_maneuver
+			paddle.movement.speed_effectiveness = slowed_speed_effectiveness
 			spring_tween(tween, icon_fg, "modulate", active_color)
 		else:
+			paddle.movement.ball_maneuver = original_ball_maneuver
+			paddle.movement.speed_effectiveness = original_speed_effectiveness
 			spring_tween(tween, icon_fg, "modulate", original_fg_color)
 
 #=====================================================================#
@@ -44,7 +50,6 @@ func toggle_effect(balls:Array[BallNode], state:bool):
 		for ball in balls:
 			ball.speed_effectiveness *= ball_speed_effectiveness
 	elif not state and effect_active:
-		paddle.movement.ball_maneuver = original_ball_maneuver
 		for ball in balls:
 			ball.speed_effectiveness /= ball_speed_effectiveness
 
