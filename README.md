@@ -139,7 +139,7 @@ Since there isn't much to do other than move and use ability, the controls are s
 | Down | `S` | `↓` |
 | Sprint | `L-⇧` | `R-⇧` |
 | Ability | `⎵` | `R-⌘` |
-| Ability | `ESC` | `P` |
+| Pause | `ESC` | `P` |
 
 ### 2. **Controller**
 
