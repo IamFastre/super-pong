@@ -8,16 +8,22 @@
 </div>
 
 <div align="center">
-  <h1>SuperPong</h1>
+  <h1><strong>SuperPong</strong></h1>
 </div>
 
-Imagine classical pong, but with the addition of “super” abilities. That’s super pong! New paddle types with super abilities, and new ball effects and sorts. All made with the trusty Godot Engine.
+Imagine classical pong, but with the addition of “super” abilities. That’s **SuperPong**! New paddle types with super abilities, and new ball effects and sorts. All made with the trusty Godot Engine. And by [me](https://github.com/IamFastre).
 
-## Paddles
+<div align="center">
+  <h2><strong>Paddles</strong></h2>
+</div>
 
-### Classic Paddle
+### 1. **Classic Paddle**
 
 Just your ordinary regular paddle. It may not be good at one thing, but it's enough to do the job, I guess.
+
+<div align="center">
+  <img width="75%" src="docs/media/paddle_classic.png" />
+</div>
 
 | **Stat** | **Value** |
 |:-:|:-:|
@@ -28,12 +34,18 @@ Just your ordinary regular paddle. It may not be good at one thing, but it's eno
 | Sprint Speed | `150` |
 | Ball Maneuver | `0.5` |
 
-### Castle Paddle
+---
+
+### 2. **Castle Paddle**
 
 Ever felt like a loser who can't defend a damn ball? Well, don't I have the solution for you! `Castle` is gonna be your new best friend.
 
-#### • Ability
+#### • **Ability**
 When pressing the ability button, it expands even more. Expanding slows you down though.
+
+<div align="center">
+  <img width="75%" src="docs/media/paddle_castle.png" />
+</div>
 
 | **Stat** | **Value** | (*Extended*) |
 |:-:|:-:|:-:|
@@ -44,12 +56,18 @@ When pressing the ability button, it expands even more. Expanding slows you down
 | Sprint Speed | `×` | `-` |
 | Ball Maneuver | `0.66` | `-` |
 
-### Speedy Paddle
+---
+
+### 3. **Speedy Paddle**
 
 Ever feel like running away from your problems but you just *can't*? Yeah, me too. Until we find a way to do that, how about speedster paddle for you?
 
-#### • Ability
+#### • **Ability**
 When pressing the ability button, it runs quick to the y-level of the ball. You ought to have good timing and wait for it to recharge though.
+
+<div align="center">
+  <img width="75%" src="docs/media/paddle_speedy.png" />
+</div>
 
 | **Stat** | **Value** |
 |:-:|:-:|
@@ -60,12 +78,18 @@ When pressing the ability button, it runs quick to the y-level of the ball. You 
 | Sprint Speed | `225` |
 | Ball Maneuver | `0.35` |
 
-### Strike Paddle
+---
+
+### 4. **Strike Paddle**
 
 `Strike` is when you're tired of playing the defense, play the offensive role for once now.
 
-#### • Ability
+#### • **Ability**
 When pressing the ability button, it reflects the ball if it's in your half. You'll have to wait for it to recharge to reuse it though.
+
+<div align="center">
+  <img width="75%" src="docs/media/paddle_strike.png" />
+</div>
 
 | **Stat** | **Value** |
 |:-:|:-:|
@@ -76,12 +100,18 @@ When pressing the ability button, it reflects the ball if it's in your half. You
 | Sprint Speed | `150` |
 | Ball Maneuver | `0.85` |
 
-### Tempo Paddle
+---
+
+### 5. **Tempo Paddle**
 
 Time control is amazing, you can touch bo- I mean you can uhhh, fuck. `Tempo` just means time in Italian, okay?
 
-#### • Ability
+#### • **Ability**
 When pressing the ability button, the ball gets slowed down by a factor of `0.5`, and pressing it again while the ability is active, disables it. You'll have to wait for it to recharge to reuse it though.
+
+<div align="center">
+  <img width="75%" src="docs/media/paddle_tempo.png" />
+</div>
 
 | **Stat** | **Value** | (*Slowing*) |
 |:-:|:-:|:-:|
@@ -95,10 +125,44 @@ When pressing the ability button, the ball gets slowed down by a factor of `0.5`
 ---
 
 <div align="center">
+  <h2><strong>Controls</strong></h2>
+</div>
+
+Since there isn't much to do other than move and use ability, the controls are simple. \
+*Note: Double pressing the Up/Down (or clicking one then the other immediately) will result in your paddle sprinting. This is useful for mobile players especially where there's not "sprint" button currently.*
+
+### 1. **Keyboard & Mouse**
+
+|   | P1 | P2 |
+|:-:|:--:|:--:|
+| Up | `W` | `↑` |
+| Down | `S` | `↓` |
+| Sprint | `L-⇧` | `R-⇧` |
+| Ability | `⎵` | `R-⌘` |
+| Ability | `ESC` | `P` |
+
+### 2. **Controller**
+
+*Soon, I promise.*
+
+### 3. **Touch**
+
+**Two arrows** for *vertical movement* (can be swiped over to trigger) (double tap and hold to sprint). \
+**Middle button** for *ability* (can only be clicked to trigger). \
+Also there's a *pause button* for pausing...
+
+
+<div align="center">
+  <img width="75%" src="docs/media/touch_controls.png" />
+</div>
+
+---
+
+<div align="center">
   Made with
   <br/>
   <a href="https://godotengine.org/">
-    <img height="50" src="https://godotengine.org/assets/press/logo_small_monochrome_dark.png"/>
+    <img height="50" src="https://godotengine.org/assets/press/logo_small_monochrome_dark.png" />
   </a>
 </div>
 
