@@ -19,11 +19,11 @@ Imagine classical pong, but with the addition of “super” abilities. That’s
 
 ### 1. **Classic Paddle**
 
-Just your ordinary regular paddle. It may not be good at one thing, but it's enough to do the job, I guess.
-
 <div align="center">
   <img width="75%" src="docs/media/paddle_classic.png" />
 </div>
+
+Just your ordinary regular paddle. It may not be good at one thing, but it's enough to do the job, I guess.
 
 | **Stat** | **Value** |
 |:-:|:-:|
@@ -38,14 +38,14 @@ Just your ordinary regular paddle. It may not be good at one thing, but it's eno
 
 ### 2. **Castle Paddle**
 
+<div align="center">
+  <img width="75%" src="docs/media/paddle_castle.png" />
+</div>
+
 Ever felt like a loser who can't defend a damn ball? Well, don't I have the solution for you! `Castle` is gonna be your new best friend.
 
 #### • **Ability**
 When pressing the ability button, it expands even more. Expanding slows you down though.
-
-<div align="center">
-  <img width="75%" src="docs/media/paddle_castle.png" />
-</div>
 
 | **Stat** | **Value** | (*Extended*) |
 |:-:|:-:|:-:|
@@ -60,14 +60,14 @@ When pressing the ability button, it expands even more. Expanding slows you down
 
 ### 3. **Speedy Paddle**
 
+<div align="center">
+  <img width="75%" src="docs/media/paddle_speedy.png" />
+</div>
+
 Ever feel like running away from your problems but you just *can't*? Yeah, me too. Until we find a way to do that, how about speedster paddle for you?
 
 #### • **Ability**
 When pressing the ability button, it runs quick to the y-level of the ball. You ought to have good timing and wait for it to recharge though.
-
-<div align="center">
-  <img width="75%" src="docs/media/paddle_speedy.png" />
-</div>
 
 | **Stat** | **Value** |
 |:-:|:-:|
@@ -82,14 +82,14 @@ When pressing the ability button, it runs quick to the y-level of the ball. You 
 
 ### 4. **Strike Paddle**
 
+<div align="center">
+  <img width="75%" src="docs/media/paddle_strike.png" />
+</div>
+
 `Strike` is when you're tired of playing the defense, play the offensive role for once now.
 
 #### • **Ability**
 When pressing the ability button, it reflects the ball if it's in your half. You'll have to wait for it to recharge to reuse it though.
-
-<div align="center">
-  <img width="75%" src="docs/media/paddle_strike.png" />
-</div>
 
 | **Stat** | **Value** |
 |:-:|:-:|
@@ -104,14 +104,14 @@ When pressing the ability button, it reflects the ball if it's in your half. You
 
 ### 5. **Tempo Paddle**
 
+<div align="center">
+  <img width="75%" src="docs/media/paddle_tempo.png" />
+</div>
+
 Time control is amazing, you can touch bo- I mean you can uhhh, fuck. `Tempo` just means time in Italian, okay?
 
 #### • **Ability**
 When pressing the ability button, the ball gets slowed down by a factor of `0.5`, and pressing it again while the ability is active, disables it. You'll have to wait for it to recharge to reuse it though.
-
-<div align="center">
-  <img width="75%" src="docs/media/paddle_tempo.png" />
-</div>
 
 | **Stat** | **Value** | (*Slowing*) |
 |:-:|:-:|:-:|
