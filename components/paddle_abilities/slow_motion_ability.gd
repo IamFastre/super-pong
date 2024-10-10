@@ -1,6 +1,8 @@
 class_name SlowMotionAbility extends PaddleAbility
 
-@export var ball_speed_effectiveness:float = 0.5
+@export_group("Ball", "effect_")
+@export var effect_speed_effectiveness:float = 0.5
+
 @export_group("Icons")
 @export var icons:Control
 @export var icon_fg:TextureRect
@@ -12,7 +14,7 @@ class_name SlowMotionAbility extends PaddleAbility
 @export var effect_timer:Timer
 @export var recharge_timer:Timer
 
-@export_group("Stats")
+@export_group("While Slowed Stats", "slowed_")
 @export var slowed_ball_maneuver:float = 1.25
 @export var slowed_speed_effectiveness:float = 1.25
 
@@ -20,7 +22,9 @@ class_name SlowMotionAbility extends PaddleAbility
 @onready var original_ball_maneuver:float = paddle.movement.ball_maneuver
 @onready var original_speed_effectiveness:float = paddle.movement.speed_effectiveness
 
+var active_effects:Array[SlownessEffect] = []
 var recharging:bool = false
+
 var effect_active:bool = false :
 	set(value):
 		effect_active = value
@@ -43,17 +47,23 @@ func spring_tween(tween:Tween, object:Object, property:NodePath, final_val:Varia
 		.set_ease(Tween.EASE_IN) \
 		.set_trans(Tween.TRANS_SPRING)
 
-#=====================================================================#
-
 func toggle_effect(balls:Array[BallNode], state:bool):
 	if state and not effect_active:
+		# Give effects
 		for ball in balls:
-			ball.speed_effectiveness *= ball_speed_effectiveness
+			var effect:SlownessEffect = SlownessEffect.new(paddle)
+			effect.speed_effectiveness = effect_speed_effectiveness
+			effect.give(ball)
+			effect.ended.connect(active_effects.erase.bind(effect))
+			active_effects.append(effect)
 	elif not state and effect_active:
-		for ball in balls:
-			ball.speed_effectiveness /= ball_speed_effectiveness
+		# Remove effects
+		for effect in active_effects:
+			effect.clear()
 
 	effect_active = state
+
+#=====================================================================#
 
 func on_start() -> void:
 	var balls := game.balls
