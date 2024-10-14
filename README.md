@@ -167,3 +167,9 @@ Also there's a *pause button* for pausing...
 </div>
 
 $${and\space\color{red}Love}$$
+
+<div align="center">
+  <a href="https://creativecommons.org/licenses/by-nc/4.0/">
+    <img height="25" src="https://licensebuttons.net/l/by-nc/4.0/88x31.png" />
+  </a>
+</div>
